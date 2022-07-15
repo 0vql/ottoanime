@@ -13,11 +13,11 @@ export const asyncDataAction = (URL) => {
     console.log(URL);
     const response = await fetch(URL);
     const result = await response.json();
-    dispatch(recieveData(result));
-    console.log(result);
+    dispatch(recieveData(result.json_data));
+    console.log(result.json_data);
     return {
       props: {
-        data: result,
+        data: result.json_data,
       },
     };
   };

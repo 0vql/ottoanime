@@ -47,3 +47,10 @@ lightshadow {
   background: #55b9f3;
   box-shadow: 20px 20px 60px #489dcf, -20px -20px 60px #62d5ff;
 }
+
+.header{
+  background : url('/bg-anime1.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  
+}
