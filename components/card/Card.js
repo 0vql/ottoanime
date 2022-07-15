@@ -39,45 +39,46 @@ const MovieWrapper = styled.a`
 `;
 
 const Episode = styled.span`
-  padding: 10px 0 0 0;
+  padding: 0.3rem 0;
   color: #878080;
 `;
 
 const MovieImg = styled.img`
   width: 100%;
-  max-width: 240px;
   object-fit: "contain";
-  height: 19rem;
+  filter: drop-shadow(2px 4px 6px black);
+ 
   border-radius: 0;
   box-shadow: 0rem 2rem 5rem rgba(0, 0, 0, 0.2);
   // transition: all 100ms cubic-bezier(0.645, 0.045, 0.355, 1);
   ${MovieWrapper}:hover & {
     border-radius: 0.8rem 0.8rem 0rem 0rem;
-    box-shadow: none;
+  
+    
   }
 `;
 
 const Title = styled.span`
   text-align: center;
-  max-height: 70px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  // overflow: hidden;
+  // white-space: nowrap;
+  // text-overflow: ellipsis;
   max-width: 160px;
   font-weight: bold;
+  width:100%;
 `;
 
 const DetailsWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   border: 1px #ffffff0f solid;
   border-top: none;
   width: 100%;
   background: #ffffff0f;
-  padding: 0.7rem 0;
+  padding: 0.5rem 0;
   border-radius-bottom: 0.8rem;
+
 `;
 
 const Card = ({ title, id, url, heading, image_url, episode, released }) => {
@@ -89,19 +90,19 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
         card={theme.card}
       >
         <MovieImg
-          className="w-full object-cover rounded-xl h-60 xl:h-96 md:h-72 lg:h-80"
+          className="w-full object-cover rounded-xl h-[11rem]  xl:h-96 md:h-72 lg:h-80"
           src={image_url}
           loading="lazy"
           alt={title}
         />
 
-        <DetailsWrapper>
-          <Title className="">{title}</Title>
+        <DetailsWrapper className="space-evenly md:space-normal h-full md:h-32">
+          <Title className="text-[13px] md:text-lg">{title}</Title>
           {heading == "Popular" ||
           heading == "New Season" ||
           heading == "Genres" ||
           heading == "Movies" ? (
-            <Episode> {released}</Episode>
+            <Episode className="text-[13px] md:text-md"> {released}</Episode>
           ) : (
             ""
           )}
