@@ -1,3 +1,4 @@
+import uvicorn
 from fastapi import FastAPI
 from gogoanime import *
 import json
@@ -45,3 +46,7 @@ def details(animeid: str):
 def episode(id: str, episode_num: int):
     episode = GogoanimeParser.episode(animeid=id, episode_num=episode_num)
     return episode
+
+    
+if __name__ == "__main__":
+    uvicorn.run("main:app", reload=True)
