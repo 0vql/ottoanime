@@ -18,6 +18,13 @@ app.add_middleware(
 )
 
 
+@app.get("/")
+def main():
+    return {
+        "message": "Hello friend"
+    }
+
+
 @app.get('/api/recently/{page}')
 def recently(page: int):
     recently = GogoanimeParser.get_recently_uploaded(page=page)
@@ -47,6 +54,6 @@ def episode(id: str, episode_num: int):
     episode = GogoanimeParser.episode(animeid=id, episode_num=episode_num)
     return episode
 
-    
+
 if __name__ == "__main__":
     uvicorn.run("main:app", reload=True)

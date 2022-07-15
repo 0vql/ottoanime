@@ -1,9 +1,9 @@
 export const URL = {
-  POPULAR: "http://localhost:8000/api/popular/",
-  RECENT: "http://localhost:8000/api/recently/",
-  DETAILS: "http://localhost:8000/api/details/",
-  EPLINK: "http://localhost:8000/api/",
-  GENRES: "http://localhost:8000/api/genre/",
-  SEARCH: "http://localhost:8000/api/search/",
-  SEASON: "http://localhost:8000/api/new-season/",
+  POPULAR: "https://ottogo.vercel.app/api/popular/",
+  RECENT: "https://ottogo.vercel.app/api/recently/",
+  DETAILS: "https://ottogo.vercel.app/api/details/",
+  EPLINK: "https://ottogo.vercel.app/api/",
+  GENRES: "https://ottogo.vercel.app/api/genre/",
+  SEARCH: "https://ottogo.vercel.app/api/search/",
+  SEASON: "https://ottogo.vercel.app/api/new-season/",
 };

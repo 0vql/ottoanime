@@ -1,7 +1,7 @@
 export const States = {
   dark: {
     theme: "dark",
-    background: "#0c0c0c",
+    background: "bg-background",
     shadow: "black",
     text: {
       selected: "text-white",
