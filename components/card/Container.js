@@ -7,11 +7,11 @@ function Container({ Data = [], heading, page, Icon }) {
   console.log(Data);
   return Data?.length > 0 ? (
     <>
-      <div className="mt-28 lg:mt-0">
+      <div className="w-10/12 my-5">
         <span
-          className={`${theme.text.selected} px-8 flex  font-light items-center  text-3xl`}
+          className={`${theme.text.selected} px-2 flex  font-light items-center  text-3xl`}
         >
-          {Icon ? (
+          {/* {Icon ? (
             <Icon
               size={15}
               style={{
@@ -21,16 +21,19 @@ function Container({ Data = [], heading, page, Icon }) {
             />
           ) : (
             ""
-          )}
+          )} */}
           {heading}
         </span>
+        <div className={`bg-gray-400 rounded-full h-0.5 mx-2 w-[2rem]`} />
         <span className={`text-blue-500  capitalize px-16 font-thin text-xl`}>
+          
           {heading == "Showing Results for"
             ? page?.[0]
             : heading == "Genres"
             ? page?.[0]
             : "Anime"}
         </span>
+        
       </div>
 
       <div className="grid grid-cols-3  w-full px-2 my-6  gap-2  justify-center  md:grid-cols-3 xl:grid-cols-4 lg:px-16 lg:my-16   2xl:grid-cols-6 xl:gap-4">

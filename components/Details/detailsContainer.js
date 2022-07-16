@@ -10,10 +10,13 @@ import {
 import { useEffect, useState } from "react";
 import Lottie from "lottie-react-web";
 import Heart from "../../public/heart.json";
+import LinesEllipsis from 'react-lines-ellipsis'
+
 
 const DetailsContainer = ({ id }) => {
   const [click, setClick] = useState(false);
   const { data , theme, myList } = useSelector((state) => state);
+  const [expand,setExpand] = useState(false)
   const dispatch = useDispatch();
   useEffect(() => {
     const current = myList.filter((item) => item.id == id);
@@ -31,15 +34,19 @@ const DetailsContainer = ({ id }) => {
   };
   return (
     <>
+    <div className="h-42 overflow-hidden">
+      <img src={data.image_url} alt="data" className="object-cover h-full max-h-[32rem] bg-center blur-[10px] brightness-50 w-full "/>
+
+    </div>
       <div
-        className={`${theme.background} ${theme.text.selected} w-full  py-20 lg:px-20  lg:py-8 flex justify-center`}
+        className={`background-transparent  ${theme.text.selected} py-20   lg:py-8 flex justify-center absolute top-[10rem] `}
       >
-        <div className="w-full lg:w-10/12 flex flex-col justify-center items-center lg:flex-row lg:justify-start lg:items-stretch ">
-          <div className="rounded-lg w-8/12 lg:w-4/12 my-8 lg:my-0 shadow-2xl">
+        <div className={`w-full lg:w-fit flex flex-col justify-center items-center lg:flex-row lg:justify-center lg:items-stretch  `}>
+          <div className="rounded-lg w-8/12 lg:w-auto h-fit my-8 lg:my-0 shadow-2xl">
             <img
               src={data.image_url}
               alt={data.title}
-              className=" w-full h-full rounded-lg object-cover"
+              className=" w-[226px] h-[319px] rounded-lg mx-auto object-cover"
             />
           </div>
           <div className=" flex flex-col w-11/12 px-0 lg:w-8/12  lg:px-10">
@@ -73,13 +80,19 @@ const DetailsContainer = ({ id }) => {
                   />
                 </span>
               </span>
-              <span className="text-base  font-light p-2">{data.plot_summary}</span>
+              <span className="text-base  font-light p-2"><LinesEllipsis
+    text={data.plot_summary}
+    maxLine="3"
+    ellipsis='...'
+    trimRight
+    basedOn='letters'
+  />  </span>
             </div>
             <div className="flex w-full justify-between items-center">
               <div className="flex flex-col py-3">
                 <span className="font-bold text-xl ">Released</span>
                 <span className={`${theme.text.notselected} capitalize px-2`}>
-                  {data.relased}
+                  {data.released}
                 </span>
               </div>
 

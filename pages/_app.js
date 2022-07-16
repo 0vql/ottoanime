@@ -78,7 +78,7 @@ const App = ({ Component, pageProps }) => {
 const MYapp = ({ Component, pageProps }) => (
   <Provider store={Store}>
     <PersistGate loading={null} persistor={Persistor}>
-    <NextProgress delay={300} height={3} options={{ showSpinner: false }} />
+    <NextProgress delay={300} height={5} options={{ showSpinner: false }} />
       <App Component={Component} pageProps={pageProps} />
     </PersistGate>
   </Provider>

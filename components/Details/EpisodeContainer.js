@@ -22,7 +22,7 @@ const EpisodeContainer = ({ title, id, number, image }) => {
   };
   const theme = useSelector((state) => state.theme);
   return (
-    <div className="w-full flex flex-col py-0 px-5 lg:px-20">
+    <div className="w-full flex flex-col py-0 px-5 lg:px-20 pt-[24rem]">
       <span
         className={`${theme.text.selected} flex flex-col font-bold text-3xl py-5`}
       >

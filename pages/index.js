@@ -70,7 +70,7 @@ export default function Home() {
             </div>
             <AiOutlineArrowDown
               size={32}
-              className="w-full absolute bottom-[2rem] text-white"
+              className="hidden md:block w-full absolute bottom-[2rem] text-white"
             />
           </div>
         </div>
