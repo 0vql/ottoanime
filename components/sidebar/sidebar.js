@@ -12,8 +12,7 @@ const Sidebar = ({ visit }) => {
   return (
     <>
       <div
-        style={{ height: "75px" }}
-        className={`${theme.background} fixed w-full top-0 p-4 shadow-2xl justify-evenly z-50 lg:p-8 lg:relative lg:bg-transparent`}
+        className={`${theme.background} fixed w-full top-0 p-8 shadow-2xl justify-between z-50 lg:p-8 lg:bg-transparent`}
       >
         <Sidenav
           visit={visit}

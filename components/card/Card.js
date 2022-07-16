@@ -46,7 +46,7 @@ const Episode = styled.span`
 const MovieImg = styled.img`
   width: 100%;
   object-fit: "contain";
-  filter: drop-shadow(2px 4px 6px black);
+  // filter: drop-shadow(2px 4px 6px black);
  
   border-radius: 0;
   box-shadow: 0rem 2rem 5rem rgba(0, 0, 0, 0.2);
@@ -59,13 +59,12 @@ const MovieImg = styled.img`
 `;
 
 const Title = styled.span`
-  text-align: center;
-  // overflow: hidden;
-  // white-space: nowrap;
-  // text-overflow: ellipsis;
-  max-width: 160px;
-  font-weight: bold;
-  width:100%;
+font-size: 17px;
+max-width: 100%;
+overflow-wrap: break-word;
+white-space: normal;
+overflow: hidden;
+text-align: center;
 `;
 
 const DetailsWrapper = styled.div`
@@ -75,7 +74,7 @@ const DetailsWrapper = styled.div`
   border: 1px #ffffff0f solid;
   border-top: none;
   width: 100%;
-  background: #ffffff0f;
+  // background: #ffffff0f;
   padding: 0.5rem 0;
   border-radius-bottom: 0.8rem;
 
@@ -90,7 +89,7 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
         card={theme.card}
       >
         <MovieImg
-          className="w-full object-cover rounded-xl h-[11rem]  xl:h-96 md:h-72 lg:h-80"
+          className="w-full object-cover rounded-xl h-[11rem]  xl:h-70 md:h-72 lg:h-80"
           src={image_url}
           loading="lazy"
           alt={title}

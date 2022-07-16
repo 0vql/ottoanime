@@ -67,7 +67,7 @@ const App = ({ Component, pageProps }) => {
       
 
       <Sidebar visit={visit} />
-      <div className="flex justify-center">
+      <div className="flex justify-center pt-10">
         <Navbar visit={visit} />
         <Component {...pageProps} />
       </div>
