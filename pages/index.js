@@ -16,6 +16,7 @@ right: 0;
 height: 49.2vw;
 min-height: 500px;
 filter: brightness(0.5);
+object-fit:cover;
 }
   
     
