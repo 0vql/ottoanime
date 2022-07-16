@@ -19,7 +19,7 @@ const Recently = () => {
       dispatch(asyncDataAction(RecentlyAddedURL));
     }
   }, [pages]);
-
+  
   return (
   <Layout>
       <Container
