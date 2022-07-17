@@ -23,7 +23,7 @@ const Sidebar = ({ visit }) => {
         />
 
         <div id="sidemenu" className=" flex justify-center relative items-center  w-full ">
-          <Link href="/recentlyadded/1">
+          <Link href="/">
             <div
               className={`${theme.text.selected} absolute cursor-pointer`}
             >

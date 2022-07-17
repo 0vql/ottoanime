@@ -23,7 +23,13 @@ export const Discover = [
   {
     index: 2,
     name: "New Season",
-    link: "/new-season/1",
+    link: "/newseason/1",
+    icon: AiTwotoneThunderbolt,
+  },
+  {
+    index: 3,
+    name: "Movies",
+    link: "/movies/1",
     icon: AiTwotoneThunderbolt,
   },
   {

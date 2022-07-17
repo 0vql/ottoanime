@@ -43,7 +43,7 @@ const DetailsContainer = ({ id }) => {
 
     </div>
       <div
-        className={`background-transparent w-full ${theme.text.selected} py-2 lg:py-20   lg:py-8 flex justify-center lg:absolute lg:top-[7rem] `}
+        className={`background-transparent w-full ${theme.text.selected} lg:text-white py-2 lg:py-20   lg:py-8 flex justify-center lg:absolute lg:top-[7rem] `}
       >
         <div className={`w-full flex flex-col justify-center items-center lg:flex-row lg:justify-center lg:items-stretch  `}>
           <div className="rounded-lg w-8/12 lg:w-auto h-fit my-8 lg:my-0 shadow-2xl">
@@ -62,7 +62,7 @@ const DetailsContainer = ({ id }) => {
                 />
               </span>
               <span
-                className={`${theme.text.selected} capitalize w-30 text-base font-medium p-2`}
+                className={`${theme.text.selected} lg:text-white  capitalize w-30 text-base font-medium p-2`}
               >
                 {data.type?.replaceAll("-", " ")}
               </span>

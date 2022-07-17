@@ -5,5 +5,6 @@ export const URL = {
   EPLINK: "https://animex4stream.herokuapp.com/api/",
   GENRES: "https://animex4stream.herokuapp.com/api/genre/",
   SEARCH: "https://animex4stream.herokuapp.com/api/search/",
-  SEASON: "https://animex4stream.herokuapp.com/api/new-season/",
+  SEASON: "https://ottogo.vercel.app/api/new-season/",
+  MOVIES: "https://ottogo.vercel.app/api/movies/",
 };
