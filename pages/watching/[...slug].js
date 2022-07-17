@@ -14,7 +14,7 @@ const Recently = () => {
 
   useEffect(() => {
     if (slug) {
-      var WatchingURL = URL.EPLINK + slug[0] + "/" + slug[1];
+      var WatchingURL = URL.EPLINK + slug[0] + "/episode/" + slug[1];
       dispatch(asyncDataAction(WatchingURL));
     }
   }, [slug]);

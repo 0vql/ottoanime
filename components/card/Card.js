@@ -83,7 +83,7 @@ const DetailsWrapper = styled.div`
 const Card = ({ title, id, url, heading, image_url, episode, released }) => {
   const theme = useSelector((state) => state.theme);
   return (
-    <Link href={episode ? `/watching/${url}/${episode}` : `/details/${url}`}>
+    <Link href={episode ? `/watching/${id}/${episode}` : `/details/${url}`}>
       <MovieWrapper
         className={`relative ${theme.card.text} ${theme.card.bghover} cursor-pointer items-center rounded-xl w-full text-center justify-start flex flex-col  `}
         card={theme.card}

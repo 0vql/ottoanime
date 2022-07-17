@@ -3,9 +3,11 @@ import { useSelector } from "react-redux";
 import PagiNation from "../PagiNation";
 import Loader from "../Loader/Loader";
 function Container({ Data = [], heading, page, Icon }) {
-  const { theme } = useSelector((state) => state);
+  const { theme , loading } = useSelector((state) => state);
   console.log(Data);
-  return Data?.length > 0 ? (
+  return loading ? (
+    <Loader />
+  ) :  Data?.length > 0 ? (
     <>
       <div className="w-10/12 my-5">
         <span

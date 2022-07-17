@@ -2,6 +2,8 @@ import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
 import { AiFillPlayCircle } from "react-icons/ai";
 import EpisodeContainer from "./EpisodeContainer";
+import Loader from "../Loader/Loader";
+
 import {
   addToMyList,
   removeFromMyList,
@@ -15,7 +17,7 @@ import LinesEllipsis from 'react-lines-ellipsis'
 
 const DetailsContainer = ({ id }) => {
   const [click, setClick] = useState(false);
-  const { data , theme, myList } = useSelector((state) => state);
+  const { data , theme, myList, loading } = useSelector((state) => state);
   const [expand,setExpand] = useState(false)
   const dispatch = useDispatch();
   useEffect(() => {
@@ -32,7 +34,9 @@ const DetailsContainer = ({ id }) => {
       setClick(true);
     }
   };
-  return (
+  return loading ? (
+    <Loader />
+  ) : (
     <>
     <div className="h-42 overflow-hidden">
       <img src={data.image_url} alt="data" className="hidden lg:flex object-cover h-full max-h-[44rem] bg-center blur-[9px] brightness-[0.3] w-full "/>
