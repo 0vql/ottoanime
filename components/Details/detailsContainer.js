@@ -30,7 +30,7 @@ const DetailsContainer = ({ id }) => {
       setClick(false);
       dispatch(removeFromMyList(id));
     } else {
-      dispatch(addToMyList({ id: id, image: data.image_url, title: data.title }));
+      dispatch(addToMyList({ id: id, image_url: data.image_url, title: data.title }));
       setClick(true);
     }
   };
