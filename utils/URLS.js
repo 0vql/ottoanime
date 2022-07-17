@@ -1,7 +1,7 @@
 export const URL = {
-  POPULAR: "https://animex4stream.herokuapp.com/api/popular/",
-  RECENT: "https://animex4stream.herokuapp.com/api/recently/",
-  DETAILS: "https://animex4stream.herokuapp.com/api/anime-details/",
+  POPULAR: "https://ottogo.vercel.app/api/popular/",
+  RECENT: "https://ottogo.vercel.app/api/recently/",
+  DETAILS: "https://ottogo.vercel.app/api/details/",
   EPLINK: "https://animex4stream.herokuapp.com/api/",
   GENRES: "https://animex4stream.herokuapp.com/api/genre/",
   SEARCH: "https://animex4stream.herokuapp.com/api/search/",

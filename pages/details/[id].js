@@ -19,9 +19,9 @@ const Details = () => {
   }, [id]);
 
   return (
-    <Layout title={data.title}>
+    <div className="w-full justify-center items-center min-h-screen mx-auto lg:h-full  lg:w-full mt-20">
       {data && <DetailsContainer id={id} data={data[0]} />}
-    </Layout>
+    </div>
   );
 };
 

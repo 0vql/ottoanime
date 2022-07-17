@@ -35,13 +35,13 @@ const DetailsContainer = ({ id }) => {
   return (
     <>
     <div className="h-42 overflow-hidden">
-      <img src={data.image_url} alt="data" className="object-cover h-full max-h-[32rem] bg-center blur-[10px] brightness-50 w-full "/>
+      <img src={data.image_url} alt="data" className="hidden lg:flex object-cover h-full max-h-[44rem] bg-center blur-[9px] brightness-[0.3] w-full "/>
 
     </div>
       <div
-        className={`background-transparent  ${theme.text.selected} py-20   lg:py-8 flex justify-center absolute top-[10rem] `}
+        className={`background-transparent w-full ${theme.text.selected} py-2 lg:py-20   lg:py-8 flex justify-center lg:absolute lg:top-[7rem] `}
       >
-        <div className={`w-full lg:w-fit flex flex-col justify-center items-center lg:flex-row lg:justify-center lg:items-stretch  `}>
+        <div className={`w-full flex flex-col justify-center items-center lg:flex-row lg:justify-center lg:items-stretch  `}>
           <div className="rounded-lg w-8/12 lg:w-auto h-fit my-8 lg:my-0 shadow-2xl">
             <img
               src={data.image_url}
@@ -80,19 +80,14 @@ const DetailsContainer = ({ id }) => {
                   />
                 </span>
               </span>
-              <span className="text-base  font-light p-2"><LinesEllipsis
-    text={data.plot_summary}
-    maxLine="3"
-    ellipsis='...'
-    trimRight
-    basedOn='letters'
-  />  </span>
+              <span className="text-base  font-light p-2">{data.plot_summary}
+     </span>
             </div>
             <div className="flex w-full justify-between items-center">
               <div className="flex flex-col py-3">
                 <span className="font-bold text-xl ">Released</span>
                 <span className={`${theme.text.notselected} capitalize px-2`}>
-                  {data.released}
+                  {data.year}
                 </span>
               </div>
 
@@ -109,7 +104,10 @@ const DetailsContainer = ({ id }) => {
                 className={`${theme.text.notselected} flex flex-row flex-wrap justify-start w-full items-center`}
               >
                 {console.log(data?.genre) ||
-                  data.genre?.split(", ").map((Item, index) => (
+                  data.genre?.replaceAll("'", "")
+                  .replace("[", "")
+                  .replace("]", "")
+                  .split(", ").map((Item, index) => (
                     <Link
                       href={`/genre/${Item.split(" ").join("-")}/1`}
                       key={index}
