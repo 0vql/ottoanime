@@ -87,8 +87,8 @@ function HomeContainer({ Data = [], heading, page, Icon }) {
       
       <div className="">
         {Data?.map((item, index) => (
-      <SwiperSlide>
-          <Card {...item} key={index} heading={heading} />
+      <SwiperSlide key={index}>
+          <Card {...item} heading={heading} />
           </SwiperSlide>
         ))}
       </div>
