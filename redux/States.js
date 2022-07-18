@@ -41,7 +41,7 @@ export const States = {
   },
   light: {
     theme: "light",
-    background: "bg-[#00000030]",
+    background: "bg-white",
     shadow: "black",
     text: {
       selected: "text-background",

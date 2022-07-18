@@ -22,9 +22,9 @@ const WatchingContainer = ({ data, slug, episodes_num, image_url, title }) => {
   return loading ? (
     <Loader />
   ) : (
-    <div className="relative lg:h-1/3  flex justify-center items-center text-left flex-col h-screen w-full px-2 ">
+    <div className="relative flex justify-center items-center text-left flex-col lg:h-full w-full px-2 ">
       <div
-        className={` flex flex-col pb-2 xl:w-player justify-between items-center w-full ${theme.text.selected}   my-4`}
+        className={` flex flex-col pb-2 xl:w-full justify-between items-center w-full ${theme.text.selected}   my-4`}
       >
         <div className="w-full py-4 uppercase flex flex-col items-start lg:items-start">
           <Link href={`/details/${slug[0]}`}>
@@ -49,7 +49,7 @@ const WatchingContainer = ({ data, slug, episodes_num, image_url, title }) => {
       <div className="ifr-container flex w-full justify-center items-center flex-col-reverse lg:flex-row">
         <>
           <iframe
-            className="w-full h-screen drop-shadow-lg	"
+            className="w-full h-[22rem] md:h-[492px] lg:h-[600px] xl:h-[650px] 2xl:h-[94vh] drop-shadow-sm "
            
             src={data.iframe}
             frameBorder="0"
