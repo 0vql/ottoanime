@@ -35,7 +35,7 @@ export const Discover = [
   {
     index: 4,
     name: "Watch List",
-    link: "/recentlywatched",
+    link: "/watchList",
     icon: FaEye,
   },
   {

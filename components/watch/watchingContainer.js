@@ -10,14 +10,18 @@ import { addToWatchList } from "../../redux/actions/recentlyWatchedAction";
 const WatchingContainer = ({ data, slug, episodes_num, image_url, title }) => {
   const Myref = useRef(null);
   const { theme, loading, resumeId, watchList } = useSelector((state) => state);
-  const [link, setLink] = useState("");
-  const [iframe, setIframe] = useState(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setLink(data["1080P"] || data["720P"] || data["480P"] || data["360P"]);
-    setIframe(true);
-  });
+    dispatch(
+      addToWatchList({
+        id: slug[0],
+        image_url: image_url,
+        title: title,
+        episode : slug[1]
+      })
+    );
+  },[data]);
 
   return loading ? (
     <Loader />

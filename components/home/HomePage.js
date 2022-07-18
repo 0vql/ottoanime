@@ -15,7 +15,7 @@ const HomePage = () => {
 
   const [dataRecently, setDataRecently] = useState([]);
   const [dataPopular, setDataPopular] = useState([]);
-  const { theme, resumeId } = useSelector((state) => state);
+  const { theme, resumeId, myList } = useSelector((state) => state);
 
   useEffect(() => {
     recentlyFetch();
@@ -52,7 +52,11 @@ const HomePage = () => {
             heading={"Popular"}
             Icon={Discover[1].icon}
           />
-          
+          {myList.length > 0 ? (
+        <HomeContainer Data={myList} heading={"My List"} Icon={Discover[2].icon} />
+      ) : (
+        ""
+      )}
           </div>
   );
 };
