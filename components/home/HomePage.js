@@ -4,6 +4,7 @@ import Container from "../card/Container";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Discover } from "../../utils/data";
+import HomeContainer from "../card/HomeContainer";
 
 
 
@@ -40,12 +41,12 @@ const HomePage = () => {
 
   return (
     <div className={`${theme.background} mx-auto lg:p-[4rem]`}>
-    <Container
+    <HomeContainer
             Data={dataRecently}
             heading={"Recently Added"}
             Icon={Discover[0].icon}
           />
-          <Container
+          <HomeContainer
             Data={dataPopular}
             heading={"Popular"}
             Icon={Discover[1].icon}
