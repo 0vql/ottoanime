@@ -54,3 +54,8 @@ lightshadow {
   background-repeat: no-repeat;
   
 }
+
+.swiper-wrapper {
+padding: 3rem 0.5rem;
+padding-bottom:0
+}

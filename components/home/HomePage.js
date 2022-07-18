@@ -10,6 +10,7 @@ import HomeContainer from "../card/HomeContainer";
 
 
 
+
 const HomePage = () => {
 
   const [dataRecently, setDataRecently] = useState([]);
@@ -40,7 +41,7 @@ const HomePage = () => {
   };
 
   return (
-    <div className={`${theme.background} mx-auto lg:p-[4rem]`}>
+    <div className={`${theme.background} mx-auto lg:p-[6rem]`}>
     <HomeContainer
             Data={dataRecently}
             heading={"Recently Added"}
@@ -51,6 +52,7 @@ const HomePage = () => {
             heading={"Popular"}
             Icon={Discover[1].icon}
           />
+          
           </div>
   );
 };

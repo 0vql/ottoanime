@@ -59,7 +59,6 @@ const MovieImg = styled.img`
 `;
 
 const Title = styled.span`
-font-size: 17px;
 max-width: 100%;
 overflow-wrap: break-word;
 white-space: normal;
@@ -95,7 +94,7 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
           alt={title}
         />
 
-        <DetailsWrapper className="space-evenly md:space-normal h-full md:h-32">
+        <DetailsWrapper className="space-between h-full md:h-32">
           <Title className="text-[13px] md:text-lg">{title}</Title>
           {heading == "Popular" ||
           heading == "New Season" ||
