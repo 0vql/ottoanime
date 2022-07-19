@@ -30,7 +30,7 @@ const App = ({ Component, pageProps }) => {
   const router = useRouter();
   useEffect(() => {
     console.log(
-      "%c Animex.ninja! ",
+      "%c OTTO ANIME! ",
       "background: #222; color:#4198db ;font-size:50px"
     );
     localStorage.removeItem("persist:root");

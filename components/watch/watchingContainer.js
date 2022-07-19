@@ -7,21 +7,31 @@ import Link from "next/link";
 import PagiNation from "../PagiNation";
 import { addToWatchList } from "../../redux/actions/recentlyWatchedAction";
 
-const WatchingContainer = ({ data, slug, episodes_num, image_url, title }) => {
+const WatchingContainer = ({ data, slug, episodes_num }) => {
   const Myref = useRef(null);
   const { theme, loading, resumeId, watchList } = useSelector((state) => state);
+  const [animeData, setAnimeData] = useState([])
+  const [image , setImage] = useState()
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(
       addToWatchList({
         id: slug[0],
-        image_url: image_url,
-        title: title,
+        image_url: image,
+        title: slug[0].replaceAll("-", " ").toUpperCase(),
         episode : slug[1]
       })
     );
+    fetchEpisodesList();
   },[data]);
+
+  const fetchEpisodesList = async () => {
+    let req = await fetch(`https://ottogo.vercel.app/api/details/${slug[0]}/`);
+    let res = await req.json();
+    setAnimeData(res)
+    setImage(res?.image_url)
+  };
 
   return loading ? (
     <Loader />

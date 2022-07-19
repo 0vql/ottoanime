@@ -47,23 +47,21 @@ const MovieImg = styled.img`
   width: 100%;
   object-fit: "contain";
   // filter: drop-shadow(2px 4px 6px black);
- 
+
   border-radius: 0;
   box-shadow: 0rem 2rem 5rem rgba(0, 0, 0, 0.2);
   // transition: all 100ms cubic-bezier(0.645, 0.045, 0.355, 1);
   ${MovieWrapper}:hover & {
     border-radius: 0.8rem 0.8rem 0rem 0rem;
-  
-    
   }
 `;
 
 const Title = styled.span`
-max-width: 100%;
-overflow-wrap: break-word;
-white-space: normal;
-overflow: hidden;
-text-align: center;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  white-space: normal;
+  overflow: hidden;
+  text-align: center;
 `;
 
 const DetailsWrapper = styled.div`
@@ -76,13 +74,20 @@ const DetailsWrapper = styled.div`
   // background: #ffffff0f;
   padding: 0.5rem 0;
   border-radius-bottom: 0.8rem;
-
 `;
 
 const Card = ({ title, id, url, heading, image_url, episode, released }) => {
   const theme = useSelector((state) => state.theme);
   return (
-    <Link href={episode ? `/watching/${id}/${episode}` : `/details/${url}`}>
+    <Link
+      href={
+        episode
+          ? `/watching/${id}/${episode}`
+          : heading === "My List"
+          ? `/details/${id}`
+          : `/details/${url}`
+      }
+    >
       <MovieWrapper
         className={`relative ${theme.card.text} ${theme.card.bghover} cursor-pointer items-center rounded-xl w-full text-center justify-start flex flex-col  `}
         card={theme.card}
@@ -99,6 +104,7 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
           {heading == "Popular" ||
           heading == "New Season" ||
           heading == "Genres" ||
+          heading == "My List" ||
           heading == "Movies" ? (
             <Episode className="text-[13px] md:text-md"> {released}</Episode>
           ) : (
@@ -106,8 +112,8 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
           )}
           {heading == "Recently Added" || heading == "Recently Watched" ? (
             <>
-            <Episode>Episode {episode}</Episode>
-            <Episode className="text-[13px] md:text-md"> {released}</Episode>
+              <Episode>Episode {episode}</Episode>
+              
             </>
           ) : (
             ""

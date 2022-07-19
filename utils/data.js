@@ -34,8 +34,8 @@ export const Discover = [
   },
   {
     index: 4,
-    name: "Watch List",
-    link: "/watchList",
+    name: "Recently Watched",
+    link: "/recentlywatched/",
     icon: FaEye,
   },
   {
@@ -44,12 +44,7 @@ export const Discover = [
     link: "/myList",
     icon: AiFillHeart,
   },
-  {
-    index: 6,
-    name: "Donate",
-    link: "/donate",
-    icon: FaDonate,
-  },
+  
 
 
 

@@ -17,6 +17,7 @@ const Link2 = ({ theme, href, name, Icon }) => {
   return (
     <Link href={href}>
       {H1 == Pp ? (
+        
         <span
           className={`${theme.text.selected} ${theme.border.selected} cursor-pointer my-0.5 p-1 items-center flex flex-row  border  rounded-full`}
         >

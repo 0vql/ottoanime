@@ -36,13 +36,13 @@ const Header = () => {
         <MovieImg src="/bg-anime1.jpg" alt="Picture of the author" />
         <div className="relative h-full text-white flex w-full flex-col justify-center max-w-sm lg:max-w-3xl mx-auto gap-6 ">
           <h1 className="text-2xl xl:text-5xl font-bold">
-            Watch Free Anime Videos Enjoy your unlimited hentai & anime
+            Watch Free Anime Videos Enjoy your unlimited anime
             collection.
           </h1>
           <div>
             <p>
               We are the definitive source for the best curated 720p / 1080p HD
-              hentai videos, viewable by mobile phone and tablet, for free.
+              anime videos, viewable by mobile phone and tablet, for free.
             </p>
           </div>
           <AiOutlineArrowDown

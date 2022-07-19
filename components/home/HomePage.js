@@ -15,7 +15,7 @@ const HomePage = () => {
 
   const [dataRecently, setDataRecently] = useState([]);
   const [dataPopular, setDataPopular] = useState([]);
-  const { theme, resumeId, myList } = useSelector((state) => state);
+  const { theme, resumeId, myList, watchList } = useSelector((state) => state);
 
   useEffect(() => {
     recentlyFetch();
@@ -42,18 +42,24 @@ const HomePage = () => {
 
   return (
     <div className={`${theme.background} mx-auto lg:p-[6rem]`}>
+      <div>
     <HomeContainer
             Data={dataRecently}
             heading={"Recently Added"}
             Icon={Discover[0].icon}
-          />
+          /></div><div>
           <HomeContainer
             Data={dataPopular}
             heading={"Popular"}
             Icon={Discover[1].icon}
-          />
+          /></div>
           {myList.length > 0 ? (
-        <HomeContainer Data={myList} heading={"My List"} Icon={Discover[2].icon} />
+        <div><HomeContainer Data={myList} heading={"My List"} Icon={Discover[2].icon} /></div>
+      ) : (
+        ""
+      )}
+      {watchList.length > 0 ? (
+        <HomeContainer Data={watchList} heading={"Watch List"} Icon={Discover[4].icon} />
       ) : (
         ""
       )}

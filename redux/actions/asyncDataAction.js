@@ -1,4 +1,6 @@
 import { MyAction } from "./actions";
+const axios = require('axios'); 
+
 
 const fetchData = () => {
   return { type: MyAction.FETCH };
@@ -11,13 +13,12 @@ export const asyncDataAction = (URL) => {
   return async function getServerSideProps(dispatch) {
     dispatch(fetchData());
     console.log(URL);
-    const response = await fetch(URL);
-    const result = await response.json();
-    dispatch(recieveData(result.json_data || result));
-    console.log(result.json_data);
+    const result = await axios.get(URL);
+    dispatch(recieveData(result.data.json_data || result.data));
+    console.log(result.data.json_data);
     return {
       props: {
-        data: result.json_data || result,
+        data: result.data.json_data || result,
       },
     };
   };
