@@ -13,8 +13,8 @@ const WatchingContainer = ({ data, slug, episodes_num }) => {
   const Myref = useRef(null);
   const { theme, loading, resumeId, watchList } = useSelector((state) => state);
   const [animeData, setAnimeData] = useState([])
-  const [image , setImage] = useState()
-  const [title , setTitle] = useState()
+  const [image , setImage] = useState("")
+  const [title , setTitle] = useState("")
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -29,13 +29,14 @@ const WatchingContainer = ({ data, slug, episodes_num }) => {
       })
     );
     
-  },[image,data]);
+  },[data,image]);
 
   const fetchEpisodesList = async () => {
     let res = await axios.get(`https://ottogo.vercel.app/api/details/${slug[0]}/`);
-    setAnimeData(res.data)
+    setAnimeData(res?.data)
     setImage(res.data.image_url)
-    setImage(res.data.title)
+    setTitle(res.data.title)
+    
   };
 
   return loading ? (
