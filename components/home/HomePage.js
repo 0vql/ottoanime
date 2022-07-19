@@ -59,7 +59,7 @@ const HomePage = () => {
         ""
       )}
       {watchList.length > 0 ? (
-        <HomeContainer Data={watchList} heading={"Watch List"} Icon={Discover[4].icon} />
+        <HomeContainer Data={watchList} heading={"Recently Watched"} Icon={Discover[4].icon} />
       ) : (
         ""
       )}

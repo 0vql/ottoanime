@@ -6,31 +6,36 @@ import { resumeAction } from "../../redux/actions/resumeAction";
 import Link from "next/link";
 import PagiNation from "../PagiNation";
 import { addToWatchList } from "../../redux/actions/recentlyWatchedAction";
+const axios = require('axios'); 
+
 
 const WatchingContainer = ({ data, slug, episodes_num }) => {
   const Myref = useRef(null);
   const { theme, loading, resumeId, watchList } = useSelector((state) => state);
   const [animeData, setAnimeData] = useState([])
   const [image , setImage] = useState()
+  const [title , setTitle] = useState()
   const dispatch = useDispatch();
 
   useEffect(() => {
+    fetchEpisodesList();
+
     dispatch(
       addToWatchList({
         id: slug[0],
         image_url: image,
-        title: slug[0].replaceAll("-", " ").toUpperCase(),
+        title: title,
         episode : slug[1]
       })
     );
-    fetchEpisodesList();
-  },[data]);
+    
+  },[image,data]);
 
   const fetchEpisodesList = async () => {
-    let req = await fetch(`https://ottogo.vercel.app/api/details/${slug[0]}/`);
-    let res = await req.json();
-    setAnimeData(res)
-    setImage(res?.image_url)
+    let res = await axios.get(`https://ottogo.vercel.app/api/details/${slug[0]}/`);
+    setAnimeData(res.data)
+    setImage(res.data.image_url)
+    setImage(res.data.title)
   };
 
   return loading ? (
