@@ -23,7 +23,7 @@ function HomeContainer({ Data = [], heading, page, Icon, to }) {
   const { theme, loading } = useSelector((state) => state);
   console.log(Data);
   return (
-    <div className="p-8">
+    <div className="py-8">
       <div className="flex justify-between">
     <span
           className={`${theme.text.selected} px-2 flex  font-light items-center  text-2xl`}
@@ -74,17 +74,17 @@ function HomeContainer({ Data = [], heading, page, Icon, to }) {
         },
         1024: 
         {
-          slidesPerView: 4.5,
+          slidesPerView: 4.2,
           spaceBetween: 10
         },
         1224: 
         {
-          slidesPerView: 5.5,
+          slidesPerView: 5.3,
           spaceBetween: 10
         },
-        1424: 
+        1624: 
         {
-          slidesPerView: 6.5,
+          slidesPerView: 6.2,
           spaceBetween: 10
         },
 
@@ -92,6 +92,7 @@ function HomeContainer({ Data = [], heading, page, Icon, to }) {
 
       onSlideChange={() => console.log('slide change')}
       onSwiper={(swiper) => console.log(swiper)}
+      
     >
       
       <div className="">

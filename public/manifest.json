@@ -3,8 +3,8 @@
     "background_color": "#1a1c20",
     "display": "standalone",
     "scope": "/",
-    "start_url": "/recentlyadded/1",
-    "name": "Animex",
+    "start_url": "/",
+    "name": "Otto Anime",
     "description": "Premium anime streaming app",
     "short_name": "Animex",
     "icons": [

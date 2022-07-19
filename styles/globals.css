@@ -59,3 +59,18 @@ lightshadow {
 padding: 1.3rem 0.5rem;
 padding-bottom:0
 }
+
+
+
+.swiper-button-next:after, .swiper-button-prev:after {
+  @apply text-white border-amber-100 p-1 rounded-lg bg-[#00000059] border-2 hidden md:block
+
+} 
+
+
+
+
+
+.swiper-button-next, .swiper-button-prev{
+  top:41% !important;
+}

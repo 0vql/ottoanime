@@ -1,10 +1,10 @@
-import Head from "next/head";
-import styled from "styled-components";
-import Container from "../card/Container";
+
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Discover } from "../../utils/data";
 import HomeContainer from "../card/HomeContainer";
+const axios = require('axios'); 
+
 
 
 
@@ -23,25 +23,28 @@ const HomePage = () => {
   }, []);
 
   const recentlyFetch = async () => {
-    let req = await fetch(
+    let res = await axios.get(
       "https://ottogo.vercel.app/api/recently/1/"
     );
-    let res = await req.json();
-    setDataRecently(res.slice(8));
+    setDataRecently(res.data.slice(0,13));
     console.log(dataRecently);
   };
 
   const PopularFetch = async () => {
-    let req = await fetch(
+    let res = await axios.get(
       "https://ottogo.vercel.app/api/popular/1/"
     );
-    let res = await req.json();
-    setDataPopular(res.slice(8));
+    setDataPopular(res.data.slice(0,13));
     console.log(dataPopular);
   };
 
   return (
-    <div className={`${theme.background} mx-auto lg:p-[6rem]`}>
+    <div className={`${theme.background} mx-auto lg:px-[7rem]`}>
+      {watchList.length > 0 ? (
+        <HomeContainer Data={watchList} heading={"Recently Watched"} Icon={Discover[4].icon} to={"recentlyWatched"}/>
+      ) : (
+        ""
+      )}
     <HomeContainer
             Data={dataRecently}
             heading={"Recently Added"}
@@ -56,11 +59,6 @@ const HomePage = () => {
           />
           {myList.length > 0 ? (
         <HomeContainer Data={myList} heading={"My List"} Icon={Discover[2].icon} to={"myList"} />
-      ) : (
-        ""
-      )}
-      {watchList.length > 0 ? (
-        <HomeContainer Data={watchList} heading={"Recently Watched"} Icon={Discover[4].icon} to={"recentlyWatched"}/>
       ) : (
         ""
       )}

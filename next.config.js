@@ -1,9 +1,12 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const withPWA = require("next-pwa");
+
+module.exports = withPWA({
+  pwa: {
+    dest: "public",
+  },
   reactStrictMode: true,
   images: {
     domains: ["gogocdn.net"],
   },
-};
-
-module.exports = nextConfig;
+});

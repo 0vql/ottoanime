@@ -23,7 +23,7 @@ const Search = () => {
   return (
     <Layout title={pages?.[0]}>
       <Container
-        Data={data.results}
+        Data={data}
         heading={"Showing Results for"}
         page={pages}
         Icon={FaSearch}

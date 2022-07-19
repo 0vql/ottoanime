@@ -15,6 +15,7 @@
     "lottie-react-web": "^2.2.2",
     "next": "12.2.0",
     "next-progress": "^2.2.0",
+    "next-pwa": "^5.5.4",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^14.1.0",
     "postcss-preset-env": "^7.7.2",

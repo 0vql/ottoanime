@@ -51,17 +51,20 @@ const MovieImg = styled.img`
   border-radius: 0;
   box-shadow: 0rem 2rem 5rem rgba(0, 0, 0, 0.2);
   // transition: all 100ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  &:hover {
+    filter: brightness(0.9);
+  }
   ${MovieWrapper}:hover & {
     border-radius: 0.8rem 0.8rem 0rem 0rem;
   }
 `;
 
 const Title = styled.span`
-  max-width: 100%;
-  overflow-wrap: break-word;
-  white-space: normal;
+  width: 100%;
   overflow: hidden;
-  text-align: center;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 `;
 
 const DetailsWrapper = styled.div`
@@ -99,7 +102,7 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
           alt={title}
         />
 
-        <DetailsWrapper className="space-between h-full md:h-32">
+        <DetailsWrapper className="justify-between h-24 md:h-28">
           <Title className="text-[13px] md:text-lg">{title}</Title>
           {heading == "Popular" ||
           heading == "New Season" ||
@@ -113,7 +116,6 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
           {heading == "Recently Added" || heading == "Recently Watched" ? (
             <>
               <Episode>Episode {episode}</Episode>
-              
             </>
           ) : (
             ""
