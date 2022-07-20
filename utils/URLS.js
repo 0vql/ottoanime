@@ -2,7 +2,7 @@ export const URL = {
   POPULAR: "https://ottogo.vercel.app/api/popular/",
   RECENT: "https://ottogo.vercel.app/api/recently/",
   DETAILS: "https://ottogo.vercel.app/api/details/",
-  EPLINK: "https://ottogo.vercel.app/api/",
+  EPLINK: "https://animex4stream.herokuapp.com/api/",
   GENRES: "https://ottogo.vercel.app/api/category/",
   SEARCH: "https://animex4stream.herokuapp.com/api/search/",
   SEASON: "https://ottogo.vercel.app/api/new-season/",
