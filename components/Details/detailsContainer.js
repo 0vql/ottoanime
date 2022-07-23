@@ -43,7 +43,7 @@ const DetailsContainer = ({ id }) => {
 
     </div>
       <div
-        className={`background-transparent w-full ${theme.text.selected} lg:text-white py-2 lg:py-8 flex justify-center lg:absolute lg:top-[7rem] `}
+        className={`background-transparent w-full ${theme.text.selected} lg:text-white py-2 lg:py-8 flex justify-center lg:absolute lg:top-[5.5rem] `}
       >
         <div className={`w-full flex flex-col justify-center items-center lg:flex-row lg:justify-center lg:items-stretch  `}>
           <div className="rounded-lg w-8/12 lg:w-auto h-fit my-8 lg:my-0 shadow-2xl">
@@ -52,6 +52,12 @@ const DetailsContainer = ({ id }) => {
               alt={data.title}
               className=" w-[226px] h-[319px] rounded-lg mx-auto object-cover"
             />
+            <div className="hidden lg:flex lg:flex-col py-3 items-center ">
+                <span className="font-bold text-xl ">Released</span>
+                <span className={`${theme.text.notselected} capitalize px-2`}>
+                  {data.year}
+                </span>
+              </div>
           </div>
           <div className=" flex flex-col w-11/12 px-0 lg:w-8/12  lg:px-10">
             <div className="flex w-full justify-between py-2">
@@ -88,12 +94,18 @@ const DetailsContainer = ({ id }) => {
      </span>
             </div>
             <div className="flex w-full justify-between items-center">
-              <div className="flex flex-col py-3">
+              <div className="flex flex-col py-3 lg:hidden">
                 <span className="font-bold text-xl ">Released</span>
                 <span className={`${theme.text.notselected} capitalize px-2`}>
                   {data.year}
                 </span>
               </div>
+              <div className="hidden lg:flex lg:flex-col py-2">
+              <span className="text-xl font-bold">Episodes</span>
+              <span className="text-sm font-bold p-2">
+                {data.episodes == "0" ? "NA" : data.episodes}
+              </span>
+            </div>
 
               <div className="flex flex-col py-3">
                 <span className="font-bold text-xl ">Status</span>
@@ -129,8 +141,8 @@ const DetailsContainer = ({ id }) => {
                   ))}
               </span>
             </div>
-            <div className="flex flex-col py-4">
-              <span className="text-xl font-bold">Total Episodes</span>
+            <div className="flex flex-col py-2 lg:hidden">
+              <span className="text-xl font-bold">Episodes</span>
               <span className="text-sm font-bold p-2">
                 {data.episodes == "0" ? "NA" : data.episodes}
               </span>

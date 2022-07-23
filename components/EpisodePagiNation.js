@@ -1,9 +1,8 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { BiRightArrowAlt, BiLeftArrowAlt } from "react-icons/bi";
 import { useSelector } from "react-redux";
-import React from "react";
 import styled from "styled-components";
-import { useLocation, useParams } from "react-router";
 
 const PB = styled.span`
   &:hover {
@@ -16,19 +15,20 @@ const PageButton = ({ href, children, style }) => {
   const { theme } = useSelector((state) => state);
   return (
     <Link href={href}>
+  
       <PB
         button={theme.button}
         className={`${style} ${theme.button.background} border ${theme.button.text} ${theme.button.border} p-2 px-4 flex justify-center items-center border rounded-full cursor-pointer shadow-2xl transition-all duration-500`}
       >
         {children}
       </PB>
-    </Link>
+      </Link>
   );
 };
 
 const EpisodePagiNation = ({ total, heading }) => {
-  const location = useLocation();
-  const pathList = location.pathname;
+  const router = useRouter();
+  const pathList = router.asPath;
   const path = pathList?.split("/");
   const page = parseInt(path?.[path?.length - 1]);
   var nxt = "";
@@ -58,7 +58,6 @@ const EpisodePagiNation = ({ total, heading }) => {
           {heading} {page - 1}
         </PageButton>
       )}
-
       {page != total ? (
         <PageButton style={"absolute right-12"} href={nxt} pre={false}>
           {heading} {page + 1}

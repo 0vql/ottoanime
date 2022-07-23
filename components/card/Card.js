@@ -45,6 +45,7 @@ const Episode = styled.span`
 
 const MovieImg = styled.img`
   width: 100%;
+  max-height: 100%;
   object-fit: "contain";
   // filter: drop-shadow(2px 4px 6px black);
 
@@ -91,38 +92,40 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
           : `/details/${url}`
       }
     >
-      <MovieWrapper
-        className={`relative ${theme.card.text} ${theme.card.bghover} cursor-pointer items-center rounded-xl w-full text-center justify-start flex flex-col  `}
-        card={theme.card}
-      >
-        <MovieImg
-          className="w-full object-cover rounded-xl h-[11rem]  xl:h-70 md:h-72 lg:h-80"
-          src={image_url}
-          loading="lazy"
-          alt={title}
-        />
+      <a>
+        <MovieWrapper
+          className={`relative ${theme.card.text} ${theme.card.bghover} cursor-pointer items-center rounded-xl w-full text-center justify-start flex flex-col  `}
+          card={theme.card}
+        >
+          <MovieImg
+            className="w-full object-cover rounded-xl h-[11rem]  xl:h-70 md:h-72 lg:h-66"
+            src={image_url}
+            loading="lazy"
+            alt={title}
+          />
 
-        <DetailsWrapper className="justify-between h-24 md:h-28">
-          <Title className="text-[13px] md:text-lg">{title}</Title>
-          {heading == "Popular" ||
-          heading == "New Season" ||
-          heading == "Genres" ||
-          heading == "My List" ||
-          heading == "Showing Results for" ||
-          heading == "Movies" ? (
-            <Episode className="text-[13px] md:text-md"> {released}</Episode>
-          ) : (
-            ""
-          )}
-          {heading == "Recently Added" || heading == "Recently Watched" ? (
-            <>
-              <Episode>Episode {episode}</Episode>
-            </>
-          ) : (
-            ""
-          )}
-        </DetailsWrapper>
-      </MovieWrapper>
+          <DetailsWrapper className="justify-between h-24 md:h-28">
+            <Title className="text-[13px] md:text-lg">{title}</Title>
+            {heading == "Popular" ||
+            heading == "New Season" ||
+            heading == "Genres" ||
+            heading == "My List" ||
+            heading == "Showing Results for" ||
+            heading == "Movies" ? (
+              <Episode className="text-[13px] md:text-md"> {released}</Episode>
+            ) : (
+              ""
+            )}
+            {heading == "Recently Added" || heading == "Recently Watched" ? (
+              <>
+                <Episode>Episode {episode}</Episode>
+              </>
+            ) : (
+              ""
+            )}
+          </DetailsWrapper>
+        </MovieWrapper>
+      </a>
     </Link>
   );
 };

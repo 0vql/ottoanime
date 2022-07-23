@@ -4,19 +4,18 @@ import styled from "styled-components";
 import Loader from "../Loader/Loader";
 import { resumeAction } from "../../redux/actions/resumeAction";
 import Link from "next/link";
-import PagiNation from "../PagiNation";
 import { addToWatchList } from "../../redux/actions/recentlyWatchedAction";
-const axios = require('axios'); 
+import EpisodePagiNation from "../EpisodePagiNation";
+const axios = require("axios");
 
-
-const WatchingContainer = ({ data, slug, episodes_num }) => {
+const WatchingContainer = ({ data, slug }) => {
   const Myref = useRef(null);
   const { theme, loading, resumeId, watchList } = useSelector((state) => state);
-  const [animeData, setAnimeData] = useState([])
-  const [image , setImage] = useState("")
-  const [title , setTitle] = useState("")
+  const [animeData, setAnimeData] = useState([]);
+  const [image, setImage] = useState("");
+  const [title, setTitle] = useState("");
   const dispatch = useDispatch();
-  const [total,setTotal] = useState("")
+  const [ep, setEp] = useState([]);
 
   useEffect(() => {
     fetchEpisodesList();
@@ -26,19 +25,22 @@ const WatchingContainer = ({ data, slug, episodes_num }) => {
         id: slug[0],
         image_url: image,
         title: title,
-        episode : slug[1]
+        episode: slug[1],
       })
     );
-    
-  },[data,image]);
+  }, [data, image]);
 
   const fetchEpisodesList = async () => {
-    let res = await axios.get(`https://ottogo.vercel.app/api/details/${slug[0]}/`);
-    setAnimeData(res?.data)
-    setImage(res.data.image_url)
-    setTitle(res.data.title)
-    setTotal(res.data.episodes)
-    
+    let res = await axios.get(
+      `https://ottogo.vercel.app/api/details/${slug[0]}/`
+    );
+    setAnimeData(res?.data);
+    setImage(res.data.image_url);
+    setTitle(res.data.title);
+    setEp(res.data.episodes);
+    console.log(res.data.episodes);
+    console.log(animeData);
+    console.log(animeData?.title);
   };
 
   return loading ? (
@@ -72,7 +74,6 @@ const WatchingContainer = ({ data, slug, episodes_num }) => {
         <>
           <iframe
             className="w-full h-[22rem] md:h-[492px] lg:h-[600px] xl:h-[650px] 2xl:h-[94vh] drop-shadow-sm "
-           
             src={data.iframe}
             frameBorder="0"
             allow="autoplay"
@@ -80,11 +81,7 @@ const WatchingContainer = ({ data, slug, episodes_num }) => {
           ></iframe>
         </>
       </div>
-      <PagiNation
-        page={[slug[0], slug[1]]}
-        heading={"Ep"}
-        total={total}
-      />
+      <EpisodePagiNation page={[slug[0], slug[1]]} heading={"Ep"} total={ep} />
     </div>
   );
 };

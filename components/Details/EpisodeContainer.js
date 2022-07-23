@@ -22,13 +22,13 @@ const EpisodeContainer = ({ title, id, number, image }) => {
   };
   const theme = useSelector((state) => state.theme);
   return (
-    <div className="w-full flex flex-col px-5 max-w-[69rem] p-[3rem] lg:px-20 pt-[2rem]">
+    <div className="w-full flex flex-col px-5 max-w-full p-[3rem] lg:px-20 pt-[2rem]">
       <span
         className={`${theme.text.selected} flex flex-col font-bold text-3xl py-5`}
       >
         <span>{title}</span>
         <span className={"text-blue-500 text-lg"}>
-          {number != 0 ? number + " -1" : "Coming Soon"}
+          {number != 0 ? " 1 -" + " " + number: "Coming Soon"}
         </span>
       </span>
       <div className="flex m-w-[65rem] flex-wrap place-content-center	lg:place-content-start w-full gap-[1rem]">
@@ -37,7 +37,7 @@ const EpisodeContainer = ({ title, id, number, image }) => {
           myArray.reverse().map((index) => (
             <Link key={index} href={`/watching/${id}/${index}`}>
               <EpButton
-                className="flex cursor-pointer border-2 rounded-lg justify-center  relative h-10 lg:h-14 w-24 lg:w-24 shadow-lg hover:scale-105 transition-transform transform duration-300"
+                className="flex cursor-pointer border-2 rounded-lg justify-center  gap-2 relative h-10 lg:h-[3rem] w-20 lg:w-[4rem] shadow-lg hover:scale-105 transition-transform transform duration-300"
                 key={index}
                 detailsButton={theme.detailsButton}
               >
@@ -49,7 +49,7 @@ const EpisodeContainer = ({ title, id, number, image }) => {
                   />
                 </div> */}
                 <span className="w-2/3 flex justify-center items-center text-center h-full">
-                  Ep- <span className={"font-semibold"}>{" " +index}</span>
+                  <span className={"font-semibold"}>{" " +index}</span>
                 </span>
               </EpButton>
             </Link>
