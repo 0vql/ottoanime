@@ -5,6 +5,7 @@ export const URL = {
   EPLINK: "https://ottogo.vercel.app/api/",
   GENRES: "https://ottogo.vercel.app/api/category/",
   SEARCH: "https://ottogo.vercel.app/api/search/",
+  GENRES: "https://ottogo.vercel.app/api/category/",
   SEASON: "https://ottogo.vercel.app/api/new-season/",
   MOVIES: "https://ottogo.vercel.app/api/movies/",
 };
