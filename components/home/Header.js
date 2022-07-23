@@ -7,13 +7,13 @@ display: block;
 border: none;
 position: absolute;
 right: 0;
-height: 49.2vw;
+height: 100%;
 min-height: 500px;
-filter: brightness(0.4) drop-shadow(2px 4px 6px black);
+filter: drop-shadow(2px 4px 6px black);
 object-fit:cover;
 width:100%;
-background: linear-gradient(rgb(0 0 0 / 55%),rgb(0 0 0)) , url(https://wallpapercave.com/wp/wp7080641.jpg)no-repeat;
-    background-position: 49% 41%;
+background: linear-gradient(rgb(0 0 0 / 62%),rgb(0 0 0)) ,url(https://wallpapercave.com/wp/wp7080641.jpg)no-repeat;
+    background-position: 49% 37%;
 }
   
     

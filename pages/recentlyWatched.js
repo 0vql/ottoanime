@@ -21,7 +21,7 @@ export const Emessage = ({ message }) => {
         {message && (
           <span className={`${theme.text.selected} py-10 font-thin text-lg`}>
             {message}
-            <Link href={"/popular/1"}>
+            <Link href={"/recentlyadded/1"}>
               <span
                 className={` text-blue-400 mx-1 cursor-pointer font-bold text-xl `}
               >
@@ -44,7 +44,7 @@ const RecentlyWatched = () => {
       {watchList.length > 0 ? (
         <Container Data={watchList} heading={"Recently Watched"} Icon={Discover[2].icon} />
       ) : (
-        <Emessage message={"Add your favourite animes"} />
+        <Emessage message={"Watch Your Favourites Animes"} />
       )}
     </Layout>
   );

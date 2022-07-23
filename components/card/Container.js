@@ -1,5 +1,5 @@
 import Card from "./Card";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import PagiNation from "../PagiNation";
 import Loader from "../Loader/Loader";
 import { clearMyWatchList } from "../../redux/actions/recentlyWatchedAction";
@@ -10,6 +10,7 @@ import { AiFillDelete } from "react-icons/ai";
 function Container({ Data = [], heading, page, Icon,len }) {
   const { theme, loading, watchList } = useSelector((state) => state);
   console.log(Data);
+  const dispatch = useDispatch()
   const clearWatch = () => {
     dispatch(clearMyWatchList());
   };
@@ -44,7 +45,7 @@ function Container({ Data = [], heading, page, Icon,len }) {
             : "Anime"}
         </span>
         {heading == "Recently Watched" ? (
-          <div className="absolute cursor-pointer px-4 top-0 right-0">
+          <div className="absolute cursor-pointer px-4 right-0">
             <div
               className={`${theme.button.background} ${theme.button.text} h-10 w-10  rounded-full flex  p-2.5 shadow-2xl relative right-0`}
               id="deletewatchlist"
