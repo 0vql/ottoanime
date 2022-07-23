@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import Layout from "../../components/Layout";
 import WatchingContainer from "../../components/watch/watchingContainer";
 import { asyncDataAction } from "../../redux/actions/asyncDataAction";
-import { NextSeo } from 'next-seo';
-
 
 
 
@@ -35,9 +33,9 @@ const Recently = () => {
   
 
   return (
-    <NextSeo title={"Watching " + slug?.[0]}>
+    <Layout title={"Watching " + slug?.[0]}>
       {slug && <WatchingContainer data={data} slug={slug} />}
-    </NextSeo>
+    </Layout>
   );
 };
 
