@@ -43,10 +43,10 @@ const DetailsContainer = ({ id }) => {
 
     </div>
       <div
-        className={`background-transparent w-full ${theme.text.selected} lg:text-white py-2 lg:py-8 flex justify-center lg:absolute lg:top-[5.5rem] `}
+        className={`background-transparent w-full ${theme.text.selected} lg:text-white py-2 lg:py-8 flex justify-center lg:absolute lg:top-[4.2rem] `}
       >
         <div className={`w-full flex flex-col justify-center items-center lg:flex-row lg:justify-center lg:items-stretch  `}>
-          <div className="rounded-lg w-8/12 lg:w-auto h-fit my-8 lg:my-0 shadow-2xl">
+          <div className="rounded-lg w-8/12 lg:w-auto h-fit my-1 lg:my-0 shadow-2xl">
             <img
               src={data.image_url}
               alt={data.title}
@@ -64,7 +64,7 @@ const DetailsContainer = ({ id }) => {
               <span className="font-bold text-1xl  md:text-5xl  ">
                 {data.title}
                 <div
-                  className={`${theme.line} h-0.5 mx-2 my-1 w-1/3 rounded-full`}
+                  className={`${theme.line} h-0.5 mx-2 mt-[4rem] w-1/3 rounded-full`}
                 />
               </span>
               <span

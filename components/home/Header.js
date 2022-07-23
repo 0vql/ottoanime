@@ -11,7 +11,9 @@ height: 49.2vw;
 min-height: 500px;
 filter: brightness(0.4) drop-shadow(2px 4px 6px black);
 object-fit:cover;
-width:100%
+width:100%;
+background: linear-gradient(rgb(0 0 0 / 55%),rgb(0 0 0)) , url(https://wallpapercave.com/wp/wp7080641.jpg)no-repeat;
+    background-position: 49% 41%;
 }
   
     
@@ -34,11 +36,10 @@ const Header = () => {
   return (
     <HeaderContainer>
       <div className="h-full">
-        <MovieImg src="/bg-anime3.jpg" alt="Picture of the author" />
+        <MovieImg src="" alt="Picture of the author" />
         <div className="relative h-full text-white flex w-full flex-col justify-center max-w-sm lg:max-w-3xl mx-auto gap-6 ">
           <h1 className="text-2xl xl:text-[4rem] leading-none font-bold">
-            Watch Free Anime Videos Enjoy your unlimited anime
-            collection.
+            Watch Free Anime Videos Enjoy your unlimited anime collection.
           </h1>
           <div>
             <p className="text-center text-gray-300 font-lighter lg:text-2xl">

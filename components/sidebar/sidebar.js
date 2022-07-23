@@ -17,7 +17,7 @@ const Sidebar = ({ visit }) => {
   return (
     <>
       <div
-        className={`${theme.background} fixed w-full top-0 p-8 shadow-2xl justify-between z-50 lg:p-8 `}
+        className={`${theme.background} fixed w-full top-0 py-8 px-2 shadow-2xl justify-between z-50 lg:p-8 `}
       >
         <Sidenav
           visit={visit}

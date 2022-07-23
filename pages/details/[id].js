@@ -19,11 +19,11 @@ const Details = () => {
   }, [id]);
 
   return (
-    <Layout title={data.title + " | " + "AniMeXStream"}>
-    <div className="w-full justify-center items-center min-h-screen mx-auto lg:h-full  lg:w-full mt-20">
+    
+    <div className="w-full justify-center items-center min-h-screen mx-auto lg:h-full">
       {data && <DetailsContainer id={id} data={data[0]} />}
     </div>
-    </Layout>
+    
   );
 };
 
