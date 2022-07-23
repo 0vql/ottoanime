@@ -23,7 +23,7 @@ const Popular = () => {
 
   return (
     <Layout title={"Popular"}>
-      <Container Data={data} heading={"Popular"} Icon={Discover[1].icon} page={[pages]} />
+      <Container Data={data} heading={"Popular"} Icon={Discover[1].icon} page={[pages]} len={data.length}/>
     </Layout>
   );
 };

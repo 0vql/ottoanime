@@ -7,7 +7,7 @@ import { AiFillDelete } from "react-icons/ai";
 
 
 
-function Container({ Data = [], heading, page, Icon }) {
+function Container({ Data = [], heading, page, Icon,len }) {
   const { theme, loading, watchList } = useSelector((state) => state);
   console.log(Data);
   const clearWatch = () => {
@@ -63,7 +63,7 @@ function Container({ Data = [], heading, page, Icon }) {
           <Card {...item} key={index} heading={heading} />
         ))}
       </div>
-      {page ? <PagiNation page={page} heading={"Page"} /> : null}
+      {page ? <PagiNation page={page} heading={"Page"} len={len} /> : null}
     </>
   ) : (
     <div className={` flex flex-col h-screen  w-full text-lg`}>

@@ -16,6 +16,7 @@ const WatchingContainer = ({ data, slug, episodes_num }) => {
   const [image , setImage] = useState("")
   const [title , setTitle] = useState("")
   const dispatch = useDispatch();
+  const [total,setTotal] = useState("")
 
   useEffect(() => {
     fetchEpisodesList();
@@ -36,6 +37,7 @@ const WatchingContainer = ({ data, slug, episodes_num }) => {
     setAnimeData(res?.data)
     setImage(res.data.image_url)
     setTitle(res.data.title)
+    setTotal(res.data.episodes)
     
   };
 
@@ -81,7 +83,7 @@ const WatchingContainer = ({ data, slug, episodes_num }) => {
       <PagiNation
         page={[slug[0], slug[1]]}
         heading={"Ep"}
-        total={episodes_num}
+        total={total}
       />
     </div>
   );

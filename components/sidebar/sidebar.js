@@ -1,18 +1,23 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { CgMenuHotdog } from "react-icons/cg";
+import {FaArrowLeft} from "react-icons/fa";
 import Sidenav from "./sidenav";
 import Search from "./search";
 import Image from "next/image";
+import { useRouter } from 'next/router'
+
 import Link from "next/link";
 const Sidebar = ({ visit }) => {
   const { theme } = useSelector((state) => state);
   const [show, setShow] = useState(false);
+  const router = useRouter()
+
 
   return (
     <>
       <div
-        className={`${theme.background} fixed w-full top-0 p-8 shadow-2xl justify-between z-50 lg:p-8 lg:bg-transparent`}
+        className={`${theme.background} fixed w-full top-0 p-8 shadow-2xl justify-between z-50 lg:p-8 `}
       >
         <Sidenav
           visit={visit}
@@ -44,6 +49,11 @@ const Sidebar = ({ visit }) => {
               setShow(true);
             }}
             className={`${theme.button.background} cursor-pointer ${theme.button.text} absolute left-0 rounded-full p-1  `}
+          />
+          <FaArrowLeft
+            size={35}
+            onClick={() => router.back()}
+            className={`${theme.button.background} cursor-pointer ${theme.button.text} absolute left-[3rem] rounded-full p-1  `}
           />
           <Search />
         </div>

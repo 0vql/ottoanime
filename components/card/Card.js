@@ -108,6 +108,7 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
           heading == "New Season" ||
           heading == "Genres" ||
           heading == "My List" ||
+          heading == "Showing Results for" ||
           heading == "Movies" ? (
             <Episode className="text-[13px] md:text-md"> {released}</Episode>
           ) : (

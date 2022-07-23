@@ -6,6 +6,7 @@ import {
   AiTwotoneThunderbolt,
 } from "react-icons/ai";
 import { FaEye, FaDonate } from "react-icons/fa";
+import {BiShowAlt,BiMoviePlay} from "react-icons/bi"
 
 export const Discover = [
   {
@@ -30,13 +31,13 @@ export const Discover = [
     index: 3,
     name: "Movies",
     link: "/movies/1",
-    icon: AiTwotoneThunderbolt,
+    icon: BiMoviePlay,
   },
   {
     index: 4,
     name: "Recently Watched",
     link: "/recentlyWatched/",
-    icon: FaEye,
+    icon: BiShowAlt,
   },
   {
     index: 5,

@@ -23,7 +23,7 @@ const Season = () => {
 
   return (
     <Layout title={"New Season"}>
-      <Container Data={data} heading={"New Season"} Icon={Discover[1].icon} page={[pages]} />
+      <Container Data={data} heading={"New Season"} Icon={Discover[1].icon} page={[pages]} len={data.length}/>
     </Layout>
   );
 };

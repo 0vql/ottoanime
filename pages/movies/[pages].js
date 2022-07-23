@@ -23,7 +23,7 @@ const Movies = () => {
 
   return (
     <Layout title={"Movies"}>
-      <Container Data={data} heading={"Movies"} Icon={Discover[1].icon} page={[pages]} />
+      <Container Data={data} heading={"Movies"} Icon={Discover[1].icon} page={[pages]} len={data.length}/>
     </Layout>
   );
 };

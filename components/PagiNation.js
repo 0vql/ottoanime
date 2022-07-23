@@ -25,7 +25,7 @@ const PageButton = ({ href, children, style }) => {
   );
 };
 
-const PagiNation = ({ total, heading }) => {
+const PagiNation = ({ len, total, heading }) => {
   const router = useRouter();
   const pathList = router.asPath;
   const path = pathList?.split("/");
@@ -57,12 +57,14 @@ const PagiNation = ({ total, heading }) => {
           {heading} {page - 1}
         </PageButton>
       )}
-      {page != total ? (
+      {len < 20 ? (
+        ""
+      ) : (
         <PageButton style={"absolute right-12"} href={nxt} pre={false}>
           {heading} {page + 1}
           <BiRightArrowAlt size={20} />
         </PageButton>
-      ) : null}
+      )}
     </div>
   );
 };

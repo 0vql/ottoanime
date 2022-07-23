@@ -27,6 +27,7 @@ const Search = () => {
         heading={"Showing Results for"}
         page={pages}
         Icon={FaSearch}
+        len={data.length}
       />
     </Layout>
   );

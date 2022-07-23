@@ -31,7 +31,6 @@ const EpisodePagiNation = ({ total, heading }) => {
   const pathList = location.pathname;
   const path = pathList?.split("/");
   const page = parseInt(path?.[path?.length - 1]);
-  const { animeid, episode_num } = useParams();
   var nxt = "";
   var prev = "";
   if (path) {

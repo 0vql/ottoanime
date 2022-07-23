@@ -17,13 +17,13 @@ const Sidenav = ({ onClick, show, visit }) => {
   return (
     <div
       className={` fixed  ${
-        show ? "flex max-w-full overflow-y-scroll  " : "max-w-0 overflow-hidden "
+        show ? "flex max-w-full overflow-y-scroll w-[36vh] " : "max-w-0 overflow-hidden "
       } h-full left-0 top-0 z-50  ${
         theme.background
       } transition-all duration-6000 ease-in-out shadow-2xl`}
     >
       <div
-        className={`flex flex-col w-48 space-x-2 m-4 whitespace-nowrap ${theme.background}`}
+        className={`flex flex-col w-full space-x-2 m-4 whitespace-nowrap ${theme.background}`}
       >
         <div className=" flex w-full justify-between items-center">
           <Toggle />
@@ -38,6 +38,7 @@ const Sidenav = ({ onClick, show, visit }) => {
 
         <NavContainer links={Discover} heading={"Discover"} />
         <NavContainer links={Genre} heading={"Genres"} />
+        
         <span
           className={`${theme.text.notselected} text-lg pb-10 px-4 w-full justify-start  flex items-center `}
         >

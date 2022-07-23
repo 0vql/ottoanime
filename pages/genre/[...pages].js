@@ -26,6 +26,7 @@ const Genres = () => {
         Icon={AiFillPlayCircle}
         heading={"Genres"}
         page={pages}
+        len={data.length}
       />
     </Layout>
   );
