@@ -1,8 +1,29 @@
+import Layout from "../components/Layout";
+import Container from "../components/card/Container";
 
-function testing() {
-  return (
-    <div className="h-full w-full text-black">testing</div>
-  )
+export async function getServerSideProps(ctx) {
+  const req = await fetch("https://ottogo.vercel.app/api/recently/1");
+  const res = await req.json();
+
+  return {
+    props: {
+      data: res,
+    },
+  };
 }
 
-export default testing
+function testing({ data }) {
+  return (
+    <Layout title="gogogoggo">
+      <div className="h-full w-full text-black">
+      <Container
+        Data={data}
+        heading={"Recently Added"}
+        
+      />
+      </div>
+    </Layout>
+  );
+}
+
+export default testing;

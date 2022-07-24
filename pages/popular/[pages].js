@@ -5,25 +5,34 @@ import Container from "../../components/card/Container";
 import Layout from "../../components/Layout";
 import { asyncDataAction } from "../../redux/actions/asyncDataAction";
 import { URL } from "../../utils/URLS";
-import {Discover} from "../../utils/data"
-const Popular = () => {
-  const { data } = useSelector((state) => state);
+import { Discover } from "../../utils/data";
+
+export async function getServerSideProps(ctx) {
+ 
+  const pages = ctx.query.pages;
+  var PopularURL = URL.POPULAR + pages;
+  const req = await fetch(PopularURL);
+  const res = await req.json();
+
+  return {
+    props: {
+      data: res,
+    },
+  };
+}
+
+const Popular = ({ data }) => {
   const router = useRouter();
   const { pages } = router.query;
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (pages) {
-      var PopularURL = URL.POPULAR + pages;
-
-      dispatch(asyncDataAction(PopularURL));
-    }
-    console.log(data)
-  }, [pages]);
-
   return (
     <Layout title={"Popular"}>
-      <Container Data={data} heading={"Popular"} Icon={Discover[1].icon} page={[pages]} len={data.length}/>
+      <Container
+        Data={data}
+        heading={"Popular"}
+        Icon={Discover[1].icon}
+        page={[pages]}
+        len={data.length}
+      />
     </Layout>
   );
 };
