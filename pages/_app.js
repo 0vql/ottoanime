@@ -38,6 +38,8 @@ const App = ({ Component, pageProps }) => {
   return (
     <div className={`${theme.background}  `}>
       <Head>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3357173685448212"
+     crossorigin="anonymous"></script>
         <link rel="icon" href={"/shuriken.svg"} />
         <link rel="manifest" href="/manifest.json" />
 
