@@ -21,7 +21,7 @@ const Link2 = ({ theme, href, name, Icon }) => {
         <span
           className={`${theme.text.selected} ${theme.border.selected} cursor-pointer my-0.5 p-1 items-center flex flex-row  border  rounded-full`}
         >
-          <Icon size={13} style={{ margin: "0px 10px",color:name=="My List"?"red":theme.text.selected }} />
+          <Icon size={13} style={{ margin: "0px 10px"}} />
           {name}
         </span>
       ) : (
@@ -29,7 +29,7 @@ const Link2 = ({ theme, href, name, Icon }) => {
           className={`${theme.text.notselected} cursor-pointer my-0.5 p-1 items-center flex flex-row  border border-transparent rounded-full`}
           border={theme.border}
         >
-          <Icon size={12} style={{ margin: "0px 10px",color:name=="My List"?"red":theme.text.selected }} />
+          <Icon size={12} style={{ margin: "0px 10px"}} />
           {name}
         </InSpan>
       )}

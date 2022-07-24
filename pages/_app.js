@@ -38,33 +38,23 @@ const App = ({ Component, pageProps }) => {
   return (
     <div className={`${theme.background}  `}>
       <Head>
-        <meta charset="utf-8" />
         <link rel="icon" href={"/shuriken.svg"} />
         <link rel="manifest" href="/manifest.json" />
-        <link
-          rel="apple-touch-icon"
-          sizes="57x57"
-          href="/favico/apple-icon-57x57.png"
-        />
-        
-        <meta name="msapplication-TileColor" content="#ffffff" />
-        <meta
-          name="msapplication-TileImage"
-          content="/favico/ms-icon-144x144.png"
-        />
-        <meta name="theme-color" content="#1a1c20" />
+
+        <meta property="og:title" content="AniMex Stream | Watch HD Animes." />
+        <meta name="apple-mobile-web-app-title" content="AniMexStream" />
+        <meta property="og:image" content="/static/img/icon-192x192.png " />
+        <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
+        <meta
+          property="og:description"
+          content="Watch Anime for free in HD quality with English subbed or dubbed."
+        />
         <meta
           name="description"
-          content="Premium anime streaming experience "
-        />
-        <meta
-          name="keywords"
-          content="Watching,Popular,Streaming,Free,Fast,1080p,"
+          content="Watch Anime for free in HD quality with English subbed or dubbed."
         />
       </Head>
-      
 
       <Sidebar visit={visit} />
       <div className="flex justify-center">
@@ -78,7 +68,7 @@ const App = ({ Component, pageProps }) => {
 const MYapp = ({ Component, pageProps }) => (
   <Provider store={Store}>
     <PersistGate loading={null} persistor={Persistor}>
-    <NextProgress delay={300} height={5} options={{ showSpinner: false }} />
+      <NextProgress delay={300} height={5} options={{ showSpinner: false }} />
       <App Component={Component} pageProps={pageProps} />
     </PersistGate>
   </Provider>

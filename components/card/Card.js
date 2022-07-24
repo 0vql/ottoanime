@@ -123,6 +123,7 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
           <MovieImg
             className="w-full object-cover rounded-xl h-[11rem]  xl:h-70 md:h-72 lg:h-66"
             onLoad={() => setLoaded(true)}
+            lazy="loading"
 
             src={image_url}
             alt={title}

@@ -4,24 +4,28 @@ import { useDispatch, useSelector } from "react-redux";
 import Container from "../../components/card/Container";
 import Layout from "../../components/Layout";
 import { asyncDataAction } from "../../redux/actions/asyncDataAction";
-import {Discover} from "../../utils/data"
-
+import { Discover } from "../../utils/data";
 import { URL } from "../../utils/URLS";
-const Recently = () => {
-  const { data } = useSelector((state) => state);
+
+export async function getServerSideProps(ctx) {
+  const pages = ctx.query.pages;
+  var PopularURL = URL.RECENT + pages;
+  const req = await fetch(PopularURL);
+  const res = await req.json();
+
+  return {
+    props: {
+      data: res,
+    },
+  };
+}
+
+const Recently = ({ data }) => {
   const router = useRouter();
   const { pages } = router.query;
-  const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (pages) {
-      var RecentlyAddedURL = URL.RECENT + pages;
-      dispatch(asyncDataAction(RecentlyAddedURL));
-    }
-  }, [pages]);
-  
   return (
-  <Layout>
+    <Layout title={`Recently ${pages}`}>
       <Container
         Data={data}
         heading={"Recently Added"}
