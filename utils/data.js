@@ -45,13 +45,7 @@ export const Discover = [
     link: "/myList",
     icon: AiFillHeart,
   },
-  ,
-  {
-    index: 2,
-    name: "Testing",
-    link: "/testing",
-    icon: AiFillHeart,
-  },
+  
   
 
 

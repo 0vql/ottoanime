@@ -12,24 +12,34 @@ const Link2 = ({ theme, href, name, Icon }) => {
   const router = useRouter();
   const H = href.split("/");
   const H1 = H[H.length - 2];
+  const H2 = H[H.length - 1];
+
   const Path = router.asPath.split("/");
   const Pp = Path[Path.length - 2];
+  const Pr = Path[Path.length - 1]
+
   return (
     <Link href={href}>
-      {H1 == Pp ? (
+      {H1 == Pp && H2 == Pr ? (
         
         <span
           className={`${theme.text.selected} ${theme.border.selected} cursor-pointer my-0.5 p-1 items-center flex flex-row  border  rounded-full`}
         >
-          <Icon size={13} style={{ margin: "0px 10px"}} />
+          <Icon size={13}  style={{
+              margin: "0px 10px",
+              color: name == "My List" ? "red" : theme.text.selected,
+            }} />
           {name}
         </span>
       ) : (
         <InSpan
-          className={`${theme.text.notselected} cursor-pointer my-0.5 p-1 items-center flex flex-row  border border-transparent rounded-full`}
+          className={`${theme.text.notselected} cursor-pointer my-0.5 p-1 items-center md:w-full flex flex-row  border border-transparent rounded-full`}
           border={theme.border}
         >
-          <Icon size={12} style={{ margin: "0px 10px"}} />
+          <Icon size={12} style={{
+              margin: "0px 10px",
+              color: name == "My List" ? "red" : theme.text.selected,
+            }} />
           {name}
         </InSpan>
       )}
@@ -48,7 +58,7 @@ const NavContainer = ({ links, heading }) => {
       </span>
       <div className={`bg-gray-400 rounded-full h-0.5 mx-2 w-1/12`} />
 
-      <div className={heading == "Discover" ? `text-base flex flex-col my-1.5` : `text-base flex flex-col md:grid md:grid-cols-2 my-1.5`}>
+      <div className={heading == "Discover" ? `text-base flex flex-col my-1.5` : `text-base flex flex-col md:grid md:grid-cols-2 my-1.5 md:gap-x-6`}>
         {links?.map((Item) => (
           <Link2
             href={Item.link}

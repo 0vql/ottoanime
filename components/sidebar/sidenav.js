@@ -17,7 +17,7 @@ const Sidenav = ({ onClick, show, visit }) => {
   return (
     <div
       className={` fixed  ${
-        show ? "flex max-w-full overflow-y-scroll w-[36vh] " : "max-w-0 overflow-hidden "
+        show ? "flex max-w-full overflow-y-scroll w-[40vh] " : "max-w-0 overflow-hidden "
       } h-full left-0 top-0 z-50  ${
         theme.background
       } transition-all duration-6000 ease-in-out shadow-2xl`}

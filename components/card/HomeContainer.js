@@ -26,7 +26,7 @@ function HomeContainer({ Data = [], heading, page, Icon, to }) {
     <div className="py-8">
       <div className="flex justify-between">
     <span
-          className={`${theme.text.selected} px-2 flex  font-light items-center  text-2xl`}
+          className={` px-2 flex  text-white font-light items-center  text-2xl`}
         >
           {/* {Icon ? (
             <Icon
@@ -41,9 +41,9 @@ function HomeContainer({ Data = [], heading, page, Icon, to }) {
           )} */}
           {heading}
         </span>
-        <Link href={heading == "Recently Added" || heading =="Popular" ? `/${to}/1` : `/${to}`}>
+        <Link href={heading == "Recently Added" || heading =="Trending" ? `/${to}/1` : `/${to}`}>
         <span
-          className={`${theme.text.selected} px-2 flex  font-light items-center cursor-pointer text-2xl hover:font-bold text-gray-300`}
+          className={` px-2 flex  font-light items-center cursor-pointer text-2xl hover:font-bold text-gray-300`}
         ><a>View All</a></span></Link>
         
         </div>
@@ -84,7 +84,7 @@ function HomeContainer({ Data = [], heading, page, Icon, to }) {
         },
         1624: 
         {
-          slidesPerView: 6.2,
+          slidesPerView: 7.2,
           spaceBetween: 10
         },
 

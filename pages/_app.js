@@ -3,6 +3,9 @@ import "../styles/globals.css";
 import { PersistGate } from "redux-persist/integration/react";
 import { Store, Persistor } from "../redux/store";
 import { Provider, useSelector } from "react-redux";
+import { ToastContainer, toast, Flip } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import Sidebar from "../components/sidebar/sidebar";
 import NextProgress from "next-progress";
 
@@ -34,12 +37,11 @@ const App = ({ Component, pageProps }) => {
       "background: #222; color:#4198db ;font-size:50px"
     );
     localStorage.removeItem("persist:root");
+    if (resumeId) if (resumeId) toast.info(<Msg resumeId={resumeId.data} />);
   }, []);
   return (
     <div className={`${theme.background}  `}>
       <Head>
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3357173685448212"
-     crossorigin="anonymous"></script>
         <link rel="icon" href={"/shuriken.svg"} />
         <link rel="manifest" href="/manifest.json" />
 
@@ -63,6 +65,7 @@ const App = ({ Component, pageProps }) => {
         <Navbar visit={visit} />
         <Component {...pageProps} />
       </div>
+      
     </div>
   );
 };

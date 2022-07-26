@@ -27,6 +27,7 @@
     "react-lazyload": "^3.2.0",
     "react-lines-ellipsis": "^0.15.1",
     "react-redux": "^8.0.2",
+    "react-toastify": "^9.0.7",
     "redux": "^4.2.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-persist": "^6.0.0",

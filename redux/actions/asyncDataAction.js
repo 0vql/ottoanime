@@ -14,7 +14,7 @@ export const asyncDataAction = (URL) => {
     dispatch(fetchData());
     console.log(URL);
     const result = await axios.get(URL);
-    dispatch(recieveData(result.data.json_data || result.data));
+    dispatch(recieveData(result.data));
     console.log(result.data.json_data);
     return {
       props: {

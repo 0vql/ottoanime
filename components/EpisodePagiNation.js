@@ -51,19 +51,22 @@ const EpisodePagiNation = ({ total, heading }) => {
     }
   }
   return (
-    <div className="px-8 py-2 mb-16 relative flex flex-row h-16 w-full  items-center  ">
+    <div className="px-8 py-2 relative flex flex-row h-16 w-full justify-evenly items-center  ">
       {page === 1 ? null : (
-        <PageButton style={"absolute left-12"} href={prev} pre={true}>
+        <PageButton style={"absolute left-0"} href={prev} pre={true}>
           <BiLeftArrowAlt size={20} />
           {heading} {page - 1}
         </PageButton>
       )}
       {page != total ? (
-        <PageButton style={"absolute right-12"} href={nxt} pre={false}>
+        <PageButton style={"absolute right-0"} href={nxt} pre={false}>
           {heading} {page + 1}
           <BiRightArrowAlt size={20} />
         </PageButton>
       ) : null}
+      <div className={`p-4 bg-red-500 text-white font-bold  `}>
+        Please Use AdBlock !
+      </div>
     </div>
   );
 };

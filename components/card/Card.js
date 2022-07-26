@@ -4,8 +4,7 @@ import Link from "next/link";
 import { AiFillCalendar } from "react-icons/ai";
 import Loading from "../Loading";
 import { useState } from "react";
-import LazyLoad from 'react-lazyload';
-
+import LazyLoad from "react-lazyload";
 
 const MovieWrapper = styled.a`
   display: flex;
@@ -17,7 +16,7 @@ const MovieWrapper = styled.a`
 
   &:hover {
     transform: scale(1.03);
-    // color: ${({ card }) => card.texthover};
+    color: ${({ card }) => card.texthover};
     ::after {
       transform: scaleY(1);
       opacity: 1;
@@ -33,7 +32,7 @@ const MovieWrapper = styled.a`
     border-radius: 0.8rem;
     transform: scaleY(0);
     transform-origin: top;
-    // background-color: ${({ card }) => card.bghover};
+    background-color: ${({ card }) => card.bghover};
 
     opacity: 0;
     z-index: -99;
@@ -69,8 +68,8 @@ const ImgLoading = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  max-height: 100px;
   height: 100%;
-  min-height: 300px;
   border-radius: 0.8rem;
   box-shadow: 0rem 2rem 5rem var(--shadow-color);
   transition: all 100ms cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -102,29 +101,28 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
   const theme = useSelector((state) => state.theme);
   return (
     <LazyLoad height={200} offset={200}>
-    <Link
-      href={
-        episode
-          ? `/watching/${id}/${episode}`
-          : heading === "My List"
-          ? `/details/${id}`
-          : `/details/${url}`
-      }
-    >
+      <Link
+        href={
+          episode
+            ? `/watching/${id}/${episode}`
+            : heading === "My List"
+            ? `/details/${id}`
+            : `/details/${url}`
+        }
+      >
         <MovieWrapper
-          className={`relative ${theme.card.text} ${theme.card.bghover} cursor-pointer items-center rounded-xl w-full text-center justify-start flex flex-col  `}
+          className={heading == "Trending" || heading == "Latest Uploads" || heading == "Watch List" || heading == "List"  ? "relative text-white cursor-pointer items-center rounded-xl w-full text-center justify-start flex flex-col" : `relative ${theme.card.text} ${theme.card.bghover} cursor-pointer items-center rounded-xl w-full text-center justify-start flex flex-col  `}
           card={theme.card}
         >
           {!loaded ? (
-          <ImgLoading>
-            <Loading />
-          </ImgLoading>
-        ) : null}
+            <ImgLoading>
+              <Loading />
+            </ImgLoading>
+          ) : null}
           <MovieImg
             className="w-full object-cover rounded-xl h-[11rem]  xl:h-70 md:h-72 lg:h-66"
             onLoad={() => setLoaded(true)}
             lazy="loading"
-
             src={image_url}
             alt={title}
           />
@@ -132,6 +130,7 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
           <DetailsWrapper className="justify-between h-24 md:h-28">
             <Title className="text-[13px] md:text-lg">{title}</Title>
             {heading == "Popular" ||
+            heading == "Trending" ||
             heading == "New Season" ||
             heading == "Genres" ||
             heading == "My List" ||
@@ -141,7 +140,7 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
             ) : (
               ""
             )}
-            {heading == "Recently Added" || heading == "Recently Watched" ? (
+            {heading == "Recently Added" || heading == "Recently Watched" ||  heading == "Latest Uploads" || heading == "Watch List"? (
               <>
                 <Episode>Episode {episode}</Episode>
               </>
@@ -150,8 +149,7 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
             )}
           </DetailsWrapper>
         </MovieWrapper>
-      
-    </Link>
+      </Link>
     </LazyLoad>
   );
 };

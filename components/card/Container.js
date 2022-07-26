@@ -12,7 +12,9 @@ function Container({ Data = [], heading, page, Icon, len }) {
   const clearWatch = () => {
     dispatch(clearMyWatchList());
   };
-  return Data?.length > 0 ? (
+  return loading ? (
+    <Loader />
+  ) :  Data?.length > 0 ? (
     <>
       <div className="w-10/12 my-5">
         <span

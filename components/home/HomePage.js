@@ -39,26 +39,26 @@ const HomePage = () => {
   };
 
   return (
-    <div className={`${theme.background} mx-auto lg:px-[7rem]`}>
+    <div className={`mx-auto lg:px-[7rem]`}>
       {watchList.length > 0 ? (
-        <HomeContainer Data={watchList} heading={"Recently Watched"} Icon={Discover[4].icon} to={"recentlyWatched"}/>
+        <HomeContainer Data={watchList} heading={"Watch List"} Icon={Discover[4].icon} to={"recentlyWatched"}/>
       ) : (
         ""
       )}
     <HomeContainer
             Data={dataRecently}
-            heading={"Recently Added"}
+            heading={"Latest Uploads"}
             Icon={Discover[0].icon}
             to={"recentlyadded"}
           />
           <HomeContainer
             Data={dataPopular}
-            heading={"Popular"}
+            heading={"Trending"}
             Icon={Discover[1].icon}
             to={"popular"}
           />
           {myList.length > 0 ? (
-        <HomeContainer Data={myList} heading={"My List"} Icon={Discover[2].icon} to={"myList"} />
+        <HomeContainer Data={myList} heading={"List"} Icon={Discover[2].icon} to={"myList"} />
       ) : (
         ""
       )}

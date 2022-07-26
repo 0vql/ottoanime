@@ -7,22 +7,20 @@ import { asyncDataAction } from "../../redux/actions/asyncDataAction";
 import { Discover } from "../../utils/data";
 import { URL } from "../../utils/URLS";
 
-export async function getServerSideProps(ctx) {
-  const pages = ctx.query.pages;
-  var PopularURL = URL.RECENT + pages;
-  const req = await fetch(PopularURL);
-  const res = await req.json();
-
-  return {
-    props: {
-      data: res,
-    },
-  };
-}
-
-const Recently = ({ data }) => {
+const Recently = () => {
+  const { data } = useSelector((state) => state);
   const router = useRouter();
   const { pages } = router.query;
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (pages) {
+      var RecentURL = URL.RECENT + pages;
+
+      dispatch(asyncDataAction(RecentURL));
+    }
+    console.log(data);
+  }, [pages]);
 
   return (
     <Layout title={`Recently ${pages}`}>
