@@ -91,10 +91,10 @@ const WatchingContainer = ({ data, slug }) => {
           </div>
         </div>
 
-        <div className="ifr-container flex w-full  justify-center items-center p-4 flex-col-reverse ">
+        <div className="ifr-container flex w-full  justify-center items-center p-0 md:p-4 flex-col-reverse ">
           <iframe
             className="w-full h-[380px] md:h-[500px] lg:h-[619px] drop-shadow-sm "
-            src={data.gogoserver || data.iframe}
+            src={data.iframe}
             frameBorder="0"
             allow="autoplay"
             allowFullScreen

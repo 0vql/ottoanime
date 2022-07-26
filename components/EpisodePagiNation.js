@@ -64,8 +64,8 @@ const EpisodePagiNation = ({ total, heading }) => {
           <BiRightArrowAlt size={20} />
         </PageButton>
       ) : null}
-      <div className={`p-4 bg-red-500 text-white font-bold  `}>
-        Please Use AdBlock !
+      <div className={`p-3 shadow-lg bg-red-500 text-white font-bold  `}>
+        Use AdBlock !
       </div>
     </div>
   );

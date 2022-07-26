@@ -2,9 +2,7 @@ import styled from "styled-components";
 import { useSelector } from "react-redux";
 import Link from "next/link";
 import { AiFillCalendar } from "react-icons/ai";
-import Loading from "../Loading";
 import { useState } from "react";
-import LazyLoad from "react-lazyload";
 
 const MovieWrapper = styled.a`
   display: flex;
@@ -63,17 +61,7 @@ const MovieImg = styled.img`
   }
 `;
 
-const ImgLoading = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-height: 100px;
-  height: 100%;
-  border-radius: 0.8rem;
-  box-shadow: 0rem 2rem 5rem var(--shadow-color);
-  transition: all 100ms cubic-bezier(0.645, 0.045, 0.355, 1);
-`;
+
 
 const Title = styled.span`
   width: 100%;
@@ -96,11 +84,9 @@ const DetailsWrapper = styled.div`
 `;
 
 const Card = ({ title, id, url, heading, image_url, episode, released }) => {
-  const [loaded, setLoaded] = useState(false);
 
   const theme = useSelector((state) => state.theme);
   return (
-    <LazyLoad height={200} offset={200}>
       <Link
         href={
           episode
@@ -114,14 +100,9 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
           className={heading == "Trending" || heading == "Latest Uploads" || heading == "Watch List" || heading == "List"  ? "relative text-white cursor-pointer items-center rounded-xl w-full text-center justify-start flex flex-col" : `relative ${theme.card.text} ${theme.card.bghover} cursor-pointer items-center rounded-xl w-full text-center justify-start flex flex-col  `}
           card={theme.card}
         >
-          {!loaded ? (
-            <ImgLoading>
-              <Loading />
-            </ImgLoading>
-          ) : null}
+          
           <MovieImg
             className="w-full object-cover rounded-xl h-[11rem]  xl:h-70 md:h-72 lg:h-66"
-            onLoad={() => setLoaded(true)}
             lazy="loading"
             src={image_url}
             alt={title}
@@ -150,7 +131,6 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
           </DetailsWrapper>
         </MovieWrapper>
       </Link>
-    </LazyLoad>
   );
 };
 

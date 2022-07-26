@@ -41,7 +41,7 @@ function HomeContainer({ Data = [], heading, page, Icon, to }) {
           )} */}
           {heading}
         </span>
-        <Link href={heading == "Recently Added" || heading =="Trending" ? `/${to}/1` : `/${to}`}>
+        <Link href={heading == "Latest Uploads" || heading =="Trending" ? `/${to}/1` : `/${to}`}>
         <span
           className={` px-2 flex  font-light items-center cursor-pointer text-2xl hover:font-bold text-gray-300`}
         ><a>View All</a></span></Link>
