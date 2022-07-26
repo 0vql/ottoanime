@@ -2,7 +2,8 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Layout from "../../components/Layout";
-import WatchingContainer from "../../components/watch/watchingContainer";
+import dynamic from "next/dynamic";
+const WatchingContainer = dynamic(() => import("../../components/watch/watchingContainer"));
 import { asyncDataAction } from "../../redux/actions/asyncDataAction";
 
 

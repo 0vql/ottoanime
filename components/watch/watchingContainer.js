@@ -17,6 +17,7 @@ const WatchingContainer = ({ data, slug }) => {
   const [title, setTitle] = useState("");
   const dispatch = useDispatch();
   const [ep, setEp] = useState([]);
+  const [schedule, setSchedule] = useState("");
   const ImageContainer = styled.div`
     background: linear-gradient(rgb(0 0 0 / 94%), rgb(0 0 0 / 58%)),
       url(${image}) 0% 0% / cover no-repeat fixed;
@@ -32,7 +33,11 @@ const WatchingContainer = ({ data, slug }) => {
 
   useEffect(() => {
     fetchEpisodesList();
-
+    fetchSchedule();
+    const updateTime = setInterval(() => {
+      fetchSchedule();
+    }, 60000);
+    return () => clearInterval(updateTime);
     dispatch(
       addToWatchList({
         id: slug[0],
@@ -48,7 +53,7 @@ const WatchingContainer = ({ data, slug }) => {
         time: 0,
       })
     );
-  }, [data, image]);
+  }, [data, image, schedule]);
 
   const fetchEpisodesList = async () => {
     let res = await axios.get(
@@ -61,6 +66,14 @@ const WatchingContainer = ({ data, slug }) => {
     console.log(res.data.episodes);
     console.log(animeData);
     console.log(animeData?.title);
+  };
+
+  const fetchSchedule = async () => {
+    let res = await axios.get(
+      `https://ottogo.vercel.app/api/schedule/${slug[0]}/`
+    );
+
+    setSchedule(res.data.time || "");
   };
 
   return loading ? (
@@ -87,6 +100,11 @@ const WatchingContainer = ({ data, slug }) => {
           <div className="flex w-full justify-between items-end">
             <span className={`text-white ml-0 lg:ml-10 text-3xl lg:text-3xl`}>
               {"Ep:" + slug[1]}
+            </span>
+            <span
+              className={`text-blue-400 ml-0 lg:ml-10 text-1xl lg:text-2xl`}
+            >
+              {ep == slug[1] ? schedule && "Next: " + schedule : null}
             </span>
           </div>
         </div>

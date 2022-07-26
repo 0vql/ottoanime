@@ -64,12 +64,12 @@ function HomeContainer({ Data = [], heading, page, Icon, to }) {
         },
         640: 
         {
-          slidesPerView: 3.2,
+          slidesPerView: 4.2,
           spaceBetween: 10
         },
         720: 
         {
-          slidesPerView: 3.5,
+          slidesPerView: 4.5,
           spaceBetween: 10
         },
         1024: 
