@@ -33,11 +33,6 @@ const WatchingContainer = ({ data, slug }) => {
 
   useEffect(() => {
     fetchEpisodesList();
-    fetchSchedule();
-    const updateTime = setInterval(() => {
-      fetchSchedule();
-    }, 60000);
-    return () => clearInterval(updateTime);
     dispatch(
       addToWatchList({
         id: slug[0],
@@ -53,7 +48,13 @@ const WatchingContainer = ({ data, slug }) => {
         time: 0,
       })
     );
-  }, [data, image, schedule]);
+    fetchSchedule();
+    const updateTime = setInterval(() => {
+      fetchSchedule();
+    }, 60000);
+
+    return () => clearInterval(updateTime);
+  }, [data, image]);
 
   const fetchEpisodesList = async () => {
     let res = await axios.get(
@@ -73,7 +74,7 @@ const WatchingContainer = ({ data, slug }) => {
       `https://ottogo.vercel.app/api/schedule/${slug[0]}/`
     );
 
-    setSchedule(res.data.time || "");
+    setSchedule(res.data?.time || "");
   };
 
   return loading ? (

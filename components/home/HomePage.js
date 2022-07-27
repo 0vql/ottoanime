@@ -26,7 +26,7 @@ const HomePage = () => {
     let res = await axios.get(
       "https://ottogo.vercel.app/api/recently/1/"
     );
-    setDataRecently(res.data.slice(0,13));
+    setDataRecently(res.data.slice(0,17));
     console.log(dataRecently);
   };
 
@@ -34,7 +34,7 @@ const HomePage = () => {
     let res = await axios.get(
       "https://ottogo.vercel.app/api/popular/1/"
     );
-    setDataPopular(res.data.slice(0,13));
+    setDataPopular(res.data.slice(0,17));
     console.log(dataPopular);
   };
 
