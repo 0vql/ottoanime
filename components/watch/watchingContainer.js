@@ -6,6 +6,7 @@ import { resumeAction } from "../../redux/actions/resumeAction";
 import Link from "next/link";
 import { addToWatchList } from "../../redux/actions/recentlyWatchedAction";
 import EpisodePagiNation from "../EpisodePagiNation";
+var Buffer = require("buffer/").Buffer; // note: the trailing slash is important!
 
 const axios = require("axios");
 
@@ -18,6 +19,12 @@ const WatchingContainer = ({ data, slug }) => {
   const dispatch = useDispatch();
   const [ep, setEp] = useState([]);
   const [schedule, setSchedule] = useState("");
+  const [ifr, setIfr] = useState("");
+  const [test,setTest] = useState('https://goload.io/streaming.php?id=MzgzNw==&title=One+Piece+Episode+100')
+  var s = test.split("?id=")[1].split("&")[0]
+  var r = "https://animixplay.to/api/live" + window.btoa(s + "LTXs3GrU8we9O" + window.btoa(s));
+  console.log(r)
+
   const ImageContainer = styled.div`
     background: linear-gradient(rgb(0 0 0 / 94%), rgb(0 0 0 / 58%)),
       url(${image}) 0% 0% / cover no-repeat fixed;
@@ -32,7 +39,10 @@ const WatchingContainer = ({ data, slug }) => {
   `;
 
   useEffect(() => {
+    setIfr(`https://animixplay.to/api/live` +
+    window.btoa(data.epid + "LTXs3GrU8we9O" + window.btoa(data.epid)))
     fetchEpisodesList();
+    console.log(ifr)
     dispatch(
       addToWatchList({
         id: slug[0],
@@ -113,7 +123,7 @@ const WatchingContainer = ({ data, slug }) => {
         <div className="ifr-container flex w-full  justify-center items-center p-0 md:p-4 flex-col-reverse ">
           <iframe
             className="w-full h-[380px] md:h-[500px] lg:h-[619px] drop-shadow-sm "
-            src={data.iframe}
+            src={ifr}
             frameBorder="0"
             allow="autoplay"
             allowFullScreen
