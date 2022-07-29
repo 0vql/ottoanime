@@ -20,9 +20,8 @@ const WatchingContainer = ({ data, slug }) => {
   const [ep, setEp] = useState([]);
   const [schedule, setSchedule] = useState("");
   const [ifr, setIfr] = useState("");
-  const [test,setTest] = useState('https://goload.io/streaming.php?id=MzgzNw==&title=One+Piece+Episode+100')
-  var s = test.split("?id=")[1].split("&")[0]
-  var r = "https://animixplay.to/api/live" + window.btoa(s + "LTXs3GrU8we9O" + window.btoa(s));
+  const [dataIfr,setDataIfr] = useState("")
+  var r = "https://animixplay.to/api/live" + window.btoa(dataIfr + "LTXs3GrU8we9O" + window.btoa(dataIfr));
   console.log(r)
 
   const ImageContainer = styled.div`
@@ -41,6 +40,7 @@ const WatchingContainer = ({ data, slug }) => {
   useEffect(() => {
     setIfr(`https://animixplay.to/api/live` +
     window.btoa(data.epid + "LTXs3GrU8we9O" + window.btoa(data.epid)))
+    setDataIfr(data.epid)
     fetchEpisodesList();
     console.log(ifr)
     dispatch(
@@ -123,7 +123,7 @@ const WatchingContainer = ({ data, slug }) => {
         <div className="ifr-container flex w-full  justify-center items-center p-0 md:p-4 flex-col-reverse ">
           <iframe
             className="w-full h-[380px] md:h-[500px] lg:h-[619px] drop-shadow-sm "
-            src={ifr}
+            src={ifr ? ifr : ""}
             frameBorder="0"
             allow="autoplay"
             allowFullScreen
