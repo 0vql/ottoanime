@@ -6,7 +6,7 @@ import {
   AiTwotoneThunderbolt,
 } from "react-icons/ai";
 import { FaEye, FaDonate } from "react-icons/fa";
-import {BiShowAlt,BiMoviePlay} from "react-icons/bi"
+import { BiShowAlt, BiMoviePlay } from "react-icons/bi";
 
 export const Discover = [
   {
@@ -45,11 +45,12 @@ export const Discover = [
     link: "/myList",
     icon: AiFillHeart,
   },
-  
-  
-
-
-
+  {
+    index: 7,
+    name: "Testing",
+    link: "/testing",
+    icon: BiShowAlt,
+  },
 ];
 
 const genrelist = [

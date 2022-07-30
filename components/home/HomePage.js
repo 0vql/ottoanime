@@ -1,6 +1,5 @@
 import dynamic from "next/dynamic";
 import Loader from "../Loader/Loader";
-import cheerio from "cheerio";
 
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
@@ -13,6 +12,8 @@ const axios = require("axios");
 import Container from "../card/Container";
 
 const HomePage = () => {
+  const [content, setContent] = useState([]);
+
   const [dataRecently, setDataRecently] = useState([]);
   const [dataPopular, setDataPopular] = useState([]);
   const { theme, resumeId, myList, watchList } = useSelector((state) => state);
@@ -21,7 +22,6 @@ const HomePage = () => {
   useEffect(() => {
     recentlyFetch();
     PopularFetch();
-    Testing();
   }, []);
 
   const recentlyFetch = async () => {
@@ -34,26 +34,6 @@ const HomePage = () => {
     let res = await axios.get("https://ottogo.vercel.app/api/popular/1/");
     setDataPopular(res.data.slice(0, 17));
     console.log(dataPopular);
-  };
-  const Testing = async (e) => {
-    let d = await axios.get(
-      `https://ajax.gogo-load.com/ajax/page-recent-release.html?page=1&type=1`
-    );
-    d = d.data;
-    // console.log(d);
-    const list = [];
-    var $ = cheerio.load(d);
-    $(".last_episodes .items li").each(function (index, element) {
-      let result = {};
-      let url = $(this).children("div").children("a").attr("href");
-      let title = $(this).children("div").children("a").attr("title");
-      let image = $(this).find("img").attr("src");
-      let episode = $(this).children(".episode").text();
-
-      result = { title };
-      myList.push({ title, url, image, episode });
-      console.log(list.slice(0, 19));
-    });
   };
 
   return (

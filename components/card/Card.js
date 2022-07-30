@@ -123,7 +123,7 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
             )}
             {heading == "Recently Added" || heading == "Recently Watched" ||  heading == "Latest Uploads" || heading == "Watch List"? (
               <>
-                <Episode>Episode {episode}</Episode>
+                <Episode>{episode}</Episode>
               </>
             ) : (
               ""
