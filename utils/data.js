@@ -47,8 +47,8 @@ export const Discover = [
   },
   {
     index: 7,
-    name: "Testing",
-    link: "/testing",
+    name: "Latest",
+    link: "/latest/1",
     icon: BiShowAlt,
   },
 ];
