@@ -1,9 +1,19 @@
-import Card from "./Card";
+// import Card from "./Card";
 import { useDispatch, useSelector } from "react-redux";
-import PagiNation from "../PagiNation";
-import Loader from "../Loader/Loader";
+// import PagiNation from "../PagiNation";
+// import Loader from "../Loader/Loader";
 import { clearMyWatchList } from "../../redux/actions/recentlyWatchedAction";
 import { AiFillDelete } from "react-icons/ai";
+import dynamic from 'next/dynamic'
+const Loader = dynamic(() => import("../Loader/Loader"), {
+ssr: false,
+});
+const Card = dynamic(() => import("./Card"), {
+ssr: false,
+});
+const PagiNation = dynamic(() => import("../PagiNation"), {
+ssr: false,
+});
 
 function Container({ Data = [], heading, page, Icon, len }) {
   const { theme, loading, watchList } = useSelector((state) => state);

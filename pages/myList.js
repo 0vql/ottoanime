@@ -1,8 +1,15 @@
 import Link from "next/link";
+import dynamic from 'next/dynamic'
 
 import { useSelector } from "react-redux";
-import Container from "../components/card/Container";
-import Layout from "../components/Layout";
+// import Container from "../components/card/Container";
+// import Layout from "../components/Layout";
+const Container = dynamic(() => import("../components/card/Container"), {
+ssr: false,
+});
+const Layout = dynamic(() => import("../components/Layout"), {
+ssr: false,
+});
 
 export const Emessage = ({ message }) => {
   const { theme } = useSelector((state) => state);

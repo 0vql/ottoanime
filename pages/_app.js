@@ -63,8 +63,18 @@ const App = ({ Component, pageProps }) => {
       <Sidebar visit={visit} />
       <div className="flex justify-center">
         <Navbar visit={visit} />
-        <Component {...pageProps} />
+
+         <Component {...pageProps} />
       </div>
+      <ToastContainer
+        position={"top-center"}
+        onClick={() =>
+          router.push(`/watching/${resumeId.data[0]}/${resumeId.data[1]}`)
+        }
+        autoClose={5000}
+        transition={Flip}
+        draggablePercent={30}
+      />
       
     </div>
   );
@@ -72,10 +82,16 @@ const App = ({ Component, pageProps }) => {
 
 const MYapp = ({ Component, pageProps }) => (
   <Provider store={Store}>
-    <PersistGate loading={null} persistor={Persistor}>
+              <PersistGate loading={null} persistor={Persistor}>
+              {() => (
+                <>
+
       <NextProgress delay={300} height={5} options={{ showSpinner: false }} />
-      <App Component={Component} pageProps={pageProps} />
-    </PersistGate>
+      <App Component={Component} pageProps={pageProps} /></>)
+            }
+
+            </PersistGate>
+
   </Provider>
 );
 export default MYapp;
