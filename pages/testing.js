@@ -15,8 +15,8 @@ const axios = require("axios");
 //   };
 // }
 
-function testing() {
-  const [content, setContent] = useState([])
+function Testing() {
+  const [content, setContent] = useState([]);
   useEffect(() => {
     Fetching();
   }, []);
@@ -37,24 +37,24 @@ function testing() {
       let episode = $(this).children(".episode").text();
 
       result = { title, url, image, episode };
-      myList.push(result)
+      myList.push(result);
       console.log(myList);
     });
-    setContent(myList)
+    setContent(myList);
   };
   return (
     <Layout title="gogogoggo">
       <div className="h-full w-full text-black">
-        {content.map((c,index) => (
-         <div className="text-white" key={index}>
-          <h1>{c.title}</h1>
-          <img src={c.image} />
-          <p>{c.episode}</p>
-         </div>
+        {content.map((c, index) => (
+          <div className="text-white" key={index}>
+            <h1>{c.title}</h1>
+            <img src={c.image} />
+            <p>{c.episode}</p>
+          </div>
         ))}
       </div>
     </Layout>
   );
 }
 
-export default testing;
+export default Testing;
