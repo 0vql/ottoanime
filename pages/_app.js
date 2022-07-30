@@ -5,6 +5,8 @@ import { Store, Persistor } from "../redux/store";
 import { Provider, useSelector } from "react-redux";
 import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import countapi from "countapi-js";
+
 
 import Sidebar from "../components/sidebar/sidebar";
 import NextProgress from "next-progress";
@@ -38,6 +40,11 @@ const App = ({ Component, pageProps }) => {
     );
     localStorage.removeItem("persist:root");
     if (resumeId) if (resumeId) toast.info(<Msg resumeId={resumeId.data} />);
+    countapi
+      .update("animexstream.xyz", "b8a07b95-bbf6-44f1-b256-c15c5794201a", 1)
+      .then((result) => {
+        setVisit(result.value);
+      });
   }, []);
   return (
     <div className={`${theme.background}  `}>
@@ -83,14 +90,14 @@ const App = ({ Component, pageProps }) => {
 const MYapp = ({ Component, pageProps }) => (
   <Provider store={Store}>
               <PersistGate loading={null} persistor={Persistor}>
-              {() => (
-                <>
+            {() => (
+            <>
+            <NextProgress delay={300} height={5} options={{ showSpinner: false }} /> 
+            <App Component={Component} pageProps={pageProps} />
+      </>)}
+      </PersistGate>
+            
 
-      <NextProgress delay={300} height={5} options={{ showSpinner: false }} />
-      <App Component={Component} pageProps={pageProps} /></>)
-            }
-
-            </PersistGate>
 
   </Provider>
 );
