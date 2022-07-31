@@ -25,8 +25,8 @@ const HomePage = () => {
   }, []);
 
   const recentlyFetch = async () => {
-    let res = await axios.get("https://ottogo.vercel.app/api/recently/1/");
-    setDataRecently(res.data.slice(0, 17));
+    let res = await axios.get("https://ottogo.vercel.app/api/latest/1/");
+    setDataRecently(res.data.slice(0, 12));
     console.log(dataRecently);
   };
 
@@ -39,18 +39,20 @@ const HomePage = () => {
   return (
     <div className={`mx-auto lg:px-[7rem]`}>
       {watchList.length > 0 ? (
-        <Container
+        <HomeContainer
           Data={watchList}
           heading={"Watch List"}
           Icon={Discover[4].icon}
+          to={`recentlyWatched`}
         />
       ) : (
         ""
       )}
-      <Container
+      <HomeContainer
         Data={dataRecently}
         heading={"Latest Uploads"}
         Icon={Discover[0].icon}
+        to={`recentlyadded/1`}
       />
       <HomeContainer
         Data={dataPopular}

@@ -90,7 +90,7 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
       <Link
         href={
           episode
-            ? `/watching/${id}/${episode}`
+            ? `/watching/${id}/${episode.replace('Episode','').replace(' ','')}`
             : heading === "My List"
             ? `/details/${id}`
             : `/details/${url}`

@@ -5,6 +5,8 @@ import DetailsContainer from "../../components/Details/detailsContainer";
 import Layout from "../../components/Layout";
 import { asyncDataAction } from "../../redux/actions/asyncDataAction";
 import { URL } from "../../utils/URLS";
+import Head from "next/head";
+
 const Details = () => {
   const { data } = useSelector((state) => state);
   const {
@@ -21,6 +23,13 @@ const Details = () => {
   return (
     
     <div className="w-full justify-center items-center min-h-screen mx-auto lg:h-full">
+      <Head>
+        <title>{data.title}</title>
+        <meta property="og:title" content={data.title} key={data.title} />
+
+        <meta property="og:description" content={data.plot_summary} />
+      </Head>
+
       {data && <DetailsContainer id={id} data={data[0]} />}
     </div>
     

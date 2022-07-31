@@ -22,7 +22,9 @@ function Container({ Data = [], heading, page, Icon, len }) {
   const clearWatch = () => {
     dispatch(clearMyWatchList());
   };
-  return Data?.length > 0 ? (
+  return loading ? (
+    <Loader />
+  ) :  Data?.length > 0 ? (
     <>
       <div className="w-10/12 my-5">
         <span
@@ -63,7 +65,7 @@ function Container({ Data = [], heading, page, Icon, len }) {
         ) : null}
       </div>
 
-      <div className="grid grid-cols-3  w-full px-2 my-6  gap-2  justify-center  md:grid-cols-4 xl:grid-cols-6 lg:px-16 lg:my-16   2xl:grid-cols-7 xl:gap-[0.5rem]">
+      <div className="grid grid-cols-3  w-full px-2 my-6  gap-2  justify-center  md:grid-cols-4 xl:grid-cols-6 lg:px-16 lg:my-16   2xl:grid-cols-6 xl:gap-[1rem]">
         {Data?.map((item, index) => (
           <Card {...item} key={index} heading={heading} />
         ))}

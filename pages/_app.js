@@ -52,19 +52,9 @@ const App = ({ Component, pageProps }) => {
         <link rel="icon" href={"/shuriken.svg"} />
         <link rel="manifest" href="/manifest.json" />
 
-        <meta property="og:title" content="AniMex Stream | Watch HD Animes." />
-        <meta name="apple-mobile-web-app-title" content="AniMexStream" />
-        <meta property="og:image" content="/static/img/icon-192x192.png " />
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta
-          property="og:description"
-          content="Watch Anime for free in HD quality with English subbed or dubbed."
-        />
-        <meta
-          name="description"
-          content="Watch Anime for free in HD quality with English subbed or dubbed."
-        />
+       
       </Head>
 
       <Sidebar visit={visit} />
