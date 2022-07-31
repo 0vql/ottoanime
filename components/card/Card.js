@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import Link from "next/link";
 import { AiFillCalendar } from "react-icons/ai";
 import { useState } from "react";
+import Image from "next/image"
 
 const MovieWrapper = styled.a`
   display: flex;
@@ -44,7 +45,7 @@ const Episode = styled.span`
   color: #878080;
 `;
 
-const MovieImg = styled.img`
+const MovieImg = styled.div`
   width: 100%;
   max-height: 100%;
   object-fit: "contain";
@@ -101,13 +102,15 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
           card={theme.card}
         >
           
-          <MovieImg
+          {/* <MovieImg
             className="w-full object-cover rounded-xl h-[11rem]  xl:h-70 md:h-72 lg:h-66"
             lazy="loading"
             src={image_url}
             alt={title}
-          />
-
+          > */}
+          <MovieImg>
+            <Image src={image_url} className="w-full object-cover rounded-xl h-[11rem]  xl:h-70 md:h-72 lg:h-66"  layout="fill" objectFit="cover" />
+            </MovieImg>
           <DetailsWrapper className="justify-between h-24 md:h-28">
             <Title className="text-[13px] md:text-lg">{title}</Title>
             {heading == "Popular" ||

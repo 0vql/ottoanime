@@ -21,7 +21,7 @@ background: linear-gradient(rgb(0 0 0 / 62%),rgb(0 0 0)) ,url(https://i.pinimg.c
 const HeaderContainer = styled.div`
     display: block;
     width: 100%;
-    height: 10vh;
+    height: 100vh;
     min-height: 500px;
     overflow: hidden;
 }
