@@ -10,7 +10,7 @@ var Buffer = require("buffer/").Buffer; // note: the trailing slash is important
 
 const axios = require("axios");
 
-const WatchingContainer = ({ data, slug }) => {
+const WatchingContainer = ({ data, slug,frame }) => {
   const Myref = useRef(null);
   const { theme, loading, resumeId, watchList } = useSelector((state) => state);
   const [animeData, setAnimeData] = useState([]);
@@ -87,9 +87,7 @@ const WatchingContainer = ({ data, slug }) => {
     setSchedule(res.data?.time || "");
   };
 
-  return loading ? (
-    <Loader />
-  ) : (
+  return (
     <>
       <ImageContainer></ImageContainer>
       <div className="relative flex justify-center items-center mx-auto text-center flex-col lg:h-full w-full lg:w-[960px] px-2 ">
@@ -123,7 +121,7 @@ const WatchingContainer = ({ data, slug }) => {
         <div className="ifr-container flex w-full  justify-center items-center p-0 md:p-4 flex-col-reverse ">
           <iframe
             className="w-full h-[380px] md:h-[500px] lg:h-[619px] drop-shadow-sm "
-            src={ifr ? ifr : ""}
+            src={frame}
             frameBorder="0"
             allow="autoplay"
             allowFullScreen

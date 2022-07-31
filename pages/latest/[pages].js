@@ -56,12 +56,12 @@ function Latest() {
     var $ = cheerio.load(d);
     $(".items li").each(function (index, element) {
       let result = {};
-      let url = $(this).children("div").children("a").attr("href");
+      let id = $(this).children("div").children("a").attr("href").split("-episode")[0];
       let title = $(this).children("div").children("a").attr("title");
       let image_url = $(this).find("img").attr("src");
       let episode = $(this).children(".episode").text();
 
-      result = { title, url, image_url, episode };
+      result = { title, id, image_url, episode };
       myList.push(result);
       
     });

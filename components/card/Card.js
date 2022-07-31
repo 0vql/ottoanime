@@ -110,7 +110,7 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
           > */}
           <MovieImg className="w-full object-cover rounded-xl h-[11rem]  xl:h-70 md:h-72 lg:h-66">
             <div style={{width: '100%', height: '100%', position: 'relative'}}>
-            <Image src={image_url}   layout="fill" objectFit="cover" /></div>
+            <Image src={image_url ? image_url : "/bg-anime2"}   layout="fill" objectFit="cover" /></div>
             </MovieImg>
           <DetailsWrapper className="justify-between h-24 md:h-28">
             <Title className="text-[13px] md:text-lg">{title}</Title>
@@ -125,13 +125,18 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
             ) : (
               ""
             )}
-            {heading == "Recently Added" || heading == "Recently Watched" ||  heading == "Latest Uploads" || heading == "Watch List"? (
+            {heading == "Recently Added" || heading == "Recently Watched" ||  heading == "Latest Uploads" ? (
               <>
                 <Episode>{episode}</Episode>
               </>
             ) : (
               ""
             )}
+            {heading == "Watch List" ? (
+              <>
+              <Episode>{"Episode " +episode}</Episode>
+            </>
+            ) : ""}
           </DetailsWrapper>
         </MovieWrapper>
       </Link>

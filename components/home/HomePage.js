@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import Loader from "../Loader/Loader";
+import cheerio from "cheerio";
 
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
@@ -20,15 +21,37 @@ const HomePage = () => {
   // const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    recentlyFetch();
+    Fetching();
     PopularFetch();
-  }, []);
+  }, [content]);
 
-  const recentlyFetch = async () => {
-    let res = await axios.get("https://ottogo.vercel.app/api/latest/1/");
-    setDataRecently(res.data.slice(0, 12));
-    console.log(dataRecently);
+  const Fetching = async (e) => {
+    let d = await axios.get(
+      `https://ajax.gogo-load.com/ajax/page-recent-release.html?page=1&type=1`
+    );
+    d = d.data;
+    // console.log(d);
+    const myList = [];
+    var $ = cheerio.load(d);
+    $(".items li").each(function (index, element) {
+      let result = {};
+      let id = $(this).children("div").children("a").attr("href").split("-episode")[0];
+      let title = $(this).children("div").children("a").attr("title");
+      let image_url = $(this).find("img").attr("src");
+      let episode = $(this).children(".episode").text();
+
+      result = { title, id, image_url, episode };
+      myList.push(result);
+      
+    });
+    setContent(myList);
+    console.log(content)
   };
+  // const recentlyFetch = async () => {
+  //   let res = await axios.get("https://ottogo.vercel.app/api/latest/1/");
+  //   setDataRecently(res.data.slice(0, 12));
+  //   console.log(dataRecently);
+  // };
 
   const PopularFetch = async () => {
     let res = await axios.get("https://ottogo.vercel.app/api/popular/1/");
@@ -49,7 +72,7 @@ const HomePage = () => {
         ""
       )}
       <HomeContainer
-        Data={dataRecently}
+        Data={content}
         heading={"Latest Uploads"}
         Icon={Discover[0].icon}
         to={`recentlyadded/1`}
