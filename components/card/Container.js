@@ -4,15 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 // import Loader from "../Loader/Loader";
 import { clearMyWatchList } from "../../redux/actions/recentlyWatchedAction";
 import { AiFillDelete } from "react-icons/ai";
-import dynamic from 'next/dynamic'
+import dynamic from "next/dynamic";
 const Loader = dynamic(() => import("../Loader/Loader"), {
-ssr: false,
+  ssr: false,
 });
 const Card = dynamic(() => import("./Card"), {
-ssr: false,
+  ssr: false,
 });
 const PagiNation = dynamic(() => import("../PagiNation"), {
-ssr: false,
+  ssr: false,
 });
 
 function Container({ Data = [], heading, page, Icon, len }) {
@@ -24,7 +24,7 @@ function Container({ Data = [], heading, page, Icon, len }) {
   };
   return loading ? (
     <Loader />
-  ) :  Data?.length > 0 ? (
+  ) : Data?.length > 0 ? (
     <>
       <div className="w-10/12 my-5">
         <span
@@ -73,26 +73,7 @@ function Container({ Data = [], heading, page, Icon, len }) {
       {page ? <PagiNation page={page} heading={"Page"} len={len} /> : null}
     </>
   ) : (
-    <div className={` flex flex-col h-screen  w-full text-lg`}>
-      <div
-        className={`h-full ${theme.text.notselected} flex flex-col justify-center items-center`}
-      >
-        <div className="w-full flex  flex-col justify-start items-center">
-          <img
-            width={400}
-            src={theme.theme == "dark" ? "/404dark.svg" : "/404light.svg"}
-          />
-        </div>
-        <span className="py-4">
-          Nothing found for&nbsp;
-          <span
-            className={`${theme.text.selected} capitalize text-xl font-bold`}
-          >
-            {page?.[0]}
-          </span>
-        </span>
-      </div>
-    </div>
+    <Loader />
   );
 }
 
