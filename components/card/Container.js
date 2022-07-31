@@ -22,9 +22,7 @@ function Container({ Data = [], heading, page, Icon, len }) {
   const clearWatch = () => {
     dispatch(clearMyWatchList());
   };
-  return loading ? (
-    <Loader />
-  ) : Data?.length > 0 ? (
+  return Data?.length < 0 ? <Loader />: (
     <>
       <div className="w-10/12 my-5">
         <span
@@ -72,9 +70,7 @@ function Container({ Data = [], heading, page, Icon, len }) {
       </div>
       {page ? <PagiNation page={page} heading={"Page"} len={len} /> : null}
     </>
-  ) : (
-    <Loader />
-  );
+  ) 
 }
 
 export default Container;
