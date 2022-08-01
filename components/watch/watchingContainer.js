@@ -134,6 +134,7 @@ const WatchingContainer = ({ data, slug,frame }) => {
             page={[slug[0], slug[1]]}
             heading={"Ep"}
             total={ep}
+            episodeid={data.epid}
           />
         </div>
       </div>

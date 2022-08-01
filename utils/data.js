@@ -45,12 +45,6 @@ export const Discover = [
     link: "/myList",
     icon: AiFillHeart,
   },
-  {
-    index: 7,
-    name: "Latest",
-    link: "/latest/1",
-    icon: BiShowAlt,
-  },
 ];
 
 const genrelist = [

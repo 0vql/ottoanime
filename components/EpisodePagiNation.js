@@ -26,7 +26,7 @@ const PageButton = ({ href, children, style }) => {
   );
 };
 
-const EpisodePagiNation = ({ total, heading }) => {
+const EpisodePagiNation = ({ total, heading,episodeid }) => {
   const router = useRouter();
   const pathList = router.asPath;
   const path = pathList?.split("/");
@@ -64,9 +64,9 @@ const EpisodePagiNation = ({ total, heading }) => {
           <BiRightArrowAlt size={20} />
         </PageButton>
       ) : null}
-      {/* <div className={`p-3 shadow-lg bg-red-500 text-white font-bold  `}>
-        Use AdBlock !
-      </div> */}
+      <a className={`p-3 shadow-lg bg-blue-400 text-white font-bold  `} href={`https://goload.io/download?id=${episodeid}`}  target="_blank">
+          Download
+      </a>
     </div>
   );
 };

@@ -1,34 +1,53 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import Container from "../../components/card/Container";
 import Layout from "../../components/Layout";
-import { asyncDataAction } from "../../redux/actions/asyncDataAction";
+import cheerio from "cheerio";
+const axios = require("axios");
 import { Discover } from "../../utils/data";
-import { URL } from "../../utils/URLS";
 
 const Recently = () => {
-  const { data } = useSelector((state) => state);
-  const router = useRouter();
-  const { pages } = router.query;
-  const dispatch = useDispatch();
+  const [content,setContent] = useState([])
+  
 
+  const {
+    query: { pages },
+  } = useRouter();
   useEffect(() => {
-    if (pages) {
-      var RecentURL = URL.RECENT + pages;
-
-      dispatch(asyncDataAction(RecentURL));
-    }
-    console.log(data);
+    Fetching();
   }, [pages]);
+
+  const Fetching = async (e) => {
+    let d = await axios.get(
+      `https://ajax.gogo-load.com/ajax/page-recent-release.html?page=${pages}&type=1`
+    );
+    d = d.data;
+    // console.log(d);
+    const myList = [];
+    var $ = cheerio.load(d);
+    $(".items li").each(function (index, element) {
+      let result = {};
+      let id = $(this).children("div").children("a").attr("href").split("-episode")[0];
+      let title = $(this).children("div").children("a").attr("title");
+      let image_url = $(this).find("img").attr("src");
+      let episode = $(this).children(".episode").text();
+
+      result = { title, id, image_url, episode };
+      myList.push(result);
+      
+    });
+    setContent(myList);
+    console.log(content)
+  };
 
   return (
     <Layout title={`Recently ${pages}`}>
       <Container
-        Data={data}
+        Data={content}
         heading={"Recently Added"}
         page={[pages]}
         Icon={Discover[0].icon}
+        len={content.length}
       />
     </Layout>
   );
