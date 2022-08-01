@@ -10,12 +10,12 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: transparent; 
+  background: #555; 
 }
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(63, 63, 63); 
+  background: rgb(230, 216, 216); 
 }
 
 /* Handle on hover */
@@ -40,6 +40,10 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.plyr--full-ui input{
+  color:red !important;
 }
 
 lightshadow {

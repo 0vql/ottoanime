@@ -66,6 +66,8 @@ const WatchingContainer = ({ data, slug,frame }) => {
     return () => clearInterval(updateTime);
   }, [data, image]);
 
+  const myCallback = () => (console.log('Video has ended'));
+
   const fetchEpisodesList = async () => {
     let res = await axios.get(
       `https://ottogo.vercel.app/api/details/${slug[0]}/`
@@ -90,6 +92,7 @@ const WatchingContainer = ({ data, slug,frame }) => {
   return (
     <>
       <ImageContainer></ImageContainer>
+      <div />
       <div className="relative flex justify-center items-center mx-auto text-center flex-col lg:h-full w-full lg:w-[960px] px-2 ">
         <div
           className={` flex flex-col pb-2 xl:w-full justify-between items-center w-full ${theme.text.selected}   my-4`}
@@ -125,6 +128,7 @@ const WatchingContainer = ({ data, slug,frame }) => {
             frameBorder="0"
             allow="autoplay"
             allowFullScreen
+
           ></iframe>
           <EpisodePagiNation
             page={[slug[0], slug[1]]}

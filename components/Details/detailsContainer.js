@@ -39,13 +39,13 @@ const DetailsContainer = ({ id }) => {
   ) : (
     <>
     <div className="h-42 overflow-hidden">
-      <img src={data.image_url} alt="data" className="hidden lg:flex object-cover h-full max-h-[44rem] bg-center blur-[9px] brightness-[0.3] w-full "/>
+      <img src={data.image_url} alt="data" className=" fixed lg:flex object-cover h-full  bg-center blur-[9px] brightness-[0.3] w-full "/>
 
     </div>
       <div
-        className={`background-transparent w-full ${theme.text.selected} lg:text-white py-2 lg:py-8 flex justify-center lg:absolute lg:top-[4.2rem] mt-[4.8rem] md:mt-0  `}
+        className={`background-transparent w-full text-white py-2 lg:py-8 flex justify-center  mt-[4.8rem] md:mt-0  `}
       >
-        <div className={`w-full flex flex-col justify-center items-center lg:flex-row lg:justify-center lg:items-stretch  `}>
+        <div className={`w-full flex flex-col justify-center items-center lg:flex-row lg:justify-center lg:items-stretch z-[1] `}>
           <div className="rounded-lg w-8/12 lg:w-auto h-fit my-1 lg:my-0 shadow-2xl">
             <img
               src={data.image_url}
@@ -68,7 +68,7 @@ const DetailsContainer = ({ id }) => {
                 />
               </span>
               <span
-                className={`${theme.text.selected} lg:text-white  capitalize w-30 text-base font-bold text-end`}
+                className={`text-white  capitalize w-30 text-base font-bold text-end`}
               >
                 {data.type?.replaceAll("-", " ")}
               </span>
@@ -149,7 +149,9 @@ const DetailsContainer = ({ id }) => {
             </div>
           </div>
         </div>
+        
       </div>
+      
 
       <EpisodeContainer
         title={data.title}

@@ -22,16 +22,16 @@ const EpisodeContainer = ({ title, id, number, image }) => {
   };
   const theme = useSelector((state) => state.theme);
   return (
-    <div className="w-full flex flex-col px-5 max-w-full p-[3rem] lg:px-20 pt-[2rem]">
+    <div className="w-full flex flex-col px-5 max-w-full p-[3rem] lg:px-20 pt-[2rem] ">
       <span
-        className={`${theme.text.selected} flex flex-col font-bold text-3xl py-5`}
+        className={`text-white flex flex-col font-bold z-[1] text-3xl py-5`}
       >
         <span>{title}</span>
         <span className={"text-blue-500 text-lg"}>
           {number != 0 ? " 1 -" + " " + number: "Coming Soon"}
         </span>
       </span>
-      <div className="flex m-w-[65rem] flex-wrap place-content-center	lg:place-content-start w-full gap-[1rem]">
+      <div className="flex m-w-[65rem] flex-wrap justify-center lg:place-content-start w-full max-h-[450px] overflow-y-scroll z-[1] gap-[1rem]">
         {
           (myFunc(),
           myArray.reverse().map((index) => (
@@ -48,7 +48,7 @@ const EpisodeContainer = ({ title, id, number, image }) => {
                     alt={id}
                   />
                 </div> */}
-                <span className="w-2/3 flex justify-center items-center text-center h-full">
+                <span className="w-2/3 flex justify-center items-center text-center h-full ">
                   <span className={"font-semibold"}>{" " +index}</span>
                 </span>
               </EpButton>
