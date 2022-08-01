@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import Link from "next/link";
 import { AiFillCalendar } from "react-icons/ai";
 import { useState } from "react";
-import Image from "next/image"
+import Image from "next/image";
 
 const MovieWrapper = styled.a`
   display: flex;
@@ -62,8 +62,6 @@ const MovieImg = styled.div`
   }
 `;
 
-
-
 const Title = styled.span`
   width: 100%;
   overflow: hidden;
@@ -85,62 +83,75 @@ const DetailsWrapper = styled.div`
 `;
 
 const Card = ({ title, id, url, heading, image_url, episode, released }) => {
-
   const theme = useSelector((state) => state.theme);
   return (
-      <Link
-        href={
-          episode
-            ? `/watching/${id}/${episode.replace('Episode','').replace(' ','')}`
-            : heading === "My List"
-            ? `/details/${id}`
-            : `/details/${url}`
+    <Link
+      href={
+        episode
+          ? `/watching/${id}/${episode.replace("Episode", "").replace(" ", "")}`
+          : heading === "My List"
+          ? `/details/${id}`
+          : `/details/${url}`
+      }
+    >
+      <MovieWrapper
+        className={
+          heading == "Trending" ||
+          heading == "Latest Uploads" ||
+          heading == "Watch List" ||
+          heading == "List"
+            ? "relative text-white cursor-pointer items-center rounded-xl w-full text-center justify-start flex flex-col"
+            : `relative ${theme.card.text} ${theme.card.bghover} cursor-pointer items-center rounded-xl w-full text-center justify-start flex flex-col  `
         }
+        card={theme.card}
       >
-        <MovieWrapper
-          className={heading == "Trending" || heading == "Latest Uploads" || heading == "Watch List" || heading == "List"  ? "relative text-white cursor-pointer items-center rounded-xl w-full text-center justify-start flex flex-col" : `relative ${theme.card.text} ${theme.card.bghover} cursor-pointer items-center rounded-xl w-full text-center justify-start flex flex-col  `}
-          card={theme.card}
-        >
-          
-          {/* <MovieImg
+        {/* <MovieImg
             className="w-full object-cover rounded-xl h-[11rem]  xl:h-70 md:h-72 lg:h-66"
             lazy="loading"
             src={image_url}
             alt={title}
           > */}
-          <MovieImg className="w-full object-cover rounded-xl h-[11rem]  xl:h-70 md:h-72 lg:h-66">
-            <div style={{width: '100%', height: '100%', position: 'relative'}}>
-            <Image src={image_url ? image_url : "/bg-anime2"}   layout="fill" objectFit="cover" priority={true}/></div>
-            </MovieImg>
-          <DetailsWrapper className="justify-between h-24 md:h-28">
-            <Title className="text-[13px] md:text-lg">{title}</Title>
-            {heading == "Popular" ||
-            heading == "Trending" ||
-            heading == "New Season" ||
-            heading == "Genres" ||
-            heading == "My List" ||
-            heading == "Showing Results for" ||
-            heading == "Movies" ? (
-              <Episode className="text-[13px] md:text-md"> {released}</Episode>
-            ) : (
-              ""
-            )}
-            {heading == "Recently Added" || heading == "Recently Watched" ||  heading == "Latest Uploads" ? (
-              <>
-                <Episode>{episode}</Episode>
-              </>
-            ) : (
-              ""
-            )}
-            {heading == "Watch List" || heading == "Recently Watched"
-? (
-              <>
-              <Episode>{"Episode " +episode}</Episode>
+        <MovieImg className="w-full object-cover rounded-xl h-[11rem]  xl:h-70 md:h-72 lg:h-66">
+          <div style={{ width: "100%", height: "100%", position: "relative" }}>
+            <Image
+              src={image_url ? image_url : "/bg-anime2"}
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
+        </MovieImg>
+        <DetailsWrapper className="justify-between h-24 md:h-28">
+          <Title className="text-[13px] md:text-lg">{title}</Title>
+          {heading == "Popular" ||
+          heading == "Trending" ||
+          heading == "New Season" ||
+          heading == "Genres" ||
+          heading == "My List" ||
+          heading == "Showing Results for" ||
+          heading == "Movies" ? (
+            <Episode className="text-[13px] md:text-md"> {released}</Episode>
+          ) : (
+            ""
+          )}
+          {heading == "Recently Added" ||
+          heading == "Recently Watched" ||
+          heading == "Latest Uploads" ? (
+            <>
+              <Episode>{episode}</Episode>
             </>
-            ) : ""}
-          </DetailsWrapper>
-        </MovieWrapper>
-      </Link>
+          ) : (
+            ""
+          )}
+          {heading == "Watch List" || heading == "Recently Watched" ? (
+            <>
+              <Episode>{"Episode " + episode}</Episode>
+            </>
+          ) : (
+            ""
+          )}
+        </DetailsWrapper>
+      </MovieWrapper>
+    </Link>
   );
 };
 
