@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 import Container from "../../components/card/Container";
 import Layout from "../../components/Layout";
 import cheerio from "cheerio";
@@ -7,8 +7,7 @@ const axios = require("axios");
 import { Discover } from "../../utils/data";
 
 const Recently = () => {
-  const [content,setContent] = useState([])
-  
+  const [content, setContent] = useState([]);
 
   const {
     query: { pages },
@@ -27,17 +26,20 @@ const Recently = () => {
     var $ = cheerio.load(d);
     $(".items li").each(function (index, element) {
       let result = {};
-      let id = $(this).children("div").children("a").attr("href").split("-episode")[0];
+      let id = $(this)
+        .children("div")
+        .children("a")
+        .attr("href")
+        .split("-episode")[0];
       let title = $(this).children("div").children("a").attr("title");
       let image_url = $(this).find("img").attr("src");
       let episode = $(this).children(".episode").text();
 
       result = { title, id, image_url, episode };
       myList.push(result);
-      
     });
     setContent(myList);
-    console.log(content)
+    console.log(content);
   };
 
   return (
