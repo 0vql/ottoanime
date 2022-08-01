@@ -5,6 +5,7 @@ module.exports = withPWA({
   pwa: {
     dest: "public",
   },
+  spa: true,
   reactStrictMode: true,
   images: {
     domains: ["gogocdn.net"],
