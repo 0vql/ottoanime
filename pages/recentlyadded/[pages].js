@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 import Container from "../../components/card/Container";
 import Layout from "../../components/Layout";
 import cheerio from "cheerio";
@@ -45,7 +45,7 @@ const Recently = () => {
       <Container
         Data={content}
         heading={"Recently Added"}
-        page={[pages]}
+        page={pages}
         Icon={Discover[0].icon}
         len={content.length}
       />

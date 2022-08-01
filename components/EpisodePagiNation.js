@@ -63,7 +63,7 @@ const EpisodePagiNation = ({ total, heading, episodeid }) => {
           <BiRightArrowAlt size={20} />
         </PageButton>
       ) : null}
-      <div className={`p-3 shadow-lg bg-blue-400 text-white font-bold  `}>
+      <div className={`p-3 shadow-lg rounded-sm bg-blue-400 text-white font-bold cursor-pointer hover:bg-blue-600 `}>
         <a
           href={`https://goload.io/download?id=${episodeid}`}
           rel="noreferrer"
