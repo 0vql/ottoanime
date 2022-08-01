@@ -75,7 +75,7 @@ const HomePage = () => {
         Data={content}
         heading={"Latest Uploads"}
         Icon={Discover[0].icon}
-        to={`recentlyadded/1`}
+        to={`recentlyadded`}
       />
       <HomeContainer
         Data={dataPopular}

@@ -15,18 +15,17 @@ const PageButton = ({ href, children, style }) => {
   const { theme } = useSelector((state) => state);
   return (
     <Link href={href}>
-  
       <PB
         button={theme.button}
         className={`${style} ${theme.button.background} border ${theme.button.text} ${theme.button.border} p-2 px-4 flex justify-center items-center border rounded-full cursor-pointer shadow-2xl transition-all duration-500`}
       >
         {children}
       </PB>
-      </Link>
+    </Link>
   );
 };
 
-const EpisodePagiNation = ({ total, heading,episodeid }) => {
+const EpisodePagiNation = ({ total, heading, episodeid }) => {
   const router = useRouter();
   const pathList = router.asPath;
   const path = pathList?.split("/");
@@ -64,9 +63,11 @@ const EpisodePagiNation = ({ total, heading,episodeid }) => {
           <BiRightArrowAlt size={20} />
         </PageButton>
       ) : null}
-      <a className={`p-3 shadow-lg bg-blue-400 text-white font-bold  `} href={`https://goload.io/download?id=${episodeid}`}  target="_blank">
+      <div className={`p-3 shadow-lg bg-blue-400 text-white font-bold  `}>
+        <a href={`https://goload.io/download?id=${episodeid}`} target="_blank">
           Download
-      </a>
+        </a>
+      </div>
     </div>
   );
 };

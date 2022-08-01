@@ -132,7 +132,8 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
             ) : (
               ""
             )}
-            {heading == "Watch List" ? (
+            {heading == "Watch List" || heading == "Recently Watched"
+? (
               <>
               <Episode>{"Episode " +episode}</Episode>
             </>
