@@ -22,7 +22,7 @@ export default function Home() {
     <Head>
         <link rel="icon" href={"/shuriken.svg"} />
         <link rel="manifest" href="/manifest.json" />
-        <title>L3ARBI Stream</title>
+        <title>AniMex Stream</title>
         <meta property="og:title" content="AniMex Stream | Watch HD Animes." />
         <meta name="apple-mobile-web-app-title" content="AniMexStream" />
         <meta property="og:image" content="/static/img/icon-192x192.png " />
