@@ -9,10 +9,10 @@ right: 0;
 height: 100%;
 min-height: 500px;
 filter: drop-shadow(2px 4px 6px black);
-object-fit:cover;
-width:100%;
-background: linear-gradient(rgb(0 0 0 / 62%),rgb(0 0 0)) ,url(https://i.pinimg.com/originals/fb/66/f3/fb66f302df4d89b9b34a7ed21469e559.jpg)no-repeat;
-    background-position: 49% 22%;
+// object-fit:cover;
+// width:100%;
+// background: linear-gradient(rgb(0 0 0 / 62%),rgb(0 0 0)) ,url(https://i.pinimg.com/originals/fb/66/f3/fb66f302df4d89b9b34a7ed21469e559.jpg)no-repeat;
+//     background-position: 49% 22%;
 }
   
     

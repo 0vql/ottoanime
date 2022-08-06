@@ -8,12 +8,11 @@ import dynamic from "next/dynamic";
 
 function Container({ Data = [], heading, page, Icon, len }) {
   const { theme, loading, watchList } = useSelector((state) => state);
-  console.log(Data);
   const dispatch = useDispatch();
   const clearWatch = () => {
     dispatch(clearMyWatchList());
   };
-  return Data?.length > 0 ? (
+  return Data?.length > 1 ? (
     <>
       <div className="w-10/12 my-5">
         <span

@@ -17,9 +17,8 @@ SwiperCore.use([Navigation, Pagination]);
 
 function HomeContainer({ Data = [], heading, page, Icon, to }) {
   
-  console.log(Data);
   return (
-    <div className="py-8">
+    <div className="p-12">
       <div className="flex justify-between">
         <span
           className={` px-2 flex  text-white font-light items-center  text-2xl`}
@@ -43,12 +42,16 @@ function HomeContainer({ Data = [], heading, page, Icon, to }) {
               ? `/${to}/1`
               : `/${to}`
           }
-        >
+        > 
+        {heading == "Watch List" || heading == "Latest Uploads" || heading == "Trending" || heading == "My List" ? (
           <span
             className={` px-2 flex  font-light items-center cursor-pointer text-2xl hover:font-bold text-gray-300`}
           >
             <a>View All</a>
           </span>
+
+         ) : ""}
+          
         </Link>
       </div>
       <div className={`bg-gray-400 rounded-full h-0.5 mx-2 w-[2rem]`} />
@@ -86,8 +89,7 @@ function HomeContainer({ Data = [], heading, page, Icon, to }) {
             spaceBetween: 10,
           },
         }}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
+       
       >
         <div className="">
           {Data?.map((item, index) => (

@@ -66,7 +66,6 @@ function Latest() {
       
     });
     setContent(myList);
-    console.log(content)
   };
   return (
     <Layout title={"Popular " + pages?.[0]}>

@@ -22,7 +22,6 @@ const WatchingContainer = ({ data, slug,frame }) => {
   const [ifr, setIfr] = useState("");
   const [dataIfr,setDataIfr] = useState("")
   var r = "https://animixplay.to/api/live" + window.btoa(dataIfr + "LTXs3GrU8we9O" + window.btoa(dataIfr));
-  console.log(r)
 
   const ImageContainer = styled.div`
     background: linear-gradient(rgb(0 0 0 / 94%), rgb(0 0 0 / 58%)),
@@ -42,7 +41,6 @@ const WatchingContainer = ({ data, slug,frame }) => {
     window.btoa(data.epid + "LTXs3GrU8we9O" + window.btoa(data.epid)))
     setDataIfr(data.epid)
     fetchEpisodesList();
-    console.log(ifr)
     dispatch(
       addToWatchList({
         id: slug[0],
@@ -66,7 +64,6 @@ const WatchingContainer = ({ data, slug,frame }) => {
     return () => clearInterval(updateTime);
   }, [data, image]);
 
-  const myCallback = () => (console.log('Video has ended'));
 
   const fetchEpisodesList = async () => {
     let res = await axios.get(
@@ -76,9 +73,7 @@ const WatchingContainer = ({ data, slug,frame }) => {
     setImage(res.data.image_url);
     setTitle(res.data.title);
     setEp(res.data.episodes);
-    console.log(res.data.episodes);
-    console.log(animeData);
-    console.log(animeData?.title);
+    
   };
 
   const fetchSchedule = async () => {

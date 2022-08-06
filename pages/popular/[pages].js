@@ -20,7 +20,6 @@ const Popular = () => {
 
       dispatch(asyncDataAction(PopularURL));
     }
-    console.log(data);
   }, [pages]);
 
   return (

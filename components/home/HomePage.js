@@ -14,6 +14,7 @@ import Container from "../card/Container";
 
 const HomePage = () => {
   const [content, setContent] = useState([]);
+  const [onGoingPopular,setOnGoingPopular] = useState([])
 
   const [dataRecently, setDataRecently] = useState([]);
   const [dataPopular, setDataPopular] = useState([]);
@@ -23,14 +24,14 @@ const HomePage = () => {
   useEffect(() => {
     Fetching();
     PopularFetch();
-  }, [content]);
+    FetchingOnGoing()
+  }, []);
 
   const Fetching = async (e) => {
     let d = await axios.get(
       `https://ajax.gogo-load.com/ajax/page-recent-release.html?page=1&type=1`
     );
     d = d.data;
-    // console.log(d);
     const myList = [];
     var $ = cheerio.load(d);
     $(".items li").each(function (index, element) {
@@ -47,6 +48,32 @@ const HomePage = () => {
     setContent(myList);
     console.log(content)
   };
+
+  const FetchingOnGoing = async (e) => {
+    let d = await axios.get(
+      `  https://ajax.gogo-load.com/ajax/page-recent-release-ongoing.html?page=1
+      `
+    );
+    d = d.data;
+    const myList = [];
+    var $ = cheerio.load(d);
+    $(".added_series_body ul li").each(function (index, element) {
+      let result = {};
+      let url = $(this).children("a").attr("href").replace("/category/","");
+      let title = $(this).children("a").attr("title");
+      let image_url = $(this).children("a").children("div").attr("style").replace("background: url('","").replace("');","");
+
+      result = { title, url, image_url };
+      myList.push(result);
+      
+      
+    });
+    setOnGoingPopular(myList)
+    console.log(myList)
+  };
+
+
+
   // const recentlyFetch = async () => {
   //   let res = await axios.get("https://ottogo.vercel.app/api/latest/1/");
   //   setDataRecently(res.data.slice(0, 12));
@@ -56,11 +83,20 @@ const HomePage = () => {
   const PopularFetch = async () => {
     let res = await axios.get("https://ottogo.vercel.app/api/popular/1/");
     setDataPopular(res.data.slice(0, 17));
-    console.log(dataPopular);
   };
 
   return (
     <div className={`mx-auto lg:px-[7rem]`}>
+      {myList.length > 0 ? (
+        <HomeContainer
+          Data={myList}
+          heading={"List"}
+          Icon={Discover[2].icon}
+          to={"myList"}
+        />
+      ) : (
+        ""
+      )}
       {watchList.length > 0 ? (
         <HomeContainer
           Data={watchList}
@@ -78,21 +114,17 @@ const HomePage = () => {
         to={`recentlyadded`}
       />
       <HomeContainer
+        Data={onGoingPopular}
+        heading={"Popular Ongoing"}
+        Icon={Discover[0].icon}
+        to={`recentlyadded`}
+      />
+      <HomeContainer
         Data={dataPopular}
         heading={"Trending"}
         Icon={Discover[1].icon}
         to={"popular"}
       />
-      {myList.length > 0 ? (
-        <HomeContainer
-          Data={myList}
-          heading={"List"}
-          Icon={Discover[2].icon}
-          to={"myList"}
-        />
-      ) : (
-        ""
-      )}
     </div>
   );
 };
