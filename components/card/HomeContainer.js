@@ -18,7 +18,7 @@ SwiperCore.use([Navigation, Pagination]);
 function HomeContainer({ Data = [], heading, page, Icon, to }) {
   
   return (
-    <div className="p-12">
+    <div className="py-8 xl:p-12">
       <div className="flex justify-between">
         <span
           className={` px-2 flex  text-white font-light items-center  text-2xl`}
@@ -43,7 +43,7 @@ function HomeContainer({ Data = [], heading, page, Icon, to }) {
               : `/${to}`
           }
         > 
-        {heading == "Watch List" || heading == "Latest Uploads" || heading == "Trending" || heading == "My List" ? (
+        {heading == "Watch List" || heading == "Latest Uploads" || heading == "Trending" || heading == "List" ? (
           <span
             className={` px-2 flex  font-light items-center cursor-pointer text-2xl hover:font-bold text-gray-300`}
           >

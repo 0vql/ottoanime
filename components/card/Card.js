@@ -89,7 +89,7 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
       href={
         episode
           ? `/watching/${id.replace("/","")}/${episode.replace("Episode", "").replace(" ", "")}`
-          : heading === "My List"
+          : heading === "My List" || heading === "List"
           ? `/details/${id}`
           : `/details/${url}`
       }
@@ -136,7 +136,6 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
             ""
           )}
           {heading == "Recently Added" ||
-          heading == "Recently Watched" ||
           heading == "Latest Uploads" ? (
             <>
               <Episode>{episode}</Episode>

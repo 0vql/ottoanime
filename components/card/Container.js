@@ -12,9 +12,9 @@ function Container({ Data = [], heading, page, Icon, len }) {
   const clearWatch = () => {
     dispatch(clearMyWatchList());
   };
-  return Data?.length > 1 ? (
+  return Data?.length > 0 ? (
     <>
-      <div className="w-10/12 my-5">
+      <div className="w-10/12 my-5 relative">
         <span
           className={`${theme.text.selected} px-2 flex  font-light items-center  text-3xl`}
         >
@@ -40,7 +40,7 @@ function Container({ Data = [], heading, page, Icon, len }) {
             : "Anime"}
         </span>
         {heading == "Recently Watched" ? (
-          <div className="absolute cursor-pointer px-4 right-0">
+          <div className="absolute cursor-pointer px-4 right-0 top-0">
             <div
               className={`${theme.button.background} ${theme.button.text} h-10 w-10  rounded-full flex  p-2.5 shadow-2xl relative right-0`}
               id="deletewatchlist"

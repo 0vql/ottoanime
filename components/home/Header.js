@@ -21,7 +21,7 @@ filter: drop-shadow(2px 4px 6px black);
 const HeaderContainer = styled.div`
     display: block;
     width: 100%;
-    height: 80vh;
+    height: 100vh;
     min-height: 500px;
     overflow: hidden;
 }

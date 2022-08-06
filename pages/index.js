@@ -6,8 +6,8 @@ import styled from "styled-components";
 
 const IndexContainer = styled.div`
     width: 100%;
-    background: linear-gradient(rgb(0 0 0 / 62%),rgb(0 0 0)) ,url(/bg-anime3.jpg)no-repeat fixed;
-    background-position: center top;
+    background: linear-gradient(rgb(0 0 0 / 85%),rgb(0 0 0)) ,url(/bg-anime3.jpg)no-repeat fixed;
+        background-position: center top;
     background-size: cover;
    
 }
