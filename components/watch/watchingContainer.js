@@ -2,10 +2,12 @@ import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import Loader from "../Loader/Loader";
+import dynamic from 'next/dynamic'
+const EpisodePagiNation = dynamic(() => import('../EpisodePagiNation'))
 import { resumeAction } from "../../redux/actions/resumeAction";
 import Link from "next/link";
 import { addToWatchList } from "../../redux/actions/recentlyWatchedAction";
-import EpisodePagiNation from "../EpisodePagiNation";
+// import EpisodePagiNation from "../EpisodePagiNation";
 var Buffer = require("buffer/").Buffer; // note: the trailing slash is important!
 import { BsPlay } from 'react-icons/bs'
 
@@ -113,9 +115,9 @@ const WatchingContainer = ({ data, slug, frame }) => {
                 {slug[0].replaceAll("-", " ")}
               </span>
             </Link>
-            <div
+            {/* <div
               className={`bg-gray-400 rounded-full h-0.5 ml-0 lg:ml-11 w-1/12`}
-            />
+            /> */}
           </div>
           <div className="flex w-full justify-between items-end">
             

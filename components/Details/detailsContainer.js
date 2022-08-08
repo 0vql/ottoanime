@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
 import { AiFillPlayCircle } from "react-icons/ai";
-import EpisodeContainer from "./EpisodeContainer";
-import Loader from "../Loader/Loader";
+import dynamic from 'next/dynamic'
+const EpisodeContainer = dynamic(() => import('./EpisodeContainer'))
+const Loader = dynamic(() => import('../Loader/Loader'))
+
 
 import {
   addToMyList,
@@ -12,7 +14,6 @@ import {
 import { useEffect, useState } from "react";
 import Lottie from "lottie-react-web";
 import Heart from "../../public/heart.json";
-import LinesEllipsis from 'react-lines-ellipsis'
 
 
 const DetailsContainer = ({ id }) => {

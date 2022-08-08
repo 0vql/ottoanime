@@ -118,7 +118,7 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
               src={image_url ? image_url : "/bg-anime2"}
               layout="fill"
               objectFit="cover"
-              loading="eager"
+              priority={true}
             />
           </div>
         </MovieImg>
