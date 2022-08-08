@@ -41,7 +41,6 @@ function Testing() {
     setContent(myList);
   };
   return (
-    <Layout title="gogogoggo">
       <div className="h-full w-full text-black">
       <iframe
               className="w-full h-[225px] md:h-[500px] lg:h-[619px] xl:h-[610px] drop-shadow-xl "
@@ -49,9 +48,9 @@ function Testing() {
               frameBorder="0"
               allow="autoplay"
               allowFullScreen
+              sandbox="allow-same-origin allow-top-navigation allow-forms allow-scripts allow-popups"
             ></iframe>
       </div>
-    </Layout>
   );
 }
 
