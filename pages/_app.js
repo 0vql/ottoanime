@@ -57,13 +57,7 @@ const App = ({ Component, pageProps }) => {
   }, []);
   return (
     <div className={`${theme.background}  `}>
-      <Head>
-        <link rel="icon" href={"/shuriken.svg"} />
-        <link rel="manifest" href="/manifest.json" />
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-       
-      </Head>
+      
 
       <Sidebar visit={visit} />
       <div className="flex justify-center">
@@ -87,6 +81,20 @@ const App = ({ Component, pageProps }) => {
 
 const MYapp = ({ Component, pageProps }) => (
   <Provider store={Store}>
+    <Head>
+    <link rel="icon" href={"/shuriken.svg"} />
+        <link rel="manifest" href="/manifest.json" />
+        <meta property="og:title" content="AniMex Stream | Watch HD Animes." />
+        <meta name="apple-mobile-web-app-title" content="AniMexStream" />
+        <meta property="og:image" content="/static/img/icon-192x192.png " />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          property="og:description"
+          content="Watch Anime for free in HD quality with English subbed or dubbed."
+        />
+       
+      </Head>
               <PersistGate loading={null} persistor={Persistor}>
            
             <NextProgress delay={300} height={5} options={{ showSpinner: false }} /> 
