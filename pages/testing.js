@@ -17,9 +17,7 @@ const axios = require("axios");
 
 function Testing() {
   const [content, setContent] = useState([]);
-  useEffect(() => {
-    Fetching();
-  }, []);
+ 
 
   const Fetching = async (e) => {
     let d = await axios.get(
