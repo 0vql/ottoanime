@@ -99,8 +99,8 @@ const WatchingContainer = ({ data, slug, frame }) => {
 
   return (
     <>
-      <ImageContainer></ImageContainer>
-      <div />
+      {/* <ImageContainer></ImageContainer>
+      <div /> */}
       <div className="relative flex justify-center items-center mx-auto text-center flex-col lg:h-full w-full lg:w-[1100px] xl:w-[1345px] px-2 ">
         <div
           className={` flex flex-col pb-2 xl:w-full justify-between items-center w-full ${theme.text.selected}   my-4`}

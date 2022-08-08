@@ -51,6 +51,8 @@ const App = ({ Component, pageProps }) => {
       <Head>
         <link rel="icon" href={"/shuriken.svg"} />
         <link rel="manifest" href="/manifest.json" />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3357173685448212"
+     crossorigin="anonymous"></script>
 
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
