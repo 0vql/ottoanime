@@ -29,6 +29,15 @@ const Msg = ({ resumeId }) => {
   );
 };
 
+ if (
+        typeof window !== "undefined" &&
+        typeof window.navigator !== "undefined" &&
+        typeof navigator !== "undefined" &&
+        navigator.userAgent
+    ) {
+        const disableDevtool = require("disable-devtool");
+        disableDevtool();
+    }
 const App = ({ Component, pageProps }) => {
   const [visit, setVisit] = useState(0);
   const { theme, resumeId } = useSelector((state) => state);

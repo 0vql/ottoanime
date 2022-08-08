@@ -3,6 +3,8 @@ import { useRouter } from "next/router";
 import { BiRightArrowAlt, BiLeftArrowAlt } from "react-icons/bi";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
+import {FaDownload,FaBackward,FaForward} from "react-icons/fa";
+import {IoPlayForward} from "react-icons/io";
 
 const PB = styled.span`
   &:hover {
@@ -17,7 +19,7 @@ const PageButton = ({ href, children, style }) => {
     <Link href={href}>
       <PB
         button={theme.button}
-        className={`${style} ${theme.button.background} border ${theme.button.text} ${theme.button.border} p-2 px-4 flex justify-center items-center border rounded-full cursor-pointer shadow-2xl transition-all duration-500`}
+        className={`${style}    p-2 px-1 flex justify-center items-center  cursor-pointer shadow-2xl transition-all duration-500`}
       >
         {children}
       </PB>
@@ -50,30 +52,30 @@ const EpisodePagiNation = ({ total, heading, episodeid }) => {
     }
   }
   return (
-    <div className="px-8 py-2 relative flex flex-row h-16 w-full justify-evenly items-center  ">
-      {page === 1 ? null : (
-        <PageButton style={"absolute left-0"} href={prev} pre={true}>
-          <BiLeftArrowAlt size={20} />
-          {heading} {page - 1}
-        </PageButton>
-      )}
-      {page != total ? (
-        <PageButton style={"absolute right-0"} href={nxt} pre={false}>
-          {heading} {page + 1}
-          <BiRightArrowAlt size={20} />
-        </PageButton>
-      ) : null}
+    <div className="px-8  relative flex flex-row  w-full justify-end items-center  ">
       <div
-        className={`p-3 shadow-lg rounded-sm bg-blue-400 text-white font-bold cursor-pointer hover:bg-blue-600 `}
+        className={`p-3 shadow-lg rounded-sm  text-white font-bold cursor-pointer  `}
       >
         <a
           href={`https://goload.io/download?id=${episodeid}`}
           rel="noreferrer"
           target="_blank"
         >
-          Download
+          <FaDownload />
         </a>
       </div>
+      {page === 1 ? null : (
+        <PageButton style={""} href={prev} pre={true}>
+          <FaBackward size={20} color="white" />
+          
+        </PageButton>
+      )}
+      {page != total ? (
+        <PageButton style={""} href={nxt} pre={false}>
+          
+          <FaForward size={20} color="white" />
+        </PageButton>
+      ) : null}
     </div>
   );
 };

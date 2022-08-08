@@ -99,8 +99,8 @@ const WatchingContainer = ({ data, slug, frame }) => {
 
   return (
     <>
-      {/* <ImageContainer></ImageContainer>
-      <div /> */}
+      <ImageContainer></ImageContainer>
+      <div />
       <div className="relative flex justify-center items-center mx-auto text-center flex-col lg:h-full w-full lg:w-[1100px] xl:w-[1345px] px-2 ">
         <div
           className={` flex flex-col pb-2 xl:w-full justify-between items-center w-full ${theme.text.selected}   my-4`}
@@ -131,15 +131,15 @@ const WatchingContainer = ({ data, slug, frame }) => {
 
         <div className="ifr-container flex w-full  justify-center items-center p-0 md:p-4 flex-col-reverse ">
           <div className="flex flex-col-reverse md:flex-row w-full drop-shadow-2xl	">
-            <div className="w-full md:block md:w-[12.5rem] lg:w-[16rem] [#00000087]">
+            <div className="w-full md:block md:w-[12.5rem] lg:w-[16rem] bg-[#100f0f] md:bg-[#00000087]">
               <div className="flex flex-col text-white h-[350px] md:h-[500px] lg:h-[619px] overflow-y-scroll">
-                 <div className="p-2 font-bold border-b-2 divide-slate-500 divide-double">
+                 <div className="p-2 font-bold border-b-2 border-slate-600 border-double">
                  Episodes
                  </div>
               {(myFunc(),
           myArray.reverse().map((ep) => (
                 <Link key={ep} href={`/watching/${slug[0]}/${ep}`}>
-                <div className="margin-[2px]">
+                <div className="m-[1px]">
                 <span className={slug[1] == ep ? "bg-blue-500 p-3 cursor-pointer flex justify-between font-bold " : 
                  `p-2 cursor-pointer flex justify-between font-light bg-[#8080801a]
                   hover:bg-[#8080802b] hover:font-bold `}>
@@ -148,7 +148,7 @@ const WatchingContainer = ({ data, slug, frame }) => {
               </div>
             </div> 
             <iframe
-              className="w-full h-[380px] md:h-[500px] lg:h-[619px] drop-shadow-xl "
+              className="w-full h-[225px] md:h-[500px] lg:h-[619px] drop-shadow-xl "
               src={frame}
               frameBorder="0"
               allow="autoplay"

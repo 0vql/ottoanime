@@ -44,18 +44,18 @@ const Sidebar = ({ visit }) => {
             </div>
           </Link>
           <CgMenuHotdog
-            size={35}
+            size={32}
             onClick={() => {
               setShow(true);
             }}
             className={`${theme.button.background}  cursor-pointer ${theme.button.text} absolute left-0 rounded-full p-1  `}
           />
           <FaArrowLeft
-            size={35}
+            size={32}
             onClick={() => router.back()}
             className={`${theme.button.background} cursor-pointer ${theme.button.text} absolute left-[3rem] rounded-full p-1  `}
           />
-          <Search />
+          <Search size={32}/>
         </div>
       </div>
     </>
