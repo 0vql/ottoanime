@@ -37,7 +37,7 @@ const Header = () => {
         {/* <MovieImg src="" alt="Picture of the author" /> */}
         <div className="relative h-full text-white flex w-full flex-col justify-center max-w-sm lg:max-w-3xl mx-auto gap-6 ">
           <h1 className="text-2xl xl:text-[4rem] leading-none font-bold text-center">
-            Watch Free Anime Videos Enjoy your unlimited anime collection.
+            Animex Stream Watch Free Anime Videos Enjoy your unlimited anime collection.
           </h1>
           <div>
             <p className="text-center text-gray-300 font-lighter lg:text-2xl">

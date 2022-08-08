@@ -7,10 +7,12 @@ import Link from "next/link";
 import { addToWatchList } from "../../redux/actions/recentlyWatchedAction";
 import EpisodePagiNation from "../EpisodePagiNation";
 var Buffer = require("buffer/").Buffer; // note: the trailing slash is important!
+import { BsPlay } from 'react-icons/bs'
 
 const axios = require("axios");
 
-const WatchingContainer = ({ data, slug,frame }) => {
+const WatchingContainer = ({ data, slug, frame }) => {
+  
   const Myref = useRef(null);
   const { theme, loading, resumeId, watchList } = useSelector((state) => state);
   const [animeData, setAnimeData] = useState([]);
@@ -20,11 +22,21 @@ const WatchingContainer = ({ data, slug,frame }) => {
   const [ep, setEp] = useState([]);
   const [schedule, setSchedule] = useState("");
   const [ifr, setIfr] = useState("");
-  const [dataIfr,setDataIfr] = useState("")
-  var r = "https://animixplay.to/api/live" + window.btoa(dataIfr + "LTXs3GrU8we9O" + window.btoa(dataIfr));
+  const [dataIfr, setDataIfr] = useState("");
+  var myArray = [];
+  const myFunc = () => {
+    for (let i = ep; i >= 1; i--) {
+      myArray.push(i);
+    }  
+  }
+    
+    var r =
+    "https://animixplay.to/api/live" +
+    window.btoa(dataIfr + "LTXs3GrU8we9O" + window.btoa(dataIfr));
 
   const ImageContainer = styled.div`
-    background: linear-gradient(rgb(0 0 0 / 94%), rgb(0 0 0 / 58%)),
+  
+    background: linear-gradient(rgb(0 0 0 / 94%), rgb(0 0 0 / 90%)),
       url(${image}) 0% 0% / cover no-repeat fixed;
     height: 100vh;
     width: 100%;
@@ -37,9 +49,11 @@ const WatchingContainer = ({ data, slug,frame }) => {
   `;
 
   useEffect(() => {
-    setIfr(`https://animixplay.to/api/live` +
-    window.btoa(data.epid + "LTXs3GrU8we9O" + window.btoa(data.epid)))
-    setDataIfr(data.epid)
+    setIfr(
+      `https://animixplay.to/api/live` +
+        window.btoa(data.epid + "LTXs3GrU8we9O" + window.btoa(data.epid))
+    );
+    setDataIfr(data.epid);
     fetchEpisodesList();
     dispatch(
       addToWatchList({
@@ -64,7 +78,6 @@ const WatchingContainer = ({ data, slug,frame }) => {
     return () => clearInterval(updateTime);
   }, [data, image]);
 
-
   const fetchEpisodesList = async () => {
     let res = await axios.get(
       `https://ottogo.vercel.app/api/details/${slug[0]}/`
@@ -88,7 +101,7 @@ const WatchingContainer = ({ data, slug,frame }) => {
     <>
       <ImageContainer></ImageContainer>
       <div />
-      <div className="relative flex justify-center items-center mx-auto text-center flex-col lg:h-full w-full lg:w-[960px] px-2 ">
+      <div className="relative flex justify-center items-center mx-auto text-center flex-col lg:h-full w-full lg:w-[1100px] xl:w-[1345px] px-2 ">
         <div
           className={` flex flex-col pb-2 xl:w-full justify-between items-center w-full ${theme.text.selected}   my-4`}
         >
@@ -117,14 +130,32 @@ const WatchingContainer = ({ data, slug,frame }) => {
         </div>
 
         <div className="ifr-container flex w-full  justify-center items-center p-0 md:p-4 flex-col-reverse ">
-          <iframe
-            className="w-full h-[380px] md:h-[500px] lg:h-[619px] drop-shadow-sm "
-            src={frame}
-            frameBorder="0"
-            allow="autoplay"
-            allowFullScreen
+          <div className="flex flex-col-reverse md:flex-row w-full drop-shadow-2xl	">
+            <div className="w-full md:block md:w-[12.5rem] lg:w-[16rem] [#00000087]">
+              <div className="flex flex-col text-white h-[350px] md:h-[500px] lg:h-[619px] overflow-y-scroll">
+                 <div className="p-2 font-bold border-b-2 divide-slate-500 divide-double">
+                 Episodes
+                 </div>
+              {(myFunc(),
+          myArray.reverse().map((ep) => (
+                <Link key={ep} href={`/watching/${slug[0]}/${ep}`}>
+                <div className="margin-[2px]">
+                <span className={slug[1] == ep ? "bg-blue-500 p-3 cursor-pointer flex justify-between font-bold " : 
+                 `p-2 cursor-pointer flex justify-between font-light bg-[#8080801a]
+                  hover:bg-[#8080802b] hover:font-bold `}>
+                    <h2>Episode {ep} </h2> <span><BsPlay strokeWidth={0.5} size={26} className={slug[1] == ep ? "text-white " : "text-blue-500"}/></span></span>
+                </div></Link>)))}
+              </div>
+            </div> 
+            <iframe
+              className="w-full h-[380px] md:h-[500px] lg:h-[619px] drop-shadow-xl "
+              src={frame}
+              frameBorder="0"
+              allow="autoplay"
+              allowFullScreen
+            ></iframe>
+          </div>
 
-          ></iframe>
           <EpisodePagiNation
             page={[slug[0], slug[1]]}
             heading={"Ep"}

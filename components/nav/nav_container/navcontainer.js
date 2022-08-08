@@ -25,7 +25,7 @@ const Link2 = ({ theme, href, name, Icon }) => {
         <span
           className={`${theme.text.selected} ${theme.border.selected} cursor-pointer my-0.5 p-1 items-center flex flex-row  border  rounded-full`}
         >
-          <Icon size={13}  style={{
+          <Icon size={20} strokeWidth={0.5}  style={{
               margin: "0px 10px",
               color: name == "My List" ? "red" : theme.text.selected,
             }} />
@@ -36,7 +36,7 @@ const Link2 = ({ theme, href, name, Icon }) => {
           className={`${theme.text.notselected} cursor-pointer my-0.5 p-1 items-center md:w-full flex flex-row  border border-transparent rounded-full`}
           border={theme.border}
         >
-          <Icon size={12} style={{
+          <Icon size={20} strokeWidth={0.5} style={{
               margin: "0px 10px",
               color: name == "My List" ? "red" : theme.text.selected,
             }} />
@@ -58,7 +58,7 @@ const NavContainer = ({ links, heading }) => {
       </span>
       <div className={`bg-gray-400 rounded-full h-0.5 mx-2 w-1/12`} />
 
-      <div className={heading == "Discover" ? `text-base flex flex-col my-1.5` : `text-base flex flex-col md:grid md:grid-cols-2 my-1.5 md:gap-x-6`}>
+      <div className={`text-base flex flex-col my-1.5`}>
         {links?.map((Item) => (
           <Link2
             href={Item.link}

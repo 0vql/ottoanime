@@ -6,7 +6,7 @@ const EpButton = styled.div`
   border: 2px solid ${({ detailsButton }) => detailsButton.border};
   color: ${({ detailsButton }) => detailsButton.text};
   background: ${({ detailsButton }) => detailsButton.background};
-  &:hover {
+  &:hover   {
     border: 2px solid ${({ detailsButton }) => detailsButton.hover.border};
     color: ${({ detailsButton }) => detailsButton.hover.text};
     background: ${({ detailsButton }) => detailsButton.hover.background};
@@ -24,7 +24,7 @@ const EpisodeContainer = ({ title, id, number, image }) => {
   return (
     <div className="w-full flex flex-col px-5 max-w-full p-[3rem] lg:px-20 pt-[2rem] ">
       <span
-        className={`text-white flex flex-col font-bold z-[1] text-3xl py-5`}
+        className={`${theme.card.text} flex flex-col font-bold z-[1] text-3xl py-5`}
       >
         <span>{title}</span>
         <span className={"text-blue-500 text-lg"}>

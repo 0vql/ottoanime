@@ -48,7 +48,7 @@ const Sidebar = ({ visit }) => {
             onClick={() => {
               setShow(true);
             }}
-            className={`${theme.button.background} cursor-pointer ${theme.button.text} absolute left-0 rounded-full p-1  `}
+            className={`${theme.button.background}  cursor-pointer ${theme.button.text} absolute left-0 rounded-full p-1  `}
           />
           <FaArrowLeft
             size={35}

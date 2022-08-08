@@ -38,10 +38,9 @@ const DetailsContainer = ({ id }) => {
     <Loader />
   ) : (
     <>
-    <div className="h-42 overflow-hidden">
-      <img src={data.image_url} alt="data" className=" fixed lg:flex object-cover h-full  bg-center blur-[9px] brightness-[0.3] w-full "/>
+    <div className="overflow-hidden relative">
+      <img src={data.image_url} alt="data" className=" absolute lg:flex object-cover h-full  bg-center blur-[9px] brightness-[0.3] w-full "/>
 
-    </div>
       <div
         className={`background-transparent w-full text-white py-2 lg:py-8 flex justify-center  mt-[4.8rem] md:mt-0  `}
       >
@@ -151,6 +150,8 @@ const DetailsContainer = ({ id }) => {
         </div>
         
       </div>
+      </div>
+
       
 
       <EpisodeContainer
