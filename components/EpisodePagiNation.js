@@ -8,8 +8,7 @@ import {IoPlayForward} from "react-icons/io";
 
 const PB = styled.span`
   &:hover {
-    background: ${({ button }) => button.hover.background};
-    color: ${({ button }) => button.hover.text};
+    color: blue;
   }
 `;
 
@@ -19,7 +18,7 @@ const PageButton = ({ href, children, style }) => {
     <Link href={href}>
       <PB
         button={theme.button}
-        className={`${style}    p-2 px-1 flex justify-center items-center  cursor-pointer shadow-2xl transition-all duration-500`}
+        className={`${style} group   p-2 px-1 flex justify-center items-center  cursor-pointer shadow-2xl transition-all duration-100`}
       >
         {children}
       </PB>
@@ -52,28 +51,32 @@ const EpisodePagiNation = ({ total, heading, episodeid }) => {
     }
   }
   return (
-    <div className="px-8  relative flex flex-row  w-full justify-end items-center  ">
+    <div className=" relative flex flex-row  w-full justify-end items-center p-1 ">
+      <span className="text-white absolute left-0 p-1 font-black text-[20px]">EP {page}</span>
       <div
-        className={`p-3 shadow-lg rounded-sm  text-white font-bold cursor-pointer  `}
+        className={`group p-2 shadow-lg rounded-sm  text-white font-bold cursor-pointer  `}
       >
         <a
           href={`https://goload.io/download?id=${episodeid}`}
           rel="noreferrer"
           target="_blank"
         >
-          <FaDownload />
+          <FaDownload size={20} className="hover:text-blue-600"/>
+          <span className="hidden group-hover:lg:block  bg-[#1e1b1bc7] px-[12px] py-[2px] absolute top-[-25px] text-white rounded-md">Download</span>
         </a>
       </div>
       {page === 1 ? null : (
-        <PageButton style={""} href={prev} pre={true}>
-          <FaBackward size={20} color="white" />
+        <PageButton style={""}  href={prev} pre={true}>
+          <FaBackward size={20} className="text-white hover:text-blue-600"  />
+          <span className="hidden group-hover:lg:block  bg-[#1e1b1bc7] px-[12px] py-[2px] absolute top-[-25px] text-white rounded-md">Prev</span>
           
         </PageButton>
       )}
       {page != total ? (
         <PageButton style={""} href={nxt} pre={false}>
           
-          <FaForward size={20} color="white" />
+          <FaForward size={20} className="text-white hover:text-blue-600"  />
+          <span className="hidden group-hover:lg:block  bg-[#1e1b1bc7] px-[12px] py-[2px] absolute top-[-25px] text-white rounded-md">Next</span>
         </PageButton>
       ) : null}
     </div>

@@ -45,13 +45,13 @@ function Testing() {
   return (
     <Layout title="gogogoggo">
       <div className="h-full w-full text-black">
-        {content.map((c, index) => (
-          <div className="text-white" key={index}>
-            <h1>{c.title}</h1>
-            <img src={c.image} />
-            <p>{c.episode}</p>
-          </div>
-        ))}
+      <iframe
+              className="w-full h-[225px] md:h-[500px] lg:h-[619px] xl:h-[610px] drop-shadow-xl "
+              src="https://animixplay.to/api/liveTVRrd01qUXpMVFhzM0dyVTh3ZTlPVFZScmQwMXFVWG89"
+              frameBorder="0"
+              allow="autoplay"
+              allowFullScreen
+            ></iframe>
       </div>
     </Layout>
   );

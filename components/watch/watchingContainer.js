@@ -118,9 +118,7 @@ const WatchingContainer = ({ data, slug, frame }) => {
             />
           </div>
           <div className="flex w-full justify-between items-end">
-            <span className={`text-white ml-0 lg:ml-10 text-3xl lg:text-3xl`}>
-              {"Ep:" + slug[1]}
-            </span>
+            
             <span
               className={`text-blue-400 ml-0 lg:ml-10 text-1xl lg:text-2xl`}
             >
@@ -132,7 +130,7 @@ const WatchingContainer = ({ data, slug, frame }) => {
         <div className="ifr-container flex w-full  justify-center items-center p-0 md:p-4 flex-col-reverse ">
           <div className="flex flex-col-reverse md:flex-row w-full drop-shadow-2xl	">
             <div className="w-full md:block md:w-[12.5rem] lg:w-[16rem] bg-[#100f0f] md:bg-[#00000087]">
-              <div className="flex flex-col text-white h-[350px] md:h-[500px] lg:h-[619px] overflow-y-scroll">
+              <div className="flex flex-col text-white h-[350px] md:h-[500px] lg:h-[619px] xl:h-[610px] overflow-y-scroll">
                  <div className="p-2 font-bold border-b-2 border-slate-600 border-double">
                  Episodes
                  </div>
@@ -148,7 +146,7 @@ const WatchingContainer = ({ data, slug, frame }) => {
               </div>
             </div> 
             <iframe
-              className="w-full h-[225px] md:h-[500px] lg:h-[619px] drop-shadow-xl "
+              className="w-full h-[225px] md:h-[500px] lg:h-[619px] xl:h-[610px] drop-shadow-xl "
               src={frame}
               frameBorder="0"
               allow="autoplay"

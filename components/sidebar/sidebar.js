@@ -55,7 +55,7 @@ const Sidebar = ({ visit }) => {
             onClick={() => router.back()}
             className={`${theme.button.background} cursor-pointer ${theme.button.text} absolute left-[3rem] rounded-full p-1  `}
           />
-          <Search size={32}/>
+          <Search size={28}/>
         </div>
       </div>
     </>
