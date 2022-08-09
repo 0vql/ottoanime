@@ -68,14 +68,34 @@ padding-bottom: 1.2rem;
 
 
 .swiper-button-next:after, .swiper-button-prev:after {
-  @apply text-white border-amber-100 p-1 rounded-lg bg-[#00000059] border-2 hidden md:block
+  @apply text-white  p-1   hidden md:block
 
 } 
 
 
-
+.swiper-button-next:after, .swiper-button-prev:after {
+  font-size:30px !important;
+}
 
 
 .swiper-button-next, .swiper-button-prev{
-  top:41% !important;
+ margin:0 !important;
+ top : 41% !important;
+}
+
+footer{
+  background: linear-gradient(rgba(0, 0, 0, 0.945),rgba(0, 0, 0, 0.871)) , 
+	    url(https://mir-s3-cdn-cf.behance.net/b409bf0f9ef1d45c29d0f9984c53d5b4/b1f5a6c1-5109-4fa3-8f4b-4b938bd455d9_rwc_0x0x1920x300x1920.jpg?h=10c73331502cb711e6b54e3b05ed8fb1)no-repeat;
+      background-size:cover;
+      filter: drop-shadow(17px 4px 6px black);
+
+}
+
+
+.swiper-wrapper {
+  position: unset !important;
+}
+
+.swiper {
+  position: unset !important;
 }

@@ -13,7 +13,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: "#1a1c20",
+        background: "#101010",
         notactive: "#8d8f94",
       },
       width: {

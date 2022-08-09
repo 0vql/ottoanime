@@ -18,7 +18,7 @@ SwiperCore.use([Navigation, Pagination]);
 function HomeContainer({ Data = [], heading, page, Icon, to }) {
   
   return (
-    <div className="py-8 xl:p-12">
+    <div className="py-8 xl:p-12 relative">
       <div className="flex justify-between">
         <span
           className={` px-2 flex  text-white font-light items-center  text-2xl`}

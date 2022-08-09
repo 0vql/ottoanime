@@ -4,6 +4,9 @@ import styled from "styled-components";
 import Loader from "../Loader/Loader";
 import dynamic from 'next/dynamic'
 const EpisodePagiNation = dynamic(() => import('../EpisodePagiNation'))
+const Container = dynamic(() => import('../card/Container'))
+import cheerio from "cheerio";
+
 import { resumeAction } from "../../redux/actions/resumeAction";
 import Link from "next/link";
 import { addToWatchList } from "../../redux/actions/recentlyWatchedAction";
@@ -25,6 +28,8 @@ const WatchingContainer = ({ data, slug, frame }) => {
   const [schedule, setSchedule] = useState("");
   const [ifr, setIfr] = useState("");
   const [dataIfr, setDataIfr] = useState("");
+  const [onGoingPopular,setOnGoingPopular] = useState([])
+
   var myArray = [];
   const myFunc = () => {
     for (let i = ep; i >= 1; i--) {
@@ -50,7 +55,9 @@ const WatchingContainer = ({ data, slug, frame }) => {
     background-position: center;
   `;
 
+
   useEffect(() => {
+    FetchingOnGoing()
     setIfr(
       `https://animixplay.to/api/live` +
         window.btoa(data.epid + "LTXs3GrU8we9O" + window.btoa(data.epid))
@@ -91,6 +98,29 @@ const WatchingContainer = ({ data, slug, frame }) => {
     
   };
 
+ 
+  const FetchingOnGoing = async (e) => {
+    let d = await axios.get(
+      `  https://ajax.gogo-load.com/ajax/page-recent-release-ongoing.html?page=1
+      `
+    );
+    d = d.data;
+    const myList = [];
+    var $ = cheerio.load(d);
+    $(".added_series_body ul li").each(function (index, element) {
+      let result = {};
+      let url = $(this).children("a").attr("href").replace("/category/","");
+      let title = $(this).children("a").attr("title");
+      let image_url = $(this).children("a").children("div").attr("style").replace("background: url('","").replace("');","");
+
+      result = { title, url, image_url };
+      myList.push(result);
+      
+      
+    });
+    setOnGoingPopular(myList.slice(1,7))
+    console.log(myList)
+  };
   const fetchSchedule = async () => {
     let res = await axios.get(
       `https://ottogo.vercel.app/api/schedule/${slug[0]}/`
@@ -115,9 +145,9 @@ const WatchingContainer = ({ data, slug, frame }) => {
                 {slug[0].replaceAll("-", " ")}
               </span>
             </Link>
-            {/* <div
+            <div
               className={`bg-gray-400 rounded-full h-0.5 ml-0 lg:ml-11 w-1/12`}
-            /> */}
+            />
           </div>
           <div className="flex w-full justify-between items-end">
             
@@ -143,7 +173,7 @@ const WatchingContainer = ({ data, slug, frame }) => {
                 <span className={slug[1] == ep ? "bg-blue-500 p-3 cursor-pointer flex justify-between font-bold " : 
                  `p-2 cursor-pointer flex justify-between font-light bg-[#8080801a]
                   hover:bg-[#8080802b] hover:font-bold `}>
-                    <h2>Episode {ep} </h2> <span><BsPlay strokeWidth={0.5} size={26} className={slug[1] == ep ? "text-white " : "text-blue-500"}/></span></span>
+                    <h2>Episode {ep} </h2> <span><BsPlay strokeWidth={0} size={25} className={slug[1] == ep ? "text-white " : "text-blue-500"}/></span></span>
                 </div></Link>)))}
               </div>
             </div> 
@@ -164,6 +194,12 @@ const WatchingContainer = ({ data, slug, frame }) => {
           />
         </div>
       </div>
+      <Container
+        Data={onGoingPopular}
+        heading={"Popular Ongoing"}
+        
+        
+      />
     </>
   );
 };

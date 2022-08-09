@@ -23,19 +23,19 @@ export const States = {
       background: "bg-white",
       text: "text-gray-900",
       hover: {
-        background: "#1a1c20",
+        background: "#101010",
         text: "#fff",
       },
       border: "border-white",
     },
     detailsButton: {
-      background: "#1a1c20",
+      background: "#101010",
       text: "#fff",
       border: "#8d8f94",
       hover: {
         background: "#fff",
-        text: "#1a1c20",
-        border: "#1a1c20",
+        text: "#101010",
+        border: "#101010",
       },
     },
   },
@@ -54,7 +54,7 @@ export const States = {
     card: {
       text: "text-gray-900",
       texthover: "#f3f4f6",
-      bghover: "#111827",
+      bghover: "#101010",
     },
     animation: "#000000",
     svg: "%23ffffff",
@@ -73,7 +73,7 @@ export const States = {
       text: "#1a1c20",
       border: "#8d8f94",
       hover: {
-        background: "#1a1c20",
+        background: "#101010",
         text: "#fff",
         border: "#1a1c20",
       },
