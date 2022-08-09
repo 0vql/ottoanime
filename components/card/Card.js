@@ -11,7 +11,7 @@ const MovieWrapper = styled.a`
   text-decoration: none;
   border-radius: 0.8rem;
   background-color: transparent;
-  transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 100ms cubic-bezier(0.645, 0.045, 0.355, 1);
 
   &:hover {
     transform: scale(1.03);
