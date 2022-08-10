@@ -35,7 +35,7 @@ const DetailsContainer = ({ id }) => {
       setClick(true);
     }
   };
-  return loading ? (
+  return data?.length < 1 ? (
     <Loader />
   ) : (
     <>

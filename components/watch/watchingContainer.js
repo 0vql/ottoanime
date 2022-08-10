@@ -132,7 +132,7 @@ const WatchingContainer = ({ data, slug, frame }) => {
 
   return (
     <>
-      {/* <ImageContainer/> */}
+      <ImageContainer/>
       <div />
       
 
@@ -164,7 +164,7 @@ const WatchingContainer = ({ data, slug, frame }) => {
 
         <div className="ifr-container md:pb-[6.5em] flex w-full  justify-center items-center p-0 md:p-4 flex-col-reverse ">
           <div className="flex flex-col-reverse md:flex-row w-full drop-shadow-2xl	">
-            <div className="w-full md:block md:w-[12.5rem] lg:w-[16rem] bg-[#100f0f] md:bg-[#00000087]">
+            <div className="hidden w-full md:block md:w-[12.5rem] lg:w-[16rem] bg-[#100f0f] md:bg-[#00000087]">
               <div className="flex flex-col text-white h-[350px] md:h-[500px] lg:h-[619px] xl:h-[610px] overflow-y-scroll">
                  <div className="p-2 font-bold border-b-2 border-slate-600 border-double">
                  Episodes

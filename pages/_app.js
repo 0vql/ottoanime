@@ -131,7 +131,7 @@ const MYapp = ({ Component, pageProps }) => (
       </Head>
               <PersistGate loading={null} persistor={Persistor}>
            
-            <NextProgress delay={300} height={3} options={{ showSpinner: true }} /> 
+            <NextProgress delay={300} height={3} options={{ showSpinner: false }} /> 
             <App Component={Component} pageProps={pageProps} />
       </PersistGate>
             
