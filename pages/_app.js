@@ -97,7 +97,7 @@ const App = ({ Component, pageProps }) => {
         </ul>
     </div>
     <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"/>
-    <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="https://flowbite.com/" className="hover:underline">AnimexStream™</a>. All Rights Reserved.<br></br> Disclaimer: This site does not store any files on its server. All contents are provided by non-affiliated third parties.
+    <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="https://flowbite.com/" className="hover:underline">AnimexStream™</a>. All Rights Reserved.
 
     </span>
 </footer>
@@ -113,14 +113,19 @@ const MYapp = ({ Component, pageProps }) => (
     <link rel="icon" href={"https://flowbite.com/images/logo.svg"} />
         <link rel="manifest" href="/manifest.json" />
         <meta property="og:title" content="AniMex Stream | Watch HD Animes." />
-        <meta name="apple-mobile-web-app-title" content="AniMexStream" />
-        <meta property="og:image" content="/static/img/icon-192x192.png " />
+        <meta name="keywords" content="animexstream,watch anime, anime online,animex stream , free anime, english anime, sites to watch anime" />
+        <meta name="apple-mobile-web-app-title" content="AnimexStream" />
+        <meta property="og:site_name" content="AnimexStream"/>
+
+        <meta property="og:image" content="/icon-192x192.png " />
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           property="og:description"
           content="Watch Anime for free in HD quality with English subbed or dubbed."
         />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3357173685448212"
+     crossOrigin="anonymous"></script>
        
       </Head>
               <PersistGate loading={null} persistor={Persistor}>

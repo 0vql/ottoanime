@@ -6,6 +6,7 @@ import styled from "styled-components";
 import {FaDownload,FaBackward,FaForward} from "react-icons/fa";
 import {IoPlayForward} from "react-icons/io";
 import {useEffect,useRef} from "react"
+import {FiRefreshCw} from "react-icons/fi"
 
 const PB = styled.span`
   &:hover {
@@ -27,7 +28,7 @@ const PageButton = ({ href, children, style }) => {
   );
 };
 
-const EpisodePagiNation = ({ total, heading, episodeid }) => {
+const EpisodePagiNation = ({ total, heading, episodeid,reload }) => {
   const ref = useRef()
   const router = useRouter();
   const pathList = router.asPath;
@@ -61,6 +62,14 @@ const EpisodePagiNation = ({ total, heading, episodeid }) => {
     <div className=" relative flex flex-row  w-full justify-end items-center p-1 ">
       <span className="text-white absolute left-0 p-1 font-black text-[20px]">EP {page}</span>
       <div
+        className={`group relative p-2 shadow-lg rounded-sm  text-white font-bold cursor-pointer  `} onClick={reload}
+      >
+        
+          <FiRefreshCw size={20} strokeWidth={4} className=" hover:text-blue-600"/>
+          <span className="hidden group-hover:lg:block  bg-[#1e1b1bc7] px-[12px] py-[2px] absolute top-[-25px] left-[-2rem] text-white rounded-md">Reload</span>
+        
+      </div>
+      <div
         className={`group relative p-2 shadow-lg rounded-sm  text-white font-bold cursor-pointer  `}
       >
         <a
@@ -73,6 +82,7 @@ const EpisodePagiNation = ({ total, heading, episodeid }) => {
           <span className="hidden group-hover:lg:block  bg-[#1e1b1bc7] px-[12px] py-[2px] absolute top-[-25px] left-[-2rem] text-white rounded-md">Download</span>
         </a>
       </div>
+
       {page === 1 ? null : (
         <PageButton style={""}  href={prev} pre={true}>
           <FaBackward size={20} className="text-white hover:text-blue-600"  />

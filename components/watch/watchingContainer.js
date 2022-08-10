@@ -85,7 +85,7 @@ const WatchingContainer = ({ data, slug, frame }) => {
     }, 60000);
 
     return () => clearInterval(updateTime);
-  }, [data, image]);
+  }, [data, image,frame]);
 
   const fetchEpisodesList = async () => {
     let res = await axios.get(
@@ -128,6 +128,7 @@ const WatchingContainer = ({ data, slug, frame }) => {
 
     setSchedule(res.data?.time || "");
   };
+  
 
   return (
     <>
@@ -159,7 +160,7 @@ const WatchingContainer = ({ data, slug, frame }) => {
           </div>
         </div>
 
-        <div className="ifr-container pb-[7rem] flex w-full  justify-center items-center p-0 md:p-4 flex-col-reverse ">
+        <div className="ifr-container pb-[5.5em] flex w-full  justify-center items-center p-0 md:p-4 flex-col-reverse ">
           <div className="flex flex-col-reverse md:flex-row w-full drop-shadow-2xl	">
             <div className="w-full md:block md:w-[12.5rem] lg:w-[16rem] bg-[#100f0f] md:bg-[#00000087]">
               <div className="flex flex-col text-white h-[350px] md:h-[500px] lg:h-[619px] xl:h-[610px] overflow-y-scroll">
@@ -173,16 +174,16 @@ const WatchingContainer = ({ data, slug, frame }) => {
                 <span className={slug[1] == ep ? "bg-blue-500 p-3 cursor-pointer flex justify-between font-bold " : 
                  `p-2 cursor-pointer flex justify-between font-light bg-[#8080801a]
                   hover:bg-[#8080802b] hover:font-bold `}>
-                    <h2>Episode {ep} </h2> <span></span></span>
+                    <h2>Episode {ep} </h2> <span><BsPlay strokeWidth={0} size={25} className={slug[1] == ep ? "text-white " : "text-blue-500"}/></span></span>
                 </div></Link>)))}
               </div>
             </div> 
             <iframe
               className="w-full h-[225px] md:h-[500px] lg:h-[619px] xl:h-[610px] drop-shadow-xl "
-              src={frame}
+              src={frame || ifr}
               frameBorder="0"
-              allow="autoplay"
               allowFullScreen
+              ref={Myref}
             ></iframe>
           </div>
 
@@ -191,6 +192,7 @@ const WatchingContainer = ({ data, slug, frame }) => {
             heading={"Ep"}
             total={ep}
             episodeid={data.epid}
+            reload={() => Myref.current.src += ''}
           />
         </div>
       </div>
