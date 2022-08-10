@@ -112,6 +112,7 @@ const MYapp = ({ Component, pageProps }) => (
     <Head>
     <link rel="icon" href={"https://flowbite.com/images/logo.svg"} />
         <link rel="manifest" href="/manifest.json" />
+        <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
         <meta property="og:title" content="AniMex Stream | Watch HD Animes." />
         <meta name="keywords" content="animexstream,watch anime, anime online,animex stream , free anime, english anime, sites to watch anime" />
         <meta name="apple-mobile-web-app-title" content="AnimexStream" />

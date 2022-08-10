@@ -85,7 +85,7 @@ const WatchingContainer = ({ data, slug, frame }) => {
     }, 60000);
 
     return () => clearInterval(updateTime);
-  }, [data, image,frame]);
+  }, [data, image]);
 
   const fetchEpisodesList = async () => {
     let res = await axios.get(
@@ -132,8 +132,10 @@ const WatchingContainer = ({ data, slug, frame }) => {
 
   return (
     <>
-      <ImageContainer></ImageContainer>
+      {/* <ImageContainer/> */}
       <div />
+      
+
       <div className="relative flex justify-center items-center mx-auto text-center flex-col lg:h-full w-full lg:w-[1100px] xl:w-[1345px] px-2 ">
         <div
           className={` flex flex-col pb-2 xl:w-full justify-between items-center w-full ${theme.text.selected}   my-4`}
@@ -160,7 +162,7 @@ const WatchingContainer = ({ data, slug, frame }) => {
           </div>
         </div>
 
-        <div className="ifr-container pb-[5.5em] flex w-full  justify-center items-center p-0 md:p-4 flex-col-reverse ">
+        <div className="ifr-container md:pb-[6.5em] flex w-full  justify-center items-center p-0 md:p-4 flex-col-reverse ">
           <div className="flex flex-col-reverse md:flex-row w-full drop-shadow-2xl	">
             <div className="w-full md:block md:w-[12.5rem] lg:w-[16rem] bg-[#100f0f] md:bg-[#00000087]">
               <div className="flex flex-col text-white h-[350px] md:h-[500px] lg:h-[619px] xl:h-[610px] overflow-y-scroll">
@@ -180,7 +182,7 @@ const WatchingContainer = ({ data, slug, frame }) => {
             </div> 
             <iframe
               className="w-full h-[225px] md:h-[500px] lg:h-[619px] xl:h-[610px] drop-shadow-xl "
-              src={frame || ifr}
+              src={frame}
               frameBorder="0"
               allowFullScreen
               ref={Myref}
@@ -193,6 +195,7 @@ const WatchingContainer = ({ data, slug, frame }) => {
             total={ep}
             episodeid={data.epid}
             reload={() => Myref.current.src += ''}
+            change={() => Myref.current.src == frame ? Myref.current.src = data.iframe : Myref.current.src == data.iframe ? Myref.current.src = frame : ""}
           />
         </div>
       </div>

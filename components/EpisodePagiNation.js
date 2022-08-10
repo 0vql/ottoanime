@@ -7,6 +7,7 @@ import {FaDownload,FaBackward,FaForward} from "react-icons/fa";
 import {IoPlayForward} from "react-icons/io";
 import {useEffect,useRef} from "react"
 import {FiRefreshCw} from "react-icons/fi"
+import {HiSwitchHorizontal} from "react-icons/hi"
 
 const PB = styled.span`
   &:hover {
@@ -28,7 +29,7 @@ const PageButton = ({ href, children, style }) => {
   );
 };
 
-const EpisodePagiNation = ({ total, heading, episodeid,reload }) => {
+const EpisodePagiNation = ({ total, heading, episodeid,reload ,change}) => {
   const ref = useRef()
   const router = useRouter();
   const pathList = router.asPath;
@@ -61,12 +62,20 @@ const EpisodePagiNation = ({ total, heading, episodeid,reload }) => {
   return (
     <div className=" relative flex flex-row  w-full justify-end items-center p-1 ">
       <span className="text-white absolute left-0 p-1 font-black text-[20px]">EP {page}</span>
+      
       <div
-        className={`group relative p-2 shadow-lg rounded-sm  text-white font-bold cursor-pointer  `} onClick={reload}
+        className={`group relative p-2 shadow-lg rounded-sm  text-white font-bold cursor-pointer  hover:text-blue-600`} onClick={change}
       >
         
-          <FiRefreshCw size={20} strokeWidth={4} className=" hover:text-blue-600"/>
-          <span className="hidden group-hover:lg:block  bg-[#1e1b1bc7] px-[12px] py-[2px] absolute top-[-25px] left-[-2rem] text-white rounded-md">Reload</span>
+          <HiSwitchHorizontal size={24} strokeWidth={1} className=""/>
+          <span className="hidden group-hover:lg:block  bg-[#1e1b1bc7] px-[12px] py-[2px] absolute top-[-25px] left-[-1rem] text-white rounded-md">Switch</span>
+        
+      </div><div
+        className={`group relative p-2 shadow-lg rounded-sm  text-white font-bold cursor-pointer hover:text-blue-600 `} onClick={reload}
+      >
+        
+          <FiRefreshCw size={20} strokeWidth={4} className=" "/>
+          <span className="hidden group-hover:lg:block  bg-[#1e1b1bc7] px-[12px] py-[2px] absolute top-[-25px] left-[-1rem] text-white rounded-md">Reload</span>
         
       </div>
       <div
