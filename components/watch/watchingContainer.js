@@ -43,15 +43,14 @@ const WatchingContainer = ({ data, slug, frame }) => {
 
   const ImageContainer = styled.div`
   
-    background: linear-gradient(rgb(0 0 0 / 94%), rgb(0 0 0 / 90%)),
+    background: linear-gradient(rgb(0 0 0 / 86%), rgb(0 0 0 / 90%)),
       url(${image}) 0% 0% / cover no-repeat fixed;
     height: 100vh;
     width: 100%;
-    filter: blur(8px);
+    filter: blur(7.5px) drop-shadow(2px 4px 14px black);
     /* z-index: 1; */
     position: fixed;
-    left: 0;
-    right: 0;
+   
     background-position: center;
   `;
 
@@ -136,7 +135,7 @@ const WatchingContainer = ({ data, slug, frame }) => {
       <div />
       
 
-      <div className="relative flex justify-center items-center mx-auto text-center flex-col lg:h-full w-full lg:w-[1100px] xl:w-[1345px] px-2 ">
+      <div className="relative flex justify-center items-center mx-auto text-center flex-col lg:h-full w-full lg:w-[1100px] xl:w-[1145px] 2xl:w-[1345px] px-2 ">
         <div
           className={` flex flex-col pb-2 xl:w-full justify-between items-center w-full ${theme.text.selected}   my-4`}
         >
@@ -155,7 +154,7 @@ const WatchingContainer = ({ data, slug, frame }) => {
           <div className="flex w-full justify-between items-end">
             
             <span
-              className={`text-blue-400 ml-0 lg:ml-10 text-1xl lg:text-2xl`}
+              className={`text-blue-600 ml-0 lg:ml-10 text-1xl lg:text-2xl`}
             >
               {ep == slug[1] ? schedule && "Next: " + schedule : null}
             </span>

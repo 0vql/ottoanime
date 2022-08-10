@@ -56,7 +56,7 @@ const App = ({ Component, pageProps }) => {
       });
   }, []);
   return (
-    <div className={`${theme.background}  `}>
+    <div className={`${theme.background} h-full `}>
       
 
       <Sidebar visit={visit} />
@@ -75,11 +75,11 @@ const App = ({ Component, pageProps }) => {
         draggablePercent={30}
       />
       
-<footer className="p-4  shadow md:px-6 md:py-8">
+<footer className="p-4   md:px-6 md:py-8">
     <div className="sm:flex sm:items-center sm:justify-between">
-        <a href="https://flowbite.com/" className="flex items-center mb-4 sm:mb-0">
-            <img src="https://flowbite.com/docs/images/logo.svg" className="mr-3 h-8" alt="Flowbite Logo"/>
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">AniMexStream</span>
+        <a href="#" className="flex items-center mb-4 sm:mb-0">
+            <img src="/ottoanime.svg" className="mr-3 h-8" alt="Animex Logo"/>
+            <span className={`self-center text-2xl font-semibold whitespace-nowrap ${theme.text.selected}`}>AniMexStream</span>
         </a>
         <ul className="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 dark:text-gray-400">
             <li>
@@ -110,7 +110,7 @@ const App = ({ Component, pageProps }) => {
 const MYapp = ({ Component, pageProps }) => (
   <Provider store={Store}>
     <Head>
-    <link rel="icon" href={"https://flowbite.com/images/logo.svg"} />
+    <link rel="icon" href={"/ottoanime.svg"} />
         <link rel="manifest" href="/manifest.json" />
         <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
         <meta property="og:title" content="AniMex Stream | Watch HD Animes." />

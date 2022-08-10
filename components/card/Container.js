@@ -15,9 +15,9 @@ function Container({ Data = [], heading, page, Icon, len }) {
   };
   return Data?.length > 0 ? (
     <>
-      <div className="w-10/12 my-5 relative">
+      <div className="w-10/12 my-5 relative pt-[2rem]">
         <span
-          className={heading === "Ep" ? "text-white" :`${theme.text.selected} px-2 flex  font-bold items-center  text-2xl md:text-3xl`}
+          className={heading === "Popular Ongoing" ? "text-white" :`${theme.text.selected} px-2 flex  font-bold items-center  text-2xl md:text-3xl`}
         >
           {/* {Icon ? (
             <Icon
@@ -54,7 +54,7 @@ function Container({ Data = [], heading, page, Icon, len }) {
         ) : null}
       </div>
 
-      <div className="grid grid-cols-3  w-full px-2 my-6  gap-2  justify-center  md:grid-cols-4 xl:grid-cols-6 lg:px-16 lg:my-16 lg:mt-0  2xl:grid-cols-6 xl:gap-[1rem]">
+      <div className="grid grid-cols-3  w-full px-2 my-6  gap-2  justify-center  md:grid-cols-4 xl:grid-cols-5 lg:px-16 lg:my-16 lg:mt-0  2xl:grid-cols-6 xl:gap-[1rem]">
         {Data?.map((item, index) => ( 
           <Card {...item} key={index} heading={heading} />
         ))}

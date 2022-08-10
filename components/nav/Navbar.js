@@ -8,7 +8,7 @@ const Navbar = ({ visit }) => {
   const { theme } = useSelector((state) => state);
   return (
     <div
-      className={`flex flex-col w-2/12 ${theme.background} ${theme.border.notselected} border-r justify-start items-center border-opacity-50 hidden `}
+      className={`flex flex-col w-[22rem] ${theme.background} ${theme.border.notselected} border-r justify-start items-center border-opacity-50 mt-[4rem] hidden xl:flex`}
     >
       <Link href="/recentlyadded/1">
         <div

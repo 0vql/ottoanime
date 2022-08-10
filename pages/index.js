@@ -6,9 +6,11 @@ import styled from "styled-components";
 
 const IndexContainer = styled.div`
     width: 100%;
+    height:100%;
     background: linear-gradient(rgb(0 0 0 / 73%),rgb(0 0 0 / 54%)) ,url(/bg-anime6.jpg)no-repeat fixed;
         background-position: center top;
     background-size: cover;
+    overflow:hidden;
    
 }
   

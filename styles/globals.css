@@ -84,11 +84,10 @@ padding-bottom: 1.2rem;
 }
 
 footer{
-  background: linear-gradient(rgba(0, 0, 0, 0.945),rgba(0, 0, 0, 0.871)) , 
+  /* background: linear-gradient(rgba(0, 0, 0, 0.945),rgba(0, 0, 0, 0.871)) , 
 	    url(https://mir-s3-cdn-cf.behance.net/b409bf0f9ef1d45c29d0f9984c53d5b4/b1f5a6c1-5109-4fa3-8f4b-4b938bd455d9_rwc_0x0x1920x300x1920.jpg?h=10c73331502cb711e6b54e3b05ed8fb1)no-repeat;
       background-size:cover;
-      background-position:top;
-      filter: drop-shadow(17px 4px 6px black);
+      background-position:top; */
 
 }
 
