@@ -26,6 +26,11 @@ const Navbar = ({ visit }) => {
         </div>
       </Link>
       <Toggle />
+      <a href="https://www.buymeacoffee.com/ottoprogrammer"  rel="noreferrer"
+          target="_blank">
+      <img src="/coffe1.svg" className="pt-[1rem] cursor-pointer"/>
+      </a>
+
       <NavContainer links={Discover} heading={"Discover"} />
       <NavContainer links={Genre} heading={"Genres"} />
       <span

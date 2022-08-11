@@ -1,3 +1,4 @@
+import Contact from "../components/Contact";
 import Layout from "../components/Layout";
 // import Container from "../components/card/Container";
 // import { useEffect, useState } from "react";
@@ -52,6 +53,8 @@ function Testing() {
             ></iframe>
             
       </div>
+
+      <Contact />
       </Layout>
   );
 }

@@ -6,6 +6,8 @@ import { Provider, useSelector } from "react-redux";
 import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import countapi from "countapi-js";
+import Contact from "../components/Contact";
+
 
 
 import Sidebar from "../components/sidebar/sidebar";
@@ -39,6 +41,7 @@ const Msg = ({ resumeId }) => {
 //         disableDevtool();
 //     }
 const App = ({ Component, pageProps }) => {
+  const [showContact,setShowContact] = useState(false)
   const [visit, setVisit] = useState(0);
   const { theme, resumeId } = useSelector((state) => state);
   const router = useRouter();
@@ -92,7 +95,7 @@ const App = ({ Component, pageProps }) => {
                 <a href="#" className="mr-4 hover:underline md:mr-6 ">Licensing</a>
             </li>
             <li>
-                <a href="#" className="hover:underline">Contact</a>
+                <button  className="hover:underline" onClick={() => setShowContact(!showContact)}>Contact</button>
             </li>
         </ul>
     </div>
@@ -101,6 +104,7 @@ const App = ({ Component, pageProps }) => {
 
     </span>
 </footer>
+<Contact showContact={showContact} hideContact={() => setShowContact(false)}/>
     </div>
     
 

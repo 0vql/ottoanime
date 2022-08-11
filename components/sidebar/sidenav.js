@@ -20,13 +20,14 @@ const Sidenav = ({ onClick, show, visit }) => {
         show ? "flex max-w-full overflow-y-scroll w-[36vh] " : "max-w-0 overflow-hidden "
       } h-full left-0 top-0 z-50  ${
         theme.background
-      } transition-all duration-600 ease-in-out shadow-2xl`}
+      } transition-all duration-900 ease-out shadow-2xl`}
     >
       <div
         className={`flex flex-col w-full space-x-2 m-4 whitespace-nowrap ${theme.background}`}
       >
         <div className=" flex w-full justify-between items-center">
           <Toggle />
+          
 
           <AiOutlineCloseCircle
             onClick={onClick}
@@ -35,6 +36,10 @@ const Sidenav = ({ onClick, show, visit }) => {
             className={` cursor-pointer  rounded-full p-1  `}
           />
         </div>
+        <a href="https://www.buymeacoffee.com/ottoprogrammer" className="flex justify-center" rel="noreferrer"
+          target="_blank">
+      <img src="/coffe1.svg" className="pt-[1rem] cursor-pointer"/>
+      </a>
 
         <NavContainer links={Discover} heading={"Discover"} />
         <NavContainer links={Genre} heading={"Genres"} />
