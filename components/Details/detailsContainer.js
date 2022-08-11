@@ -35,7 +35,7 @@ const DetailsContainer = ({ id }) => {
       setClick(true);
     }
   };
-  return data?.length > 0 ? (
+  return data ? (
     <>
     <div className="overflow-hidden relative">
       <img src={data.image_url} alt="data" className=" absolute lg:flex object-cover h-full  bg-center blur-[9px] brightness-[0.3] w-full "/>
