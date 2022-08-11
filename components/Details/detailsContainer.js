@@ -35,7 +35,7 @@ const DetailsContainer = ({ id }) => {
       setClick(true);
     }
   };
-  return data ? (
+  return data?.length < 0 ? ( <Loader /> ) : (
     <>
     <div className="overflow-hidden relative">
       <img src={data.image_url} alt="data" className=" absolute lg:flex object-cover h-full  bg-center blur-[9px] brightness-[0.3] w-full "/>
@@ -160,7 +160,7 @@ const DetailsContainer = ({ id }) => {
         image={data.image_url}
       />
     </>
-  ) : <Loader />;
+  )
 };
 
 export default DetailsContainer;
