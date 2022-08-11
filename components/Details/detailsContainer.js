@@ -31,13 +31,11 @@ const DetailsContainer = ({ id }) => {
       setClick(false);
       dispatch(removeFromMyList(id));
     } else {
-      dispatch(addToMyList({ id: id, image_url: data.image_url, title: data.title }));
+      dispatch(addToMyList({ id: id, image_url: data.image_url, title: data.title,released: data.year }));
       setClick(true);
     }
   };
-  return data?.length < 1 ? (
-    <Loader />
-  ) : (
+  return data?.length > 0 ? (
     <>
     <div className="overflow-hidden relative">
       <img src={data.image_url} alt="data" className=" absolute lg:flex object-cover h-full  bg-center blur-[9px] brightness-[0.3] w-full "/>
@@ -61,7 +59,7 @@ const DetailsContainer = ({ id }) => {
           </div>
           <div className=" flex flex-col w-11/12 px-0 lg:w-8/12  lg:px-10">
             <div className="flex w-full justify-between py-2">
-              <span className="font-bold text-2xl  md:text-5xl  ">
+              <span className="font-bold text-2xl  md:text-[2rem]  ">
                 {data.title}
                 <div
                   className={`${theme.line} h-0.5 mx-2 my-1 w-1/3 rounded-full`}
@@ -162,7 +160,7 @@ const DetailsContainer = ({ id }) => {
         image={data.image_url}
       />
     </>
-  );
+  ) : <Loader />;
 };
 
 export default DetailsContainer;

@@ -5,7 +5,7 @@ function Footer({contact}) {
     const { theme } = useSelector((state) => state);
 
   return (
-    <footer className="p-4   md:px-6 md:py-8">
+    <footer className="p-4   md:px-6 md:py-8 relative">
     <div className="sm:flex sm:items-center sm:justify-between">
         <a href="#" className="flex items-center mb-4 sm:mb-0">
             <img src="/ottoanime.svg" className="mr-3 h-8" alt="Animex Logo"/>

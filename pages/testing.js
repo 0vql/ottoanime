@@ -1,7 +1,7 @@
 import Contact from "../components/Contact";
 import Layout from "../components/Layout";
 // import Container from "../components/card/Container";
-// import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 // import cheerio from "cheerio";
 // const axios = require("axios");
 
@@ -41,6 +41,10 @@ function Testing() {
   //   });
   //   setContent(myList);
   // };
+
+  useEffect(() => {
+    console.log("im here")
+  },[])
   return (
     <Layout>
       <div className="h-full w-full text-black">
