@@ -4,12 +4,19 @@ import {
   AiFillPlayCircle,
   AiFillStar,
   AiTwotoneThunderbolt,
-  AiTwotoneFire
+  AiTwotoneFire,
+  AiFillHome
 } from "react-icons/ai";
 import { FaEye, FaDonate } from "react-icons/fa";
 import { BiShowAlt, BiMoviePlay } from "react-icons/bi";
 
 export const Discover = [
+  {
+    index: 8,
+    name: "Home",
+    link: "/",
+    icon: AiFillHome,
+  },
   {
     index: 1,
     name: "Recently Added",
