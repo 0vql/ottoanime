@@ -14,18 +14,37 @@ import {
 import { useEffect, useState } from "react";
 import Lottie from "lottie-react-web";
 import Heart from "../../public/heart.json";
+import Recommended from "../../pages/recommended";
+import HomeContainer from "../card/HomeContainer";
 
 
 const DetailsContainer = ({ id }) => {
   const [click, setClick] = useState(false);
   const { data , theme, myList, loading } = useSelector((state) => state);
+  const [randomData, setRandomData] = useState([])
   const [expand,setExpand] = useState(false)
   const dispatch = useDispatch();
   useEffect(() => {
+    fetchRecommended();
     const current = myList.filter((item) => item.id == id);
     current.length > 0 ? setClick(true) : setClick(false);
 
   }, [id]);
+
+  function getMultipleRandom(arr, num) {
+    const shuffled = [...arr].sort(() => 0.5 - Math.random());
+  
+    return shuffled.slice(0, num);
+  }
+  
+
+const fetchRecommended = async () => {
+    let req = await fetch('/recommended.json')
+    let res = await req.json()
+    setRandomData(res)
+    
+
+}
   const handleClick = () => {
     if (click) {
       setClick(false);
@@ -159,6 +178,9 @@ const DetailsContainer = ({ id }) => {
         id={id}
         image={data.image_url}
       />
+      
+      <HomeContainer Data={getMultipleRandom(randomData,10)} heading={"Recommended Animes"}  />
+
     </>
   )
 };

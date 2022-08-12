@@ -89,7 +89,7 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
       href={
         episode
           ? `/watching/${id.replace("/","")}/${episode.replace("Episode", "").replace(" ", "")}`
-          : heading === "My List" || heading === "List"
+          : heading === "My List" || heading === "List" || heading === "Recommended Animes"
           ? `/details/${id}`
           : `/details/${url}`
       }
@@ -130,8 +130,9 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
           heading == "Genres" ||
           heading == "My List" ||
           heading == "Showing Results for" ||
-          heading == "Movies" ? (
-            <Episode className="text-[13px] md:text-md"> {released}</Episode>
+          heading == "Movies" ||
+          heading == "Recommended Animes" ? (
+            <Episode className="text-[13px] md:text-md">{heading == "Recommended Animes" || heading == "My List" || heading == "List" ? "Released "+ released : released  } </Episode>
           ) : (
             ""
           )}

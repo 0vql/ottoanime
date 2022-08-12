@@ -22,7 +22,7 @@ const Details = () => {
 
   return (
     
-    <div className="w-full justify-center items-center min-h-screen mx-auto lg:h-full mt-0 md:mt-[4rem]">
+    <div className="w-full justify-center items-center min-h-screen mx-auto lg:h-full mt-0 md:mt-[4rem] overflow-hidden">
       <Head>
         <title>{data.title}</title>
         <meta property="og:title" content={data.title} key={data.title} />

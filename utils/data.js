@@ -4,6 +4,7 @@ import {
   AiFillPlayCircle,
   AiFillStar,
   AiTwotoneThunderbolt,
+  AiTwotoneFire
 } from "react-icons/ai";
 import { FaEye, FaDonate } from "react-icons/fa";
 import { BiShowAlt, BiMoviePlay } from "react-icons/bi";
@@ -38,6 +39,12 @@ export const Discover = [
     name: "Recently Watched",
     link: "/recentlyWatched/",
     icon: BiShowAlt,
+  },
+  {
+    index: 7,
+    name: "Recommended",
+    link: "/recommended/",
+    icon: AiTwotoneFire,
   },
   {
     index: 5,
