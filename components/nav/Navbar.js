@@ -17,6 +17,7 @@ const Navbar = ({ visit }) => {
           <Image
             width={300}
             height={250}
+            objectFit="contain"
             src={
               theme.theme == "dark"
                 ? "/ss.png"

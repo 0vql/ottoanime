@@ -11,7 +11,7 @@ function Footer({contact}) {
             <img src="/ottoanime.svg" className="mr-3 h-8" alt="Animex Logo"/>
             <span className={`self-center text-2xl font-semibold whitespace-nowrap ${theme.text.selected}`}>AniMexStream</span>
         </a>
-        <ul className="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 dark:text-gray-400">
+        <ul className="flex flex-wrap items-center mb-6 text-sm text-gray-700 sm:mb-0">
             <li>
                 <a href="#" className="mr-4 hover:underline md:mr-6 ">About</a>
             </li>

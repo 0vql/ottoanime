@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { BiRightArrowAlt, BiLeftArrowAlt } from "react-icons/bi";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import {FaDownload,FaBackward,FaForward} from "react-icons/fa";
+import {FaDownload,FaBackward,FaForward,FaLightbulb} from "react-icons/fa";
 import {IoPlayForward} from "react-icons/io";
 import {useEffect,useRef} from "react"
 import {FiRefreshCw} from "react-icons/fi"
@@ -29,7 +29,7 @@ const PageButton = ({ href, children, style }) => {
   );
 };
 
-const EpisodePagiNation = ({ total, heading, episodeid,reload ,change}) => {
+const EpisodePagiNation = ({ total, heading, episodeid,reload ,change,light}) => {
   const ref = useRef()
   const router = useRouter();
   const pathList = router.asPath;
@@ -62,7 +62,15 @@ const EpisodePagiNation = ({ total, heading, episodeid,reload ,change}) => {
   return (
     <div className=" relative flex flex-row  w-full justify-end items-center p-1 ">
       <span className="text-white absolute left-0 p-1 font-black text-[20px]">EP {page}</span>
-      
+      <div
+        className={`group relative p-2 shadow-lg rounded-sm  text-white font-bold cursor-pointer  hover:text-yellow-500`} onClick={light}
+      >
+        
+          <FaLightbulb size={24} strokeWidth={1} className=""/>
+          <span className="hidden group-hover:lg:block  bg-[#1e1b1bc7] px-[12px] py-[2px] absolute top-[-25px] left-[-1rem] text-white rounded-md">Light</span>
+        
+      </div>
+
       <div
         className={`group relative p-2 shadow-lg rounded-sm  text-white font-bold cursor-pointer  hover:text-blue-600`} onClick={change}
       >
