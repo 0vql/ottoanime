@@ -167,13 +167,13 @@ const WatchingContainer = ({ data, slug, frame }) => {
           </div>
         </div>
 
-        <div className="ifr-container md:pb-[6.5em] flex w-full z-50 justify-center items-center p-0 md:p-4 flex-col-reverse ">
+        <div className={`ifr-container md:pb-[6.5em] flex w-full ${light ? "z-50" : ""} justify-center items-center p-0 md:p-4 flex-col-reverse`} >
           <div className="flex flex-col-reverse md:flex-row w-full drop-shadow-2xl	">
             <div className="hidden w-full md:block md:w-[12.5rem] lg:w-[16rem] bg-[#100f0f] md:bg-[#00000087]">
               <div className="flex flex-col text-white h-[350px] md:h-[500px] lg:h-[619px] xl:h-[610px] overflow-y-scroll">
-                <div className="p-2 font-bold border-b-2 border-slate-600 border-double">
+                <div className="flex justify-between p-2 font-bold border-b-2 border-slate-600 border-double items-center">
                   Episodes
-                <input type="text" className="text-blue-400 bg-slate-neutral p-1" placeHolder="Filter eps.." onChange={(e) => setVal(e.target.value)} />
+                <input type="text" className="text-blue-400 bg-transparent p-1 w-[6rem] outline outline-[#363333] outline-1 outline-solid focus:outline-blue-500 " placeHolder="Filter eps.." onChange={(e) => setVal(e.target.value)} />
                 </div>
                 {val <= parseInt(ep) && val > 0 ? (
                   <Link key={val} href={`/watching/${slug[0]}/${val}`}>

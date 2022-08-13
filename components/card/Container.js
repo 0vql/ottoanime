@@ -15,7 +15,7 @@ function Container({ Data = [], heading, page, Icon, len }) {
   };
   return Data?.length > 0 ? (
     <>
-      <div className="w-10/12 my-5 relative pt-[2rem]">
+      <div className="w-10/12 my-5 relative pt-[2rem] px-[2rem]">
         <span
           className={heading === "Popular Ongoing" ? "text-white px-2 flex  font-bold items-center  text-2xl md:text-3xl" :`${theme.text.selected} px-2 flex  font-bold items-center  text-2xl md:text-3xl`}
         >

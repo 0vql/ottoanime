@@ -94,13 +94,12 @@ const MYapp = ({ Component, pageProps }) => (
     <Head>
     <link rel="icon" href={"/ottoanime.svg"} />
         <link rel="manifest" href="/manifest.json" />
-        <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
         <meta property="og:title" content="AniMex Stream | Watch HD Animes." />
-        <meta name="keywords" content="animexstream,watch anime, anime online,animex stream , free anime, english anime, sites to watch anime" />
+        <meta name="keywords" content="animexstream,animex stream,watch anime, anime online,animex stream , free anime, english anime, sites to watch anime" />
         <meta name="apple-mobile-web-app-title" content="AnimexStream" />
         <meta property="og:site_name" content="AnimexStream"/>
 
-        <meta property="og:image" content="/icon-192x192.png " />
+        <meta property="og:image" content="/ottoanime192.svg " />
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta

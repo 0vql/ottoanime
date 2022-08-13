@@ -9,7 +9,7 @@ function Footer({contact}) {
     <div className="sm:flex sm:items-center sm:justify-between">
         <a href="#" className="flex items-center mb-4 sm:mb-0">
             <img src="/ottoanime.svg" className="mr-3 h-8" alt="Animex Logo"/>
-            <span className={`self-center text-2xl font-semibold whitespace-nowrap ${theme.text.selected}`}>AniMexStream</span>
+            <span className={`self-center text-2xl font-semibold whitespace-nowrap ${theme.text.notselected}`}>AniMexStream</span>
         </a>
         <ul className="flex flex-wrap items-center mb-6 text-sm text-gray-700 sm:mb-0">
             <li>
