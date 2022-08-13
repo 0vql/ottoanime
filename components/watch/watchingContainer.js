@@ -21,6 +21,8 @@ const WatchingContainer = ({ data, slug, frame }) => {
   const { theme, loading, resumeId, watchList } = useSelector((state) => state);
   const [animeData, setAnimeData] = useState([]);
   const [image, setImage] = useState("");
+  const [val,setVal] = useState(null)
+
   const [title, setTitle] = useState("");
   const [light, setLight] = useState(false);
   const dispatch = useDispatch();
@@ -126,6 +128,10 @@ const WatchingContainer = ({ data, slug, frame }) => {
 
     setSchedule(res.data?.time || "");
   };
+  console.log(val)
+  console.log(myArray.length)
+    console.log(myArray)
+
 
   return (
     <>
@@ -167,8 +173,33 @@ const WatchingContainer = ({ data, slug, frame }) => {
               <div className="flex flex-col text-white h-[350px] md:h-[500px] lg:h-[619px] xl:h-[610px] overflow-y-scroll">
                 <div className="p-2 font-bold border-b-2 border-slate-600 border-double">
                   Episodes
+                <input type="text" className="text-blue-400 bg-slate-neutral p-1" placeHolder="Filter eps.." onChange={(e) => setVal(e.target.value)} />
                 </div>
-                {
+                {val <= parseInt(ep) && val > 0 ? (
+                  <Link key={val} href={`/watching/${slug[0]}/${val}`}>
+                  <div className="m-[1px]">
+                    <span
+                      className={
+                        slug[1] == ep
+                          ? "bg-blue-500 p-3 cursor-pointer flex justify-between font-bold "
+                          : `p-2 cursor-pointer flex justify-between font-light bg-[#8080801a]
+              hover:bg-[#8080802b] hover:font-bold `
+                      }
+                    >
+                      <h2>Episode {val} </h2>{" "}
+                      <span>
+                        <BsPlay
+                          strokeWidth={0}
+                          size={25}
+                          className={
+                            slug[1] == ep ? "text-white " : "text-blue-500"
+                          }
+                        />
+                      </span>
+                    </span>
+                  </div>
+                </Link>
+                ) :
                   (myFunc(),
                   myArray.reverse().map((ep) => (
                     <Link key={ep} href={`/watching/${slug[0]}/${ep}`}>
