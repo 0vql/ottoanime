@@ -1,34 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1>AnimexStream</h1>
 
-## Getting Started
+**<h3>Features:</h3>**
+<ul>
+    <li>✔ No Ads</li>
+    <li>✔ Fast Streaming</li>
+    <li>✔ The browser store your last episode & you can add animes to your list without logging in.</li>
+    <li>✔ PWA => You can install the app into your desktop or mobile.</li>
+    <li>✔ Downloading Animes</li>
+ </ul>
+    
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+**<h3>Screenshots:</h3>**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![image](https://user-images.githubusercontent.com/70418756/184563703-005cd8ec-ab1d-4216-bc84-0125018ca4cd.png)
+![image](https://user-images.githubusercontent.com/70418756/184563724-25ca0efe-f970-43d4-9af0-181cee58279e.png)
+![image](https://user-images.githubusercontent.com/70418756/184563787-13a3e827-d8f0-4705-9abf-3eb045d41ae7.png)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+**<h3>Technologies:</h3>**
+    <ul>
+    <li>✔ NextJS</li>
+    <li>✔ TailwindCSS</li>
+    <li>✔ Redux</li>
+    <li>✔ PWA - Progressive Web App</li>
+    <li>✔ Swiper-JS</li>
+    <li>✔ Python For WebScraping</li>
+    <li>✔ Website is hosted on vercel for free</li>
+ </ul>
