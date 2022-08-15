@@ -2,11 +2,11 @@
 
 **<h3>Features:</h3>**
 <ul>
-    <li>✔ No Ads</li>
-    <li>✔ Fast Streaming</li>
+    <li>✔ No Ads.</li>
+    <li>✔ Fast Streaming.</li>
     <li>✔ The browser store your last episode & you can add animes to your list without logging in.</li>
     <li>✔ PWA => You can install the app into your desktop or mobile.</li>
-    <li>✔ Downloading Animes</li>
+    <li>✔ Downloading Animes.</li>
  </ul>
     
 
