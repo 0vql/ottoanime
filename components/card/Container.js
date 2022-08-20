@@ -6,6 +6,9 @@ import { clearMyWatchList } from "../../redux/actions/recentlyWatchedAction";
 import { AiFillDelete } from "react-icons/ai";
 import dynamic from "next/dynamic";
 
+import Zoom from 'react-reveal/Zoom';
+
+
 function Container({ Data = [], heading, page, Icon, len }) {
   const { theme, loading, watchList } = useSelector((state) => state);
   console.log(Data);
@@ -56,7 +59,10 @@ function Container({ Data = [], heading, page, Icon, len }) {
 
       <div className="grid grid-cols-3  w-full px-2 my-6  gap-[0.5rem]  justify-center  md:grid-cols-4 xl:grid-cols-5 lg:px-[0.5rem] lg:my-16 lg:mt-0  2xl:grid-cols-6 xl:gap-[0.6rem] 2xl:px-[4.3rem]">
         {Data?.map((item, index) => ( 
+          <Zoom>
+        
           <Card {...item} key={index} heading={heading} />
+          </Zoom>
         ))}
       </div>
       {page ? <PagiNation page={page} heading={"Page"} len={len} /> : null}

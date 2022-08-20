@@ -15,7 +15,7 @@ import { useEffect, useState } from "react";
 import Lottie from "lottie-react-web";
 import Heart from "../../public/heart.json";
 import Recommended from "../../pages/recommended";
-import HomeContainer from "../card/HomeContainer";
+import Container from "../card/Container";
 
 
 const DetailsContainer = ({ id }) => {
@@ -179,7 +179,7 @@ const fetchRecommended = async () => {
         image={data.image_url}
       />
       
-      <HomeContainer Data={getMultipleRandom(randomData,10)} heading={"Recommended Animes"}  />
+      <Container Data={getMultipleRandom(randomData,10)} heading={"Recommended Animes"}  />
 
     </>
   )
