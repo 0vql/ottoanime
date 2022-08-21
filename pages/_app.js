@@ -95,15 +95,19 @@ const MYapp = ({ Component, pageProps }) => (
     <link rel="icon" href={"/ottoanime.svg"} />
         <link rel="manifest" href="/manifest.json" />
         <meta property="og:title" content="AniMex Stream | Watch HD Animes." />
-        <meta name="keywords" content="animexstream,animex stream,watch anime, anime online,animex stream , free anime, english anime, sites to watch anime" />
-        <meta name="apple-mobile-web-app-title" content="AnimexStream" />
-        <meta property="og:site_name" content="AnimexStream"/>
+        <meta name="keywords" content="animexstream,animex stream,ottoanime,otto anime,watch anime, anime online,animex stream , free anime, english anime, sites to watch anime" />
+        <meta name="apple-mobile-web-app-title" content="Otto Anime Stream" />
+        <meta property="og:site_name" content="Otto Anime"/>
 
         <meta property="og:image" content="/ottoanime192.svg " />
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           property="og:description"
+          content="Watch Anime for free in HD quality with English subbed or dubbed."
+        />
+         <meta
+          property="description"
           content="Watch Anime for free in HD quality with English subbed or dubbed."
         />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3357173685448212"

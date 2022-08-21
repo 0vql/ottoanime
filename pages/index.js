@@ -22,18 +22,27 @@ export default function Home() {
   return (
     <>
     <Head>
-        <link rel="icon" href={"/shuriken.svg"} />
-        <link rel="manifest" href="/manifest.json" />
+        
         <title>AniMex Stream</title>
+        <link rel="manifest" href="/manifest.json" />
         <meta property="og:title" content="AniMex Stream | Watch HD Animes." />
-        <meta name="apple-mobile-web-app-title" content="AniMexStream" />
-        <meta property="og:image" content="/static/img/icon-192x192.png " />
+        <meta name="keywords" content="animexstream,animex stream,ottoanime,otto anime,watch anime, anime online,animex stream , free anime, english anime, sites to watch anime" />
+        <meta name="apple-mobile-web-app-title" content="Otto Anime Stream" />
+        <meta property="og:site_name" content="Otto Anime"/>
+
+        <meta property="og:image" content="/ottoanime192.svg " />
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           property="og:description"
           content="Watch Anime for free in HD quality with English subbed or dubbed."
         />
+         <meta
+          property="description"
+          content="Watch Anime for free in HD quality with English subbed or dubbed."
+        />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3357173685448212"
+     crossOrigin="anonymous"></script>
         
       </Head>
     <IndexContainer>

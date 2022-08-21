@@ -11,6 +11,13 @@ module.exports = {
     borderColor: ["responsive", "hover", "focus", "group-hover"],
   },
   theme: {
+    screens : {
+      'md':'768px',
+      'lg':'1024px',
+      'xl':'1280px',
+       '2xl':'1760px',
+      '3xl':'1900px',
+    },
     extend: {
       colors: {
         background: "#101010",
