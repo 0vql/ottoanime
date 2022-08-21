@@ -112,7 +112,7 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
             src={image_url}
             alt={title}
           > */}
-        <MovieImg className="w-full object-cover rounded-xl h-[11rem] hover:scale-105 xl:h-[20rem] md:h-72 2xl:h-[20.5rem] lg:h-66">
+        <MovieImg className="w-full object-cover rounded-xl h-[11rem]  xl:h-[20rem] md:h-72 2xl:h-[20.5rem] lg:h-66">
           <div style={{ width: "100%", height: "100%", position: "relative" }}>
             <Image
               src={image_url ? image_url : "/bg-anime2"}
