@@ -96,13 +96,7 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
     >
       <MovieWrapper
         className={
-          heading == "Trending" ||
-          heading == "Latest Uploads" ||
-          heading == "Watch List" ||
-          heading == "List" ||
-          heading == "Popular Ongoing"
-            ? "relative text-white cursor-pointer items-center rounded-xl w-full text-center justify-start flex flex-col"
-            : `relative ${theme.card.text} ${theme.card.bghover} cursor-pointer items-center rounded-xl w-full text-center justify-start flex flex-col  `
+           `relative ${theme.card.text} ${theme.card.bghover} cursor-pointer items-center rounded-xl w-full text-center justify-start flex flex-col  `
         }
         card={theme.card}
       >

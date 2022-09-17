@@ -7,21 +7,24 @@ import { useSelector } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination } from "swiper";
 import Link from "next/link";
+import { EffectFade } from 'swiper';
+
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "swiper/css/effect-fade"
 import Loader from "../Loader/Loader";
 SwiperCore.use([Navigation, Pagination]);
 
 function HomeContainer({ Data = [], heading, page, Icon, to }) {
-  
+  const {theme} = useSelector(state => state)
   return (
-    <div className="py-8 xl:p-12 relative">
+    <div className="py-8 xl:px-12 xl:py-0 relative">
       <div className="flex justify-between">
         <span
-          className={` px-2 flex  text-white font-light items-center  text-2xl`}
+          className={` px-2 flex  ${theme.text.selected} font-light items-center  text-2xl`}
         >
           {/* {Icon ? (
             <Icon
@@ -57,7 +60,7 @@ function HomeContainer({ Data = [], heading, page, Icon, to }) {
       <div className={`bg-gray-400 rounded-full h-0.5 mx-2 w-[2rem]`} />
 
       <Swiper
-        
+         
         navigation
         breakpoints={{
           320: {
@@ -90,7 +93,10 @@ function HomeContainer({ Data = [], heading, page, Icon, to }) {
           },
           1624: {
             slidesPerView: 6.3,
+            slidesPerGroup: 6,
             spaceBetween: 10,
+            speed:700,
+            
           },
         }}
        
