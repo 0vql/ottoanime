@@ -30,6 +30,7 @@ const PageButton = ({ href, children, style }) => {
 };
 
 const EpisodePagiNation = ({ total, heading, episodeid,reload ,change,light}) => {
+  const { theme } = useSelector((state) => state);
   const ref = useRef()
   const router = useRouter();
   const pathList = router.asPath;
@@ -60,34 +61,34 @@ const EpisodePagiNation = ({ total, heading, episodeid,reload ,change,light}) =>
     }
   }
   return (
-    <div className=" relative flex flex-row  w-full justify-end items-center p-1 ">
-      <span className="text-white absolute left-0 p-1 font-black text-[20px]">EP {page}</span>
+    <div className={`relative flex flex-row ${theme.text.selected} w-full justify-end items-center p-1`}>
+      <span className=" absolute left-0 p-1 font-black text-[20px]">EP {page}</span>
       <div
-        className={`group relative p-2 shadow-lg rounded-sm  text-white font-bold cursor-pointer  hover:text-yellow-500`} onClick={light}
+        className={`group relative p-2 shadow-lg rounded-sm   font-bold cursor-pointer  hover:text-yellow-500`} onClick={light}
       >
         
           <FaLightbulb size={24} strokeWidth={1} className=""/>
-          <span className="hidden group-hover:lg:block  bg-[#1e1b1bc7] px-[12px] py-[2px] absolute top-[-25px] left-[-1rem] text-white rounded-md">Light</span>
+          <span className="hidden group-hover:lg:block  bg-[#1e1b1bc7] px-[12px] py-[2px] absolute top-[-25px] left-[-1rem]  rounded-md">Light</span>
         
       </div>
 
       <div
-        className={`group relative p-2 shadow-lg rounded-sm  text-white font-bold cursor-pointer  hover:text-blue-600`} onClick={change}
+        className={`group relative p-2 shadow-lg rounded-sm   font-bold cursor-pointer  hover:text-blue-600`} onClick={change}
       >
         
           <HiSwitchHorizontal size={24} strokeWidth={1} className=""/>
-          <span className="hidden group-hover:lg:block  bg-[#1e1b1bc7] px-[12px] py-[2px] absolute top-[-25px] left-[-1rem] text-white rounded-md">Switch</span>
+          <span className="hidden group-hover:lg:block  bg-[#1e1b1bc7] px-[12px] py-[2px] absolute top-[-25px] left-[-1rem]  rounded-md">Switch</span>
         
       </div><div
-        className={`group relative p-2 shadow-lg rounded-sm  text-white font-bold cursor-pointer hover:text-blue-600 `} onClick={reload}
+        className={`group relative p-2 shadow-lg rounded-sm   font-bold cursor-pointer hover:text-blue-600 `} onClick={reload}
       >
         
           <FiRefreshCw size={20} strokeWidth={4} className=" "/>
-          <span className="hidden group-hover:lg:block  bg-[#1e1b1bc7] px-[12px] py-[2px] absolute top-[-25px] left-[-1rem] text-white rounded-md">Reload</span>
+          <span className="hidden group-hover:lg:block  bg-[#1e1b1bc7] px-[12px] py-[2px] absolute top-[-25px] left-[-1rem]  rounded-md">Reload</span>
         
       </div>
       <div
-        className={`group relative p-2 shadow-lg rounded-sm  text-white font-bold cursor-pointer  `}
+        className={`group relative p-2 shadow-lg rounded-sm   font-bold cursor-pointer  `}
       >
         <a
           href={`https://goload.io/download?id=${episodeid}`}
@@ -96,22 +97,22 @@ const EpisodePagiNation = ({ total, heading, episodeid,reload ,change,light}) =>
           className=""
         >
           <FaDownload size={20} className=" hover:text-blue-600"/>
-          <span className="hidden group-hover:lg:block  bg-[#1e1b1bc7] px-[12px] py-[2px] absolute top-[-25px] left-[-2rem] text-white rounded-md">Download</span>
+          <span className="hidden group-hover:lg:block  bg-[#1e1b1bc7] px-[12px] py-[2px] absolute top-[-25px] left-[-2rem]  rounded-md">Download</span>
         </a>
       </div>
 
       {page === 1 ? null : (
         <PageButton style={""}  href={prev} pre={true}>
-          <FaBackward size={20} className="text-white hover:text-blue-600"  />
-          <span className="hidden group-hover:lg:block  bg-[#1e1b1bc7] px-[12px] py-[2px] absolute top-[-25px] text-white rounded-md">Prev</span>
+          <FaBackward size={20} className=" hover:text-blue-600"  />
+          <span className="hidden group-hover:lg:block  bg-[#1e1b1bc7] px-[12px] py-[2px] absolute top-[-25px]  rounded-md">Prev</span>
           
         </PageButton>
       )}
       {page != total ? (
         <PageButton style={""} href={nxt} pre={false}>
           
-          <FaForward size={20} className="text-white hover:text-blue-600"  />
-          <span className="hidden group-hover:lg:block  bg-[#1e1b1bc7] px-[12px] py-[2px] absolute top-[-25px] text-white rounded-md">Next</span>
+          <FaForward size={20} className=" hover:text-blue-600"  />
+          <span className="hidden group-hover:lg:block  bg-[#1e1b1bc7] px-[12px] py-[2px] absolute top-[-25px]  rounded-md">Next</span>
         </PageButton>
       ) : null}
 

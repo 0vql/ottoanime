@@ -20,7 +20,7 @@ function Container({ Data = [], heading, page, Icon, len }) {
     <>
       <div className="my-5 relative pt-[2rem] w-full lg:px-[2rem]">
         <span
-          className={heading === "Popular Ongoing" ? "text-white px-2 flex  font-bold items-center  text-2xl md:text-3xl" :`${theme.text.selected} px-2 flex  font-bold items-center  text-2xl md:text-3xl`}
+          className={`${theme.text.selected} px-2 flex  font-bold items-center  text-2xl md:text-3xl`}
         >
           {/* {Icon ? (
             <Icon

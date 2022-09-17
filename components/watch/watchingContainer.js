@@ -21,7 +21,7 @@ const WatchingContainer = ({ data, slug, frame }) => {
   const { theme, loading, resumeId, watchList } = useSelector((state) => state);
   const [animeData, setAnimeData] = useState([]);
   const [image, setImage] = useState("");
-  const [val,setVal] = useState(null)
+  const [val, setVal] = useState(null);
 
   const [title, setTitle] = useState("");
   const [light, setLight] = useState(false);
@@ -31,6 +31,13 @@ const WatchingContainer = ({ data, slug, frame }) => {
   const [ifr, setIfr] = useState("");
   const [dataIfr, setDataIfr] = useState("");
   const [onGoingPopular, setOnGoingPopular] = useState([]);
+  const violationRef = useRef(null);
+  const scrollHere = useRef(null);
+
+
+  
+ 
+
 
   var myArray = [];
   const myFunc = () => {
@@ -43,19 +50,22 @@ const WatchingContainer = ({ data, slug, frame }) => {
     "https://animixplay.to/api/live" +
     window.btoa(dataIfr + "LTXs3GrU8we9O" + window.btoa(dataIfr));
 
-  const ImageContainer = styled.div`
-    background: linear-gradient(rgb(0 0 0 / 86%), rgb(0 0 0 / 90%)),
-      url(${image}) 0% 0% / cover no-repeat fixed;
-    height: 100vh;
-    width: 100%;
-    filter: blur(7.5px) drop-shadow(2px 4px 14px black);
-    /* z-index: 1; */
-    position: fixed;
+  // const ImageContainer = styled.div`
+  //   background: linear-gradient(rgb(0 0 0 / 86%), rgb(0 0 0 / 90%)),
+  //     url(${image}) 0% 0% / cover no-repeat fixed;
+  //   height: 100vh;
+  //   width: 100%;
+  //   filter: blur(7.5px) drop-shadow(2px 4px 14px black);
+  //   /* z-index: 1; */
+  //   position: fixed;
 
-    background-position: center;
-  `;
+  //   background-position: center;
+  // `;
 
   useEffect(() => {
+    let offsetTop = scrollHere?.current?.offsetTop;
+    violationRef?.current?.scrollTo(0, offsetTop);
+
     FetchingOnGoing();
     setIfr(
       `https://animixplay.to/api/live` +
@@ -128,14 +138,12 @@ const WatchingContainer = ({ data, slug, frame }) => {
 
     setSchedule(res.data?.time || "");
   };
-  console.log(val)
-  console.log(myArray.length)
-    console.log(myArray)
-
+  console.log(val);
+  console.log(myArray.length);
+  console.log(myArray);
 
   return (
     <>
-      <ImageContainer />
       <div
         className={
           light ? `fixed left-0 top-0 right-0 bottom-0 bg-black z-50` : ""
@@ -167,42 +175,51 @@ const WatchingContainer = ({ data, slug, frame }) => {
           </div>
         </div>
 
-        <div className={`ifr-container md:pb-[6.5em] flex w-full ${light ? "z-50" : ""} justify-center items-center p-0 md:p-4 flex-col-reverse`} >
+        <div
+          className={`ifr-container md:pb-[6.5em] flex w-full ${
+            light ? "z-50" : ""
+          } justify-center items-center p-0 md:p-4 flex-col-reverse`}
+        >
           <div className="flex flex-col-reverse md:flex-row w-full drop-shadow-2xl	">
             <div className=" w-full md:block md:w-[12.5rem] lg:w-[16rem] bg-[#100f0f] md:bg-[#00000087]">
-              <div className="flex flex-col text-white h-[350px] md:h-[500px] lg:h-[619px] xl:h-[610px] overflow-y-scroll">
+              <div className="flex flex-col text-white h-[350px] md:h-[500px] lg:h-[619px] xl:h-[610px] overflow-y-scroll" ref={violationRef}>
                 <div className="flex justify-between p-2 font-bold border-b-2 border-slate-600 border-double items-center">
                   Episodes
-                <input type="text" className="text-blue-400 bg-transparent p-1 w-[6rem] outline outline-[#363333] outline-1 outline-solid focus:outline-blue-500 " placeHolder="Filter eps.." onChange={(e) => setVal(e.target.value)} />
+                  <input
+                    type="text"
+                    className="text-blue-400 bg-transparent p-1 w-[6rem] outline outline-[#363333] outline-1 outline-solid focus:outline-blue-500 "
+                    placeHolder="Filter eps.."
+                    onChange={(e) => setVal(e.target.value)}
+                  />
                 </div>
                 {val <= parseInt(ep) && val > 0 ? (
-                  <Link key={val} href={`/watching/${slug[0]}/${val}`}>
-                  <div className="m-[1px]">
-                    <span
-                      className={
-                        slug[1] == ep
-                          ? "bg-blue-500 p-3 cursor-pointer flex justify-between font-bold "
-                          : `p-2 cursor-pointer flex justify-between font-light bg-[#8080801a]
+                  <Link key={val} href={`/watching/${slug[0]}/${val}`} >
+                    <div className="m-[1px]">
+                      <span
+                        className={
+                          slug[1] == ep
+                            ? "bg-blue-500 p-3 cursor-pointer flex justify-between font-bold "
+                            : `p-2 cursor-pointer flex justify-between font-light bg-[#8080801a]
               hover:bg-[#8080802b] hover:font-bold `
-                      }
-                    >
-                      <h2>Episode {val} </h2>{" "}
-                      <span>
-                        <BsPlay
-                          strokeWidth={0}
-                          size={25}
-                          className={
-                            slug[1] == ep ? "text-white " : "text-blue-500"
-                          }
-                        />
+                        }
+                      >
+                        <h2>Episode {val} </h2>{" "}
+                        <span>
+                          <BsPlay
+                            strokeWidth={0}
+                            size={25}
+                            className={
+                              slug[1] == ep ? "text-white " : "text-blue-500"
+                            }
+                          />
+                        </span>
                       </span>
-                    </span>
-                  </div>
-                </Link>
-                ) :
+                    </div>
+                  </Link>
+                ) : (
                   (myFunc(),
                   myArray.reverse().map((ep) => (
-                    <Link key={ep} href={`/watching/${slug[0]}/${ep}`}>
+                    <Link key={ep} href={`/watching/${slug[0]}/${ep}`} ref={scrollHere}>
                       <div className="m-[1px]">
                         <span
                           className={
@@ -210,7 +227,7 @@ const WatchingContainer = ({ data, slug, frame }) => {
                               ? "bg-blue-500 p-3 cursor-pointer flex justify-between font-bold "
                               : `p-2 cursor-pointer flex justify-between font-light bg-[#8080801a]
                   hover:bg-[#8080802b] hover:font-bold `
-                          }
+                          } 
                         >
                           <h2>Episode {ep} </h2>{" "}
                           <span>
@@ -226,7 +243,7 @@ const WatchingContainer = ({ data, slug, frame }) => {
                       </div>
                     </Link>
                   )))
-                }
+                )}
               </div>
             </div>
             <iframe
