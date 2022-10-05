@@ -52,7 +52,7 @@ const MovieImg = styled.div`
   // filter: drop-shadow(2px 4px 6px black);
 
   border-radius: 0;
-  box-shadow: 0rem 2rem 5rem rgba(0, 0, 0, 0.2);
+  
   // transition: all 100ms cubic-bezier(0.645, 0.045, 0.355, 1);
   &:hover {
     filter: brightness(0.9);

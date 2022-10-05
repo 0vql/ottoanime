@@ -6,26 +6,35 @@ import Layout from "../../components/Layout";
 import { asyncDataAction } from "../../redux/actions/asyncDataAction";
 import { URL } from "../../utils/URLS";
 import { Discover } from "../../utils/data";
+const axios = require("axios")
 
 
-const Popular = () => {
+export async function getServerSideProps(context) {
+  let p = context.params.pages
+  var PopularURL = URL.POPULAR + p;
+  let req = await axios.get(PopularURL)
+  let res = req.data
+  
+
+  return { props : {
+    d : res,
+  }}
+
+
+}
+
+const Popular = ({d}) => {
   const { data } = useSelector((state) => state);
   const router = useRouter();
   const { pages } = router.query;
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (pages) {
-      var PopularURL = URL.POPULAR + pages;
-
-      dispatch(asyncDataAction(PopularURL));
-    }
-  }, [pages]);
-
+ 
+console.log(d)
   return (
     <Layout title={`Popular ${pages}`}>
       <Container
-        Data={data}
+        Data={d}
         heading={"Popular"}
         Icon={Discover[1].icon}
         page={[pages]}

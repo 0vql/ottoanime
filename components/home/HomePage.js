@@ -86,7 +86,7 @@ const HomePage = () => {
   };
 
   return (
-    <div className={`mx-auto lg:px-[0.7rem] mt-16 2xl:px-[3.2rem]`}>
+    <div className={`mx-auto lg:px-[0.7rem] mt-20 2xl:px-[3.2rem]`}>
       {myList.length > 0 ? (
         <HomeContainer
           Data={myList}

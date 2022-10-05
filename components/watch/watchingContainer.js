@@ -67,7 +67,7 @@ const WatchingContainer = ({ data, slug, frame }) => {
     violationRef?.current?.scrollTo(0, offsetTop);
 
     FetchingOnGoing();
-    setIfr(
+    const ifry =  setIfr(
       `https://animixplay.to/api/live` +
         window.btoa(data.epid + "LTXs3GrU8we9O" + window.btoa(data.epid))
     );
@@ -89,11 +89,14 @@ const WatchingContainer = ({ data, slug, frame }) => {
       })
     );
     fetchSchedule();
-    const updateTime = setInterval(() => {
-      fetchSchedule();
-    }, 60000);
+    
+    fetchSchedule();
 
-    return () => clearInterval(updateTime);
+    return () => {
+      ifry
+    }
+
+   
   }, [data, image]);
 
   const fetchEpisodesList = async () => {

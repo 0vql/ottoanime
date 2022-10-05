@@ -11,6 +11,7 @@ const IndexContainer = styled.div`
         background-position: center top;
     background-size: cover;
     overflow:hidden;
+  
    
 }
   
