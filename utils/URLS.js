@@ -1,5 +1,5 @@
 export const URL = {
-  POPULAR: "https://ottogo.vercel.app/api/popular/",
+  POPULAR: "https://ottogogo.herokuapp.com/api/popular/",
   RECENT: "https://ottogo.vercel.app/api/latest/",
   DETAILS: "https://ottogogo.herokuapp.com/api/details/",
   EPLINK: "https://ottogo.vercel.app/api/",
