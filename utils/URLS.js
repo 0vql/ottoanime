@@ -2,7 +2,7 @@ export const URL = {
   POPULAR: "https://ottogogo.herokuapp.com/api/popular/",
   RECENT: "https://ottogo.vercel.app/api/latest/",
   DETAILS: "https://ottogogo.herokuapp.com/api/details/",
-  EPLINK: "https://ottogo.vercel.app/api/",
+  EPLINK: "https://ottogogo.herokuapp.com/api/",
   GENRES: "https://ottogo.vercel.app/api/category/",
   SEARCH: "https://ottogo.vercel.app/api/search/",
   GENRES: "https://ottogo.vercel.app/api/category/",
