@@ -90,7 +90,7 @@ const WatchingContainer = ({ data, slug, frame }) => {
     );
     fetchSchedule();
     
-    fetchSchedule();
+   
 
     return () => {
       ifry
@@ -101,7 +101,7 @@ const WatchingContainer = ({ data, slug, frame }) => {
 
   const fetchEpisodesList = async () => {
     let res = await axios.get(
-      `https://ottogo.vercel.app/api/details/${slug[0]}/`
+      `https://ottodb.vercel.app/api/details/${slug[0]}/`
     );
     setAnimeData(res?.data);
     setImage(res.data.image_url);
@@ -153,7 +153,7 @@ const WatchingContainer = ({ data, slug, frame }) => {
         }
       />
 
-      <div className="relative flex justify-center items-center mx-auto text-center flex-col lg:h-full w-full lg:w-[1100px] xl:w-[1145px] 2xl:w-[1345px] px-2 ">
+      <div className="relative flex justify-center rounded-mde items-center mx-auto text-center flex-col lg:h-full w-full lg:w-[1100px] xl:w-[1145px] 2xl:w-[1345px] px-2 ">
         <div
           className={` flex flex-col pb-2 xl:w-full justify-between items-center w-full ${theme.text.selected}   my-4`}
         >
@@ -184,9 +184,9 @@ const WatchingContainer = ({ data, slug, frame }) => {
           } justify-center items-center p-0 md:p-4 flex-col-reverse`}
         >
           <div className="flex flex-col-reverse md:flex-row w-full drop-shadow-2xl	">
-            <div className=" w-full md:block md:w-[12.5rem] lg:w-[16rem] bg-[#100f0f] md:bg-[#00000087]">
+            <div className=" w-full md:block md:w-[12.5rem] lg:w-[16rem] bg-[#100f0f] md:bg-[#000000eb]">
               <div className="flex flex-col text-white h-[350px] md:h-[500px] lg:h-[619px] xl:h-[610px] overflow-y-scroll" ref={violationRef}>
-                <div className="flex justify-between p-2 font-bold border-b-2 border-slate-600 border-double items-center">
+                <div className="flex justify-between p-2 font-bold border-b-2  border-slate-600 border-double items-center">
                   Episodes
                   <input
                     type="text"
