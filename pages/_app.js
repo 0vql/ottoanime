@@ -110,9 +110,7 @@ const MYapp = ({ Component, pageProps }) => (
           property="description"
           content="Watch Anime for free in HD quality with English subbed or dubbed."
         />
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3357173685448212"
-     crossOrigin="anonymous"></script>
-       
+        
       </Head>
               <PersistGate loading={null} persistor={Persistor}>
            

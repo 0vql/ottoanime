@@ -38,11 +38,13 @@ export const Emessage = ({ message }) => {
 import { Discover } from "../utils/data";
 const RecentlyWatched = () => {
   const { watchList } = useSelector((state) => state);
+  const sortedList = watchList.sort((a,b) => b.time - a.time);
+
   console.log(watchList);
   return (
     <Layout title={"My List"}>
       {watchList.length > 0 ? (
-        <Container Data={watchList} heading={"Recently Watched"} Icon={Discover[2].icon} />
+        <Container Data={sortedList} heading={"Recently Watched"} Icon={Discover[2].icon} />
       ) : (
         <Emessage message={"Watch Your Favourites Animes"} />
       )}

@@ -19,6 +19,8 @@ const HomePage = () => {
   const [dataRecently, setDataRecently] = useState([]);
   const [dataPopular, setDataPopular] = useState([]);
   const { theme, resumeId, myList, watchList } = useSelector((state) => state);
+  const sortedList = watchList.sort((a,b) => b.time - a.time);
+
   // const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -99,7 +101,7 @@ const HomePage = () => {
       )}
       {watchList.length > 0 ? (
         <HomeContainer
-          Data={watchList}
+          Data={sortedList}
           heading={"Watch List"}
           Icon={Discover[4].icon}
           to={`recentlyWatched`}

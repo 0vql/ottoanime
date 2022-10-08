@@ -63,8 +63,8 @@ const WatchingContainer = ({ data, slug, frame }) => {
   // `;
 
   useEffect(() => {
-    let offsetTop = scrollHere?.current?.offsetTop;
-    violationRef?.current?.scrollTo(0, offsetTop);
+    // let offsetTop = scrollHere?.current?.offsetTop;
+    // violationRef?.current?.scrollTo(0, offsetTop);
 
     FetchingOnGoing();
     const ifry =  setIfr(
@@ -79,6 +79,7 @@ const WatchingContainer = ({ data, slug, frame }) => {
         image_url: image,
         title: title,
         episode: slug[1],
+        time: Date.now(),
       })
     );
 

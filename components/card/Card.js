@@ -4,6 +4,7 @@ import Link from "next/link";
 import { AiFillCalendar } from "react-icons/ai";
 import { useState } from "react";
 import Image from "next/image";
+import Heart from "../../public/heart.json";
 
 const MovieWrapper = styled.a`
   display: flex;
@@ -119,7 +120,11 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
               alt={title}
               
             />
+
+            
+           
           </div>
+          
         </MovieImg>
         <DetailsWrapper className="">
           <Title className="text-[13px] md:text-lg">{title}</Title>
