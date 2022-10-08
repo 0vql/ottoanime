@@ -179,7 +179,7 @@ const fetchRecommended = async () => {
         image={data.image_url}
       />
       
-      <Container Data={getMultipleRandom(randomData,10)} heading={"Recommended Animes"}  />
+      <Container Data={getMultipleRandom(randomData,12)} heading={"Recommended Animes"}  />
 
     </>
   )

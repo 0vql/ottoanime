@@ -68,7 +68,7 @@ function Container({ Data = [], heading, page, Icon, len }) {
       {page ? <PagiNation page={page} heading={"Page"} len={len} /> : null}
     </>
   ) : (
-    <Loader />
+    <div />
   );
 }
 

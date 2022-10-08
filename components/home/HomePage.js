@@ -81,7 +81,7 @@ const HomePage = () => {
   // };
 
   const PopularFetch = async () => {
-    let res = await axios.get("https://ottogo.vercel.app/api/popular/1/");
+    let res = await axios.get("https://ottodb.vercel.app/api/popular/1/");
     setDataPopular(res.data.slice(0, 17));
   };
 

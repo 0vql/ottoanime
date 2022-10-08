@@ -65,16 +65,20 @@ const MovieImg = styled.div`
 const Title = styled.span`
   width: 100%;
   overflow: hidden;
-  display: -webkit-box;
+  display: block;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  padding:0 10px;
 `;
 
 const DetailsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px #ffffff0f solid;
+  // border: 1px #ffffff0f solid;
+  
   border-top: none;
   width: 100%;
   // background: #ffffff0f;
@@ -112,11 +116,12 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
               src={image_url ? image_url : "/bg-anime2"}
               layout="fill"
               objectFit="cover"
+              alt={title}
               
             />
           </div>
         </MovieImg>
-        <DetailsWrapper className="justify-between h-24 md:h-28">
+        <DetailsWrapper className="">
           <Title className="text-[13px] md:text-lg">{title}</Title>
           {heading == "Popular" ||
           heading == "Trending" ||

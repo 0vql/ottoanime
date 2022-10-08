@@ -6,6 +6,6 @@ export const URL = {
   GENRES: "https://ottogo.vercel.app/api/category/",
   SEARCH: "https://ottogo.vercel.app/api/search/",
   GENRES: "https://ottogo.vercel.app/api/category/",
-  SEASON: "https://ottogo.vercel.app/api/new-season/",
-  MOVIES: "https://ottogo.vercel.app/api/movies/",
+  SEASON: "https://ottodb.vercel.app/api/new-season/",
+  MOVIES: "https://ottodb.vercel.app/api/movies/",
 };
