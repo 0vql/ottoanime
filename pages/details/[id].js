@@ -6,19 +6,30 @@ import Layout from "../../components/Layout";
 import { asyncDataAction } from "../../redux/actions/asyncDataAction";
 import { URL } from "../../utils/URLS";
 import Head from "next/head";
+import axios from "axios"
 
 const Details = () => {
-  const { data } = useSelector((state) => state);
+  // const { data } = useSelector((state) => state);
+  const [data,setData] = useState(null)
   const {
     query: { id },
   } = useRouter();
   const dispatch = useDispatch();
   useEffect(() => {
-    if (id) {
-      const DETAILURL = URL.DETAILS + id;
-      dispatch(asyncDataAction(DETAILURL));
-    }
+    
+      let det = fetchData();
+
+      return () => {
+        det
+      }   
   }, [id]);
+
+  const fetchData = async () => {
+      let  DETAILURL = URL.DETAILS + id;
+      let req = await axios.get(DETAILURL)
+      let res = req.data
+      setData(res)
+  }
 
   return (
     
