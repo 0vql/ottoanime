@@ -102,7 +102,7 @@ const WatchingContainer = ({ data, slug, frame }) => {
 
   const fetchEpisodesList = async () => {
     let res = await axios.get(
-      `https://ottodb.vercel.app/api/details/${slug[0]}/`
+      `https://ottogo.vercel.app/api/details/${slug[0]}/`
     );
     setAnimeData(res?.data);
     setImage(res.data.image_url);

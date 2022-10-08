@@ -18,9 +18,9 @@ import Recommended from "../../pages/recommended";
 import Container from "../card/Container";
 
 
-const DetailsContainer = ({ id }) => {
+const DetailsContainer = ({ id,data }) => {
   const [click, setClick] = useState(false);
-  const { data , theme, myList, loading } = useSelector((state) => state);
+  const { theme, myList, loading } = useSelector((state) => state);
   const [randomData, setRandomData] = useState([])
   const [expand,setExpand] = useState(false)
   const dispatch = useDispatch();
@@ -54,7 +54,7 @@ const fetchRecommended = async () => {
       setClick(true);
     }
   };
-  return (
+  return data && (
     <>
     <div className="overflow-hidden relative">
       <img src={data.image_url} alt="data" className=" absolute lg:flex object-cover h-full  bg-center blur-[9px] brightness-[0.3] w-full "/>
