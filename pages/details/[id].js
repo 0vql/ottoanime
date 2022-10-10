@@ -7,15 +7,19 @@ import { asyncDataAction } from "../../redux/actions/asyncDataAction";
 import { URL } from "../../utils/URLS";
 import Head from "next/head";
 import axios from "axios"
+import {ThreeDots} from 'react-loader-spinner'
+
 
 const Details = () => {
   // const { data } = useSelector((state) => state);
   const [data,setData] = useState()
+  const [loading,setLoading] = useState(true)
   const {
     query: { id },
   } = useRouter();
   const dispatch = useDispatch();
   useEffect(() => {
+    setLoading(true)
     
       let det = fetchData();
 
@@ -31,6 +35,7 @@ const Details = () => {
       let res = req.data
       console.log(res)
       setData(res)
+      setLoading(false)
     }
   }
 
@@ -45,8 +50,22 @@ const Details = () => {
 
         <meta property="og:description" content={data?.plot_summary} />
       </Head>
+    {loading ? (
+      <div className="h-screen w-full flex justify-center items-center ">
+      <ThreeDots 
+   height="110" 
+   width="110" 
+   radius="9"
+   color="#2A36F3" 
+   ariaLabel="three-dots-loading"
+   wrapperStyle={{}}
+   
+   visible={true}
+    /> </div>
+    ) : (
 
       <DetailsContainer id={id} data={data} />
+    )}
     </div>
     
   );

@@ -19,11 +19,10 @@ const Recently = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // if (slug) {
-    //   var WatchingURL = URL.EPLINK + slug[0] + "/episode/" + slug[1];
-    //   dispatch(asyncDataAction(WatchingURL));
-    // }
-    fetchEpisode();
+    let wat = fetchEpisode();
+    return () => {
+      wat
+    }
   }, [slug]);
 
   const fetchEpisode = async () => {

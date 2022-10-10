@@ -5,18 +5,31 @@ import Layout from "../../components/Layout";
 import cheerio from "cheerio";
 const axios = require("axios");
 import { Discover } from "../../utils/data";
+import {ThreeDots} from 'react-loader-spinner'
+
 
 const Recently = () => {
   const [content, setContent] = useState([]);
+  const [loading,setLoading] = useState(true)
+
 
   const {
     query: { pages },
   } = useRouter();
+
+
   useEffect(() => {
-    Fetching();
+    setLoading(true)
+
+    let rec = Fetching()
+    
+    return () => {
+      rec
+    }
   }, [pages]);
 
   const Fetching = async (e) => {
+
     let d = await axios.get(
       `https://ajax.gogo-load.com/ajax/page-recent-release.html?page=${pages}&type=1`
     );
@@ -39,11 +52,24 @@ const Recently = () => {
       myList.push(result);
     });
     setContent(myList);
+    setLoading(false)
     console.log(content);
   };
 
   return (
     <Layout title={`Recently ${pages}`}>
+      {loading ? (<div className="h-screen w-full flex justify-center items-center ">
+      <ThreeDots 
+   height="110" 
+   width="110" 
+   radius="9"
+   color="#2A36F3" 
+   ariaLabel="three-dots-loading"
+   wrapperStyle={{}}
+   
+   visible={true}
+    /> </div>): (
+
       <Container
         Data={content}
         heading={"Recently Added"}
@@ -51,6 +77,7 @@ const Recently = () => {
         Icon={Discover[0].icon}
         len={content.length}
       />
+    )}
     </Layout>
   );
 };
