@@ -13,6 +13,7 @@ import {ThreeDots} from 'react-loader-spinner'
 const Details = () => {
   // const { data } = useSelector((state) => state);
   const [data,setData] = useState()
+  const [mal,setMal] = useState()
   const [loading,setLoading] = useState(true)
   const {
     query: { id },
@@ -22,9 +23,10 @@ const Details = () => {
     setLoading(true)
     
       let det = fetchData();
+      let ma = fetchMal()
 
       return () => {
-        det
+        det,ma
       }   
   }, [id]);
 
@@ -37,6 +39,14 @@ const Details = () => {
       setData(res)
       setLoading(false)
     }
+  }
+
+  const fetchMal = async () => {
+    let url = `https://ottodb.vercel.app/api/mal/${id}`
+    let req = await fetch(url)
+    let res = await req.json()
+    setMal(res)
+    console.log(res)
   }
 
   console.log(data)
@@ -64,7 +74,7 @@ const Details = () => {
     /> </div>
     ) : (
 
-      <DetailsContainer id={id} data={data} />
+      <DetailsContainer id={id} data={data} mal={mal}/>
     )}
     </div>
     

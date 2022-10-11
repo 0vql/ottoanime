@@ -45,7 +45,7 @@ export const States = {
     shadow: "black",
     text: {
       selected: "text-background",
-      notselected: "text-gray-700",
+      notselected: "text-gray-500",
     },
     border: {
       selected: "border-gray-900",
