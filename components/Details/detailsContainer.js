@@ -18,6 +18,7 @@ import Heart from "../../public/heart.json";
 import Recommended from "../../pages/recommended";
 import Container from "../card/Container";
 import { FaPlay, FaYoutube } from "react-icons/fa";
+import { useRouter } from "next/router";
 
 const DetailsContainer = ({ id, data, mal }) => {
   const [click, setClick] = useState(false);
@@ -25,6 +26,7 @@ const DetailsContainer = ({ id, data, mal }) => {
   const [showTrailer, setShowTrailer] = useState(false);
   const [randomData, setRandomData] = useState([]);
   const [expand, setExpand] = useState(false);
+  const router = useRouter()
   const dispatch = useDispatch();
   useEffect(() => {
     fetchRecommended();
@@ -57,7 +59,7 @@ const DetailsContainer = ({ id, data, mal }) => {
         addToMyList({
           id: id,
           image_url: data.image_url,
-          title: data.title,
+          title: data?.title,
           released: data.year,
         }),
       );
@@ -71,7 +73,7 @@ const DetailsContainer = ({ id, data, mal }) => {
         <div
           style={{
             backgroundSize: "cover",
-            backgroundImage: `url(${data.image_url}) `,
+            backgroundImage: `url(${data?.image_url || mal?.image_url}) `,
             height:"250px",
            
             filter:"brightness(0.3) blur(9px)",
@@ -99,11 +101,11 @@ const DetailsContainer = ({ id, data, mal }) => {
             <div
               className={`w-full flex flex-col justify-center items-center lg:flex-row lg:justify-center lg:items-stretch z-[1] `}
             >
-              <div className="mt-[-10rem] rounded-lg w-8/12 lg:w-auto h-fit my-1  shadow-2xl ">
+              <div className="mt-[-11rem] rounded-lg w-8/12 lg:w-auto h-fit my-1  shadow-2xl ">
                 <div className="relative mx-auto w-fit">
                 <img
-                  src={data.image_url}
-                  alt={data.title}
+                  src={data?.image_url || mal?.image_url}
+                  alt={data?.title || mal?.image_url}
                   className=" w-[226px] h-[319px] rounded-lg mx-auto object-cover"
                 />
 
@@ -119,7 +121,7 @@ const DetailsContainer = ({ id, data, mal }) => {
                     <span
                       className={`${theme.text.notselected} capitalize px-1`}
                     >
-                      {data?.episodes}
+                      {data?.episodes || mal?.total_episodes}
                     </span>
                   </div>
                   <div className="hidden lg:flex py-1 items-center ">
@@ -127,7 +129,7 @@ const DetailsContainer = ({ id, data, mal }) => {
                     <span
                       className={`${theme.text.notselected} capitalize px-1`}
                     >
-                      {data.year}
+                      {data?.year}
                     </span>
                   </div>
                   <div className="hidden lg:flex py-1 items-center ">
@@ -135,7 +137,7 @@ const DetailsContainer = ({ id, data, mal }) => {
                     <span
                       className={`${theme.text.notselected} capitalize px-1`}
                     >
-                      {mal?.rating}
+                      {mal?.rating || "?"}
                     </span>
                   </div>
                   <div className="hidden lg:flex py-1 items-center ">
@@ -151,9 +153,20 @@ const DetailsContainer = ({ id, data, mal }) => {
                     <span
                       className={`${theme.text.notselected} capitalize px-1`}
                     >
-                      {data?.status}
+                      {data?.status || mal?.status}
                     </span>
                   </div>
+                  {mal?.airing === "true" && (
+
+                  <div className="hidden lg:flex py-1 items-center ">
+                    <span className="font-bold text-md ">Broadcast:</span>
+                    <span
+                      className={`${theme.text.notselected} capitalize px-1`}
+                    >
+                      {mal?.broadcast}
+                    </span>
+                  </div>
+                  )}
                   <div className="hidden lg:flex py-1 items-center ">
                     <span className="font-bold text-md ">Source:</span>
                     <span
@@ -162,15 +175,25 @@ const DetailsContainer = ({ id, data, mal }) => {
                       {mal?.source}
                     </span>
                   </div>
+                  <div className="hidden lg:flex py-1 items-center ">
+                    <span className="font-bold text-md ">Studios:</span>
+                    <span
+                      className={`${theme.text.notselected} capitalize px-1`}
+                    >
+                      {mal?.studios?.length > 5 && JSON.parse(mal.studios)[0].name}
+                    </span>
+                  </div>
                 </div>
-                <div className="flex justify-between p-2">
-                  <button className="py-2 px-4 w-[6rem] bg-[#2227] text-gray-200 rounded-sm font-semibold flex  items-center gap-2 hover:text-black hover:bg-gray-200 hover:scale-105 transition-all ease-in-out">
+                <div className="flex justify-between gap-1 p-2">
+                  {data?.episodes === "0" ? "" : (
+
+                  <button onClick={() => router.push(`/watching/${data?.anime_id || mal?.anime_id}/1`)} className="p-3 bg-[#2227] text-gray-200 rounded-full font-semibold flex  items-center justify-center gap-2  hover:bg-blue-800 hover:scale-105 transition-all ease-in-out">
                   <FaPlay size={16} />
-                    <span className="mx-auto">PLAY</span>
                   </button>
+                  )}
                   <button
                     onClick={() => setShowTrailer(true)}
-                    className="py-2 px-4  bg-[#2227] text-gray-200 rounded-sm font-semibold flex  items-center gap-2 hover:text-black hover:bg-gray-200 hover:scale-105 transition-all ease-in-out"
+                    className="py-2 px-4  bg-[#2227] text-gray-200 rounded-full font-semibold flex  items-center gap-2  hover:bg-blue-800  justify-center hover:scale-105 transition-all ease-in-out"
                   >
                     <FaYoutube size={18}  />
                     <span className="mx-auto">TRAILER</span>
@@ -180,7 +203,7 @@ const DetailsContainer = ({ id, data, mal }) => {
               <div className=" flex flex-col w-11/12 px-0 lg:w-8/12  lg:px-10">
                 <div className="flex w-full justify-between py-2">
                   <span className="font-bold text-2xl  md:text-[2rem]  ">
-                    {data.title}
+                    {data?.title || mal?.title}
                     <div
                       className={`${theme.line} h-0.5 mx-2 my-1 w-1/3 rounded-full`}
                     />
@@ -188,12 +211,12 @@ const DetailsContainer = ({ id, data, mal }) => {
                   <span
                     className={`text-white  capitalize w-30 text-base font-bold text-end`}
                   >
-                    {data.type?.replaceAll("-", " ")}
+                    {data?.type?.replaceAll("-", " ")}
                   </span>
                 </div>
 
                 <div className="flex flex-col w-full ">
-                  <span className="flex text-blue-500 justify-between w-full items-end font-bold text-3xl">
+                  <span className="flex text-blue-500 justify-between w-full items-center font-bold text-3xl">
                     Synopsis
                     <span
                       className={`${theme.text.notselected} w-12 h-12 hover:scale-110 transform transition-all duration-200`}
@@ -209,7 +232,7 @@ const DetailsContainer = ({ id, data, mal }) => {
                     </span>
                   </span>
                   <span className="text-base  font-light p-2">
-                    {data.plot_summary}
+                    {data?.plot_summary || mal?.synopsis}
                   </span>
                 </div>
                 {/* <div className="flex w-full justify-between items-center">
@@ -253,7 +276,7 @@ const DetailsContainer = ({ id, data, mal }) => {
                     className={`${theme.text.notselected} flex flex-row flex-wrap justify-start w-full items-center`}
                   >
                     {console.log(data?.genre) ||
-                      data.genre
+                      data?.genre
                         ?.replaceAll("'", "")
                         .replace("[", "")
                         .replace("]", "")
@@ -279,7 +302,7 @@ const DetailsContainer = ({ id, data, mal }) => {
                 <div className="flex flex-col py-2 lg:hidden">
                   <span className="text-xl font-bold">Episodes</span>
                   <span className="text-sm font-bold p-2">
-                    {data.episodes == "0" ? "NA" : data.episodes}
+                    {data?.episodes || mal?.total_episodes == "0" ? "NA" : data?.episodes || mal?.total_episodes}
                   </span>
                 </div>
               </div>
@@ -288,10 +311,10 @@ const DetailsContainer = ({ id, data, mal }) => {
         </div>
 
         <EpisodeContainer
-          title={data.title}
-          number={data.episodes}
+          title={data?.title}
+          number={data?.episodes}
           id={id}
-          image={data.image_url}
+          image={data?.image_url}
         />
 
         <Container

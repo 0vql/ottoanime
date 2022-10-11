@@ -12,7 +12,7 @@ import {ThreeDots} from 'react-loader-spinner'
 
 const Details = () => {
   // const { data } = useSelector((state) => state);
-  const [data,setData] = useState()
+  const [data,setData] = useState({})
   const [mal,setMal] = useState()
   const [loading,setLoading] = useState(true)
   const {
@@ -38,7 +38,9 @@ const Details = () => {
       console.log(res)
       setData(res)
       setLoading(false)
-    }
+  }
+      
+  
   }
 
   const fetchMal = async () => {
@@ -47,6 +49,7 @@ const Details = () => {
     let res = await req.json()
     setMal(res)
     console.log(res)
+    
   }
 
   console.log(data)
