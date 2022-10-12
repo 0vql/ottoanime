@@ -60,33 +60,32 @@ const DetailsContainer = ({ id, data, mal }) => {
           id: id,
           image_url: data.image_url || mal?.image_url,
           title: data?.title || mal?.title,
-          released: data.year ,
+          released: data.year || mal?.aired?.prop?.from?.year,
         }),
       );
       setClick(true);
     }
   };
 
-  // const aired = mal?.aired?.length > 7 && JSON.parse(mal?.aired?.replaceAll("'",'"'))
   const genres = mal?.genres && mal?.genres.split(",")
   return (
-    data && (
       <>
         <div className="overflow-hidden relative">
+          <div className="h-[255px] overflow-hidden">
         <div
           style={{
             backgroundSize: "cover",
-            backgroundImage: `url(${data?.image_url || mal?.image_url}) `,
+            backgroundImage: `url(${mal?.image_url || data?.image_url}) `,
             height:"250px",
            
-            filter:"brightness(0.3) blur(9px)",
-            backgroundPosition:"center 59%",
+            filter:"brightness(0.2) blur(15px)",
+            backgroundPosition:"center 50%",
             width: "100%",
-            height: "250px",
+            height: "100%",
   
               transform: "scale(1.1)"
           }}
-        > hi baby</div>
+        /></div>
           {/* <div
             style={{
               backgroundImage: `https://gogocdn.net/cover/mob-psycho-100-iii-1664389233.png`,
@@ -99,17 +98,17 @@ const DetailsContainer = ({ id, data, mal }) => {
           {/* <img src={data.image_url} alt="data" className=" absolute lg:flex object-cover h-full  bg-center blur-[9px] brightness-[0.3] w-full "/> */}
 
           <div
-            className={`${theme.text.selected} background-transparent w-full text-white py-2 lg:py-8 flex justify-center  mt-[4.8rem] md:mt-0  `}
+            className={`${theme.text.selected} background-transparent w-full text-white py-2 lg:py-1 flex justify-center  mt-[4.8rem] md:mt-0  `}
           >
             <div
               className={`w-full flex flex-col justify-center items-center lg:flex-row lg:justify-center lg:items-stretch z-[1] `}
             >
-              <div className="mt-[-11rem] rounded-lg w-8/12 lg:w-auto h-fit my-1  shadow-2xl ">
+              <div className="mt-[-15rem] lg:mt[-12rem] rounded-lg w-8/12 lg:w-auto h-fit my-1  shadow-2xl ">
                 <div className="relative mx-auto w-fit">
                 <img
-                  src={data?.image_url || mal?.image_url}
+                  src={mal?.image_url || data?.image_url}
                   alt={data?.title || mal?.image_url}
-                  className=" w-[226px] h-[319px] rounded-lg mx-auto object-cover"
+                  className="w-[175px] h-[268px] md:w-[226px] md:h-[319px] rounded-lg mx-auto object-cover"
                 />
 
 <div className="top-1 left-1 rounded-sm absolute py-1 px-2 bg-[#1119] text-sm text-white flex gap-1 items-center">
@@ -132,7 +131,7 @@ const DetailsContainer = ({ id, data, mal }) => {
                     <span
                       className={`${theme.text.notselected} capitalize px-1`}
                     >
-                      {data?.year}
+                      {data?.year || mal?.aired?.prop?.from?.year}
                     </span>
                   </div>
                   <div className="hidden lg:flex py-1 items-center ">
@@ -166,7 +165,7 @@ const DetailsContainer = ({ id, data, mal }) => {
                     <span
                       className={`${theme.text.notselected} capitalize px-1`}
                     >
-                      {mal?.broadcast}
+                      {mal?.broadcast || "?"}
                     </span>
                   </div>
                   )}
@@ -183,7 +182,7 @@ const DetailsContainer = ({ id, data, mal }) => {
                     <span
                       className={`${theme.text.notselected} capitalize px-1`}
                     >
-                      {mal?.studios?.length > 5 && JSON.parse(mal.studios)[0].name}
+                      {mal?.studios?.[0]?.name}
                     </span>
                   </div>
                 </div>
@@ -203,18 +202,40 @@ const DetailsContainer = ({ id, data, mal }) => {
                   </button>
                 </div>
               </div>
-              <div className=" flex flex-col w-11/12 px-0 lg:w-8/12  lg:px-10">
-                <div className="flex w-full justify-between py-2">
-                  <span className="font-bold text-2xl  md:text-[2rem]  ">
+              <div className=" flex flex-col w-11/12 px-0 lg:w-8/12 lg:mt-[-5rem] lg:px-2">
+                <div className="flex w-full justify-between ">
+                  <span className="font-bold text-2xl text-gray-200 md:text-[2rem]  ">
                     {data?.title || mal?.title}
-                    <div
-                      className={`${theme.line} h-0.5 mx-2 my-1 w-1/3 rounded-full`}
-                    />
+                    
                   </span>
                   <span
                     className={`text-white  capitalize w-30 text-base font-bold text-end`}
                   >
                     {data?.type?.replaceAll("-", " ")}
+                  </span>
+                </div>
+                <div className="py-2 w-10/12">
+                  
+                  <span
+                    className={`${theme.text.notselected} flex flex-row flex-wrap justify-start w-full items-center`}
+                  >
+                    {console.log(data?.genre) ||
+                      genres?.map((Item, index) => (
+                          <Link
+                            href={`/genre/${Item.split(" ").join("-")}/1`}
+                            key={index}
+                          >
+                            <span className=" py-1 mr-2 cursor-pointer flex justify-center whitespace-nowrap items-center transform hover:scale-110 transition-transform duration-200">
+                              <AiFillPlayCircle
+                                size={13}
+                                style={{ margin: "0px 10px" }}
+                                className="text-blue-500"
+                              />
+
+                              {Item}
+                            </span>
+                          </Link>
+                        ))}
                   </span>
                 </div>
 
@@ -238,8 +259,8 @@ const DetailsContainer = ({ id, data, mal }) => {
                     {data?.plot_summary || mal?.synopsis}
                   </span>
                 </div>
-                {/* <div className="flex w-full justify-between items-center">
-                  <div className="flex flex-col py-3 lg:hidden">
+                <div className="lg:hidden grid grid-cols-2 w-full justify-between items-center">
+                  <div className="flex flex-col py-2 lg:hidden">
                     <span className="font-bold text-xl ">Released</span>
                     <span
                       className={`${theme.text.notselected} capitalize px-2`}
@@ -247,56 +268,33 @@ const DetailsContainer = ({ id, data, mal }) => {
                       {data.year}
                     </span>
                   </div>
-                  <div className="hidden lg:flex lg:flex-col py-2">
+                  <div className="flex flex-col py-2 items-end">
                     <span className="text-xl font-bold">Episodes</span>
-                    <span className="text-sm font-bold p-2">
+                    <span className={`${theme.text.notselected} capitalize`}>
                       {data.episodes == "0" ? "NA" : data.episodes}
                     </span>
                   </div>
-                  <div className="hidden lg:flex lg:flex-col py-2">
+                  <div className="flex flex-col py-2">
                     <span className="text-xl font-bold">Duration</span>
-                    <span className="text-sm font-bold p-2">
+                    <span className={`${theme.text.notselected} capitalize`}>
                       {mal?.duration}
                     </span>
                   </div>
 
-                  <div className="flex flex-col py-3">
+                  <div className="flex flex-col py-2 items-end">
                     <span className="font-bold text-xl ">Status</span>
                     <span className={`${theme.text.notselected} capitalize`}>
                       {data.status}
                     </span>
                   </div>
-                  <div className="flex flex-col py-3">
+                  <div className="flex flex-col py-2">
                     <span className="font-bold text-xl ">Rating</span>
                     <span className={`${theme.text.notselected} capitalize`}>
                       {mal?.rating}
                     </span>
                   </div>
-                </div> */}
-                <div className="py-2 w-10/12">
-                  <span className="text-xl font-bold">Genres</span>
-                  <span
-                    className={`${theme.text.notselected} flex flex-row flex-wrap justify-start w-full items-center`}
-                  >
-                    {console.log(data?.genre) ||
-                      genres?.map((Item, index) => (
-                          <Link
-                            href={`/genre/${Item.split(" ").join("-")}/1`}
-                            key={index}
-                          >
-                            <span className=" py-1 mr-2 cursor-pointer flex justify-center whitespace-nowrap items-center transform hover:scale-110 transition-transform duration-200">
-                              <AiFillPlayCircle
-                                size={13}
-                                style={{ margin: "0px 10px" }}
-                                className="text-blue-500"
-                              />
-
-                              {Item}
-                            </span>
-                          </Link>
-                        ))}
-                  </span>
                 </div>
+                
                 <div className="flex flex-col py-2 lg:hidden">
                   <span className="text-xl font-bold">Episodes</span>
                   <span className="text-sm font-bold p-2">
@@ -337,7 +335,7 @@ const DetailsContainer = ({ id, data, mal }) => {
           </Backdrop>
         )}
       </>
-    )
+    
   );
 };
 

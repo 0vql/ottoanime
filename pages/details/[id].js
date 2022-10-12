@@ -37,7 +37,7 @@ const Details = () => {
       let res = req.data
       console.log(res)
       setData(res)
-      setLoading(false)
+      
   }
       
   
@@ -49,6 +49,7 @@ const Details = () => {
     let res = await req.data
     setMal(res)
     console.log(res)
+    setLoading(false)
     
   }
 
@@ -77,7 +78,7 @@ const Details = () => {
     /> </div>
     ) : (
 
-      <DetailsContainer id={id} data={data} mal={mal}/>
+      <DetailsContainer id={id} data={data || []} mal={mal}/>
     )}
     </div>
     
