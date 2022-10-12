@@ -7,6 +7,6 @@ module.exports = withPWA({
   },
   reactStrictMode: true,
   images: {
-    domains: ["gogocdn.net"],
+    domains: ["gogocdn.net","cdn.myanimelist.net"],
   },
 });

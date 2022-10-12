@@ -58,14 +58,17 @@ const DetailsContainer = ({ id, data, mal }) => {
       dispatch(
         addToMyList({
           id: id,
-          image_url: data.image_url,
-          title: data?.title,
-          released: data.year,
+          image_url: data.image_url || mal?.image_url,
+          title: data?.title || mal?.title,
+          released: data.year || aired?.prop?.from?.year,
         }),
       );
       setClick(true);
     }
   };
+
+  const aired = JSON.parse(mal?.aired.replaceAll("'",'"'))
+  const genres = mal?.genres.split(",")
   return (
     data && (
       <>
@@ -129,7 +132,7 @@ const DetailsContainer = ({ id, data, mal }) => {
                     <span
                       className={`${theme.text.notselected} capitalize px-1`}
                     >
-                      {data?.year}
+                      {data?.year || aired?.prop?.from?.year}
                     </span>
                   </div>
                   <div className="hidden lg:flex py-1 items-center ">
@@ -276,12 +279,7 @@ const DetailsContainer = ({ id, data, mal }) => {
                     className={`${theme.text.notselected} flex flex-row flex-wrap justify-start w-full items-center`}
                   >
                     {console.log(data?.genre) ||
-                      data?.genre
-                        ?.replaceAll("'", "")
-                        .replace("[", "")
-                        .replace("]", "")
-                        .split(", ")
-                        .map((Item, index) => (
+                      genres.map((Item, index) => (
                           <Link
                             href={`/genre/${Item.split(" ").join("-")}/1`}
                             key={index}
@@ -311,8 +309,8 @@ const DetailsContainer = ({ id, data, mal }) => {
         </div>
 
         <EpisodeContainer
-          title={data?.title}
-          number={data?.episodes}
+          title={data?.title || mal?.title}
+          number={data?.episodes || mal?.total_episodes}
           id={id}
           image={data?.image_url}
         />

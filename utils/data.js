@@ -7,7 +7,7 @@ import {
   AiTwotoneFire,
   AiFillHome
 } from "react-icons/ai";
-import { FaEye, FaDonate } from "react-icons/fa";
+import { FaEye, FaDonate,FaRandom } from "react-icons/fa";
 import { BiShowAlt, BiMoviePlay } from "react-icons/bi";
 
 export const Discover = [
@@ -58,6 +58,12 @@ export const Discover = [
     name: "My List",
     link: "/myList",
     icon: AiFillHeart,
+  },
+  {
+    index: 9,
+    name: "Surprise",
+    link: "/surprise",
+    icon: FaRandom,
   },
 ];
 
