@@ -45,8 +45,8 @@ const Details = () => {
 
   const fetchMal = async () => {
     let url = `https://ottodb.vercel.app/api/mal/${id}`
-    let req = await fetch(url)
-    let res = await req.json()
+    let req = await axios.get(url)
+    let res = await req.data
     setMal(res)
     console.log(res)
     
