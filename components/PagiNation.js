@@ -52,7 +52,7 @@ const PagiNation = ({ len, total, heading }) => {
   return (
     <div className="px-8 py-2 mb-16 relative flex flex-row h-16 w-full  items-center  ">
       {page === 1 ? null : (
-        <PageButton style={"absolute left-12"} href={prev} pre={true}>
+        <PageButton style={"absolute left-2"} href={prev} pre={true}>
           <BiLeftArrowAlt size={20} />
           {heading} {page - 1}
         </PageButton>
@@ -60,7 +60,7 @@ const PagiNation = ({ len, total, heading }) => {
       {len < 20 ? (
         ""
       ) : (
-        <PageButton style={"absolute right-12"} href={nxt} pre={false}>
+        <PageButton style={"absolute right-2"} href={nxt} pre={false}>
           {heading} {page + 1}
           <BiRightArrowAlt size={20} />
         </PageButton>

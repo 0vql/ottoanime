@@ -49,7 +49,8 @@ const Episode = styled.span`
 const MovieImg = styled.div`
   width: 100%;
   max-height: 100%;
-  object-fit: "contain";
+  object-fit: "cover";
+  transform : scale(1);
   // filter: drop-shadow(2px 4px 6px black);
 
   border-radius: 0;
@@ -112,8 +113,8 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
             src={image_url}
             alt={title}
           > */}
-        <MovieImg className="w-full object-cover rounded-xl h-[11rem]  xl:h-[15] md:h-[15rem] 2xl:h-[15.5rem] lg:h-66 hover:brightness-75 ">
-          <div style={{ width: "100%", height: "100%", position: "relative" }}>
+        <MovieImg className="w-full object-cover rounded-xl h-[11rem] md:h-[14rem] lg:h-[15.2rem]  xl:h-[16rem]  2xl:h-[15.5rem] hover:brightness-75 ">
+         
             <Image
               src={image_url ? image_url : "/bg-anime2"}
               layout="fill"
@@ -124,7 +125,7 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
 
             
            
-          </div>
+        
           
         </MovieImg>
         <DetailsWrapper className="">

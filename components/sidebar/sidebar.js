@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { CgMenuHotdog } from "react-icons/cg";
-import {FaArrowLeft} from "react-icons/fa";
+import {FaArrowLeft,FaDiscord,FaDonate} from "react-icons/fa";
 import Sidenav from "./sidenav";
 import Search from "./search";
 import Image from "next/image";
@@ -53,9 +53,13 @@ const Sidebar = ({ visit }) => {
           <FaArrowLeft
             size={32}
             onClick={() => router.back()}
-            className={`${theme.button.background} cursor-pointer ${theme.button.text} absolute left-[3rem] xl:left-0 rounded-full p-1  `}
+            className={`${theme.button.background} cursor-pointer ${theme.button.text} hover:bg-blue-800 hover:text-white absolute left-[3rem] xl:left-0 rounded-full p-1  `}
           />
-          <Search size={28}/>
+          <FaDiscord size={34}
+           className={`${theme.button.background} cursor-pointer ${theme.button.text} hover:bg-blue-800 hover:text-white absolute left-[3rem] xl:right-4 rounded-full p-1  `} />
+           <FaDonate size={33}
+            className={`${theme.button.background} cursor-pointer ${theme.button.text} hover:bg-blue-800 hover:text-white absolute left-[6rem] xl:right-6 rounded-full p-1  `} />
+          <Search size={26}/>
         </div>
       </div>
     </>

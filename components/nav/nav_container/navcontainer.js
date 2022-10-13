@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import styled from "styled-components"
 const InSpan = styled.span`
   &:hover {
-    background : linear-gradient(90deg, rgb(24 65 175) 0%, rgb(19 54 189) 35%, rgb(57 109 255 / 85%) 100%);
+    background : #2563EB;
     color:white;
   }
 `;
@@ -24,7 +24,7 @@ const Link2 = ({ theme, href, name, Icon }) => {
       {H1 == Pp && H2 == Pr ? (
         
         <span
-          className={`${theme.text.selected} ${theme.border.selected} cursor-pointer my-0.5 p-1 items-center flex flex-row  border  rounded-full`}
+          className={`${theme.text.selected} bg-[#2563EB] cursor-pointer my-0.5 p-1 items-center flex flex-row   rounded-full`}
         >
           <Icon size={20} strokeWidth={0.5}  style={{
               margin: "0px 10px",

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
-import { AiFillPlayCircle, AiFillStar, AiFillYoutube } from "react-icons/ai";
+import { AiFillPlayCircle, AiFillStar, AiFillYoutube,AiFillHeart } from "react-icons/ai";
 
 import dynamic from "next/dynamic";
 const EpisodeContainer = dynamic(() => import("./EpisodeContainer"));
@@ -260,16 +260,22 @@ const DetailsContainer = ({ id, data, mal }) => {
                   <span className="flex text-blue-500 justify-between w-full items-center font-bold text-3xl">
                     Synopsis
                     <span
-                      className={`${theme.text.notselected} w-12 h-12 hover:scale-110 transform transition-all duration-200`}
+                      className={`${theme.text.notselected} flex justify-center items-center cursor-pointer w-12 h-12 hover:scale-110 transform transition-all duration-200`}
                       onClick={handleClick}
                     >
-                      <Lottie
-                        options={{
-                          animationData: Heart,
-                          loop: false,
-                        }}
-                        direction={click ? 1 : -1}
-                      />
+                      {/* <Lottie animationData={Heart} */}
+                      {/* loop={false} */}
+                      {/*    */}
+                      {/*   direction={click ? 1 : -1} */}
+                      {/* /> */}
+                      {click ? (
+                        <AiFillHeart size={36} color="red"/>
+
+                        ): (
+                        <AiFillHeart size={36} color=""/>
+
+                        )}
+                      
                     </span>
                   </span>
                   <span className="text-base  font-light p-2">
@@ -354,7 +360,7 @@ const DetailsContainer = ({ id, data, mal }) => {
         <ToastContainer
         position={"top-center"}
         
-        autoClose={3000}
+        autoClose={5000}
         transition={Flip}
         draggablePercent={30}
       />

@@ -3,6 +3,18 @@ import Head from "next/head";
 const HomePage = dynamic(() => import("../components/home/HomePage"));
 const Header = dynamic(() => import("../components/home/Header"));
 import styled from "styled-components";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
+import "swiper/css/effect-fade"
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Navigation, Pagination,EffectFade,Autoplay } from "swiper";
+SwiperCore.use([Navigation, Pagination,Autoplay,EffectFade ]);
+
+
+
 
 const IndexContainer = styled.div`
     width: 100%;
@@ -22,6 +34,7 @@ const IndexContainer = styled.div`
 const ImageContainer = styled.div`
 position: relative ;
 margin-top: 4.2rem ;
+overflow:hidden;
 background:black;
 
 height: 450px ;
@@ -33,10 +46,11 @@ height: 450px ;
   right: 0 ;
   bottom: 0 ;
   left: 0 ;
-  opacity:  0.4 ;
-  background-image: url(https://image.tmdb.org/t/p/original/mBxsapX4DNhH1XkOlLp15He5sxL.jpg) ;
+  filter : blur(6px) brightness(0.2);
+  background-image: url(https://cdn.myanimelist.net/images/anime/13/17405.jpg) ;
   background-size: cover ;
   background-position: center ;
+  background-repeat:no-repeat;
   
    
 }
@@ -73,11 +87,42 @@ export default function Home() {
         
       </Head>
     <IndexContainer>
+
+
+    <Swiper
+    modules={[Autoplay]}
+    className="header-swiper"
+   
+  
+         
+        
+        
+        breakpoints={{
+         1624: {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+          
+            speed:700,
+            
+          },
+        }}
+       
+      >
+      <SwiperSlide>
       <ImageContainer>
-        <div className="flex absolute w-full h-full justify-center items-center p-4">
-        {/* <h1 className="text-5xl text-gray-200 drop-shadow-2xl font-black">Animex Stream </h1> */}
+        <div className="absolute w-1/2 h-full  p-4">
+        <div className="flex flex-col items-start justify-center">
+        <h1 className="text-3xl text-white drop-shadow-2xl font-bold">Naruto </h1>
+        <p className="text-gray-400 p-2">Moments prior to Naruto Uzumaki's birth, a huge demon known as the Kyuubi, the Nine-Tailed Fox, attacked Konohagakure, the Hidden Leaf Village, and wreaked havoc. In order to put an end to the Kyuubi's rampage, the leader of the village, the Fourth Hokage, sacrificed his life and sealed the monstrous beast inside the newborn Naruto. Now, Naruto is a hyperactive and knuckle-headed ninja still living in Konohagakure. Shunned because of the Kyuubi inside him, Naruto struggles to find his place in the village, while his burning desire to become the Hokage of Konohagakure leads him not only to some great new friends, but also some deadly foes.</p>
+        </div>
         </div>
       </ImageContainer>
+      </SwiperSlide>
+       
+      
+        
+      </Swiper>
+      
 
 
       <HomePage />

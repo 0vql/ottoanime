@@ -119,3 +119,7 @@ footer{
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.header-swiper .swiper-wrapper {
+padding: 0;
+}
