@@ -14,7 +14,7 @@ import {
 } from "../../redux/actions/myLIstDataAction";
 
 import { useEffect, useState } from "react";
-import Lottie from "lottie-react-web";
+import Lottie from "lottie-react";
 import Heart from "../../public/heart.json";
 import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

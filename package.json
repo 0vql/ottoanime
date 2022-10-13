@@ -16,7 +16,7 @@
     "countapi-js": "^1.0.2",
     "disable-devtool": "^0.2.5",
     "framer-motion": "^7.5.2",
-    "lottie-react-web": "^2.2.2",
+    "lottie-react": "^2.3.1",
     "next": "12.2.0",
     "next-progress": "^2.2.0",
     "next-pwa": "^5.5.4",
