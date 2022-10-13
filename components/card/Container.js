@@ -93,7 +93,7 @@ function Container({ Data = [], heading, page, Icon, len }) {
             {top.map((anime,i) => (
               <Link key={i} href={`/details/${anime.mal_id}`} >
                 <div  style={{filter:"drop-shadow(2px 4px 6px black)"}} className="flex my-1 drop-shadow-2xl p-1 bg-[#2227]">
-                    <img className="h-[5rem] w-full max-w-[4rem] object-cover" src={anime?.images.jpg.image_url} />
+                    <img className="h-[5rem] w-full max-w-[4rem] object-cover" src={anime?.images.jpg.image_url} alt="test"/>
                     <div className="px-2 flex flex-col">
                     <h1 className="font-semibold text-blue-600 cursor-pointer hover:text-blue-200">{anime.title} <span className="text-gray-400"> #{i+1}</span></h1>
                     <p className="text-gray-500 text-sm flex items-center gap-1"><span className="mb-[2px]"><AiFillStar color="#ffd530e8"/></span> {anime.score} <span className="ml-2 text-gray-500">{anime.year}</span> </p>
