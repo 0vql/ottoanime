@@ -4,7 +4,8 @@ import { useRouter } from "next/router";
 import styled from "styled-components"
 const InSpan = styled.span`
   &:hover {
-    border-color: ${({ border }) => border.notselected};
+    background : linear-gradient(90deg, rgb(24 65 175) 0%, rgb(19 54 189) 35%, rgb(57 109 255 / 85%) 100%);
+    color:white;
   }
 `;
 

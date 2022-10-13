@@ -276,7 +276,7 @@ const WatchingContainer = ({ data, slug, frame }) => {
           />
         </div>
       </div>
-      <Container Data={onGoingPopular} heading={"Popular Ongoing"} />
+      {/* <Container Data={onGoingPopular} heading={"Popular Ongoing"} /> */}
     </>
   );
 };

@@ -56,7 +56,7 @@ const App = ({ Component, pageProps }) => {
     localStorage.removeItem("persist:root");
     if (resumeId) if (resumeId) toast.info(<Msg resumeId={resumeId.data} />);
     countapi
-      .update("animexstream.xyz", "b8a07b95-bbf6-44f1-b256-c15c5794201a", 1)
+      .update("axstream.com", "b8156dc8-31b0-4730-8bce-3d467554c469", 1)
       .then((result) => {
         setVisit(result.value);
       });

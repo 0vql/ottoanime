@@ -92,7 +92,7 @@ function HomeContainer({ Data = [], heading, page, Icon, to }) {
             spaceBetween: 10,
           },
           1624: {
-            slidesPerView: 6.3,
+            slidesPerView: 7.3,
             slidesPerGroup: 6,
             spaceBetween: 10,
             speed:700,

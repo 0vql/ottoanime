@@ -12,11 +12,11 @@ const MovieWrapper = styled.a`
   text-decoration: none;
   border-radius: 0.8rem;
   background-color: transparent;
-  transition: all 100ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
 
   &:hover {
     transform: scale(1.03);
-    color: ${({ card }) => card.texthover};
+    
     ::after {
       transform: scaleY(1);
       opacity: 1;
@@ -32,7 +32,7 @@ const MovieWrapper = styled.a`
     border-radius: 0.8rem;
     transform: scaleY(0);
     transform-origin: top;
-    background-color: ${({ card }) => card.bghover};
+    
 
     opacity: 0;
     z-index: -99;
@@ -58,9 +58,7 @@ const MovieImg = styled.div`
   &:hover {
     filter: brightness(0.9);
   }
-  ${MovieWrapper}:hover & {
-    border-radius: 0.8rem 0.8rem 0rem 0rem;
-  }
+ 
 `;
 
 const Title = styled.span`
@@ -84,7 +82,10 @@ const DetailsWrapper = styled.div`
   width: 100%;
   // background: #ffffff0f;
   padding: 0.5rem 0;
-  border-radius-bottom: 0.8rem;
+  color:white;
+  background:#141313;
+  filter:drop-shadow(2px 4px 6px black);
+ 
 `;
 
 const Card = ({ title, id, url, heading, image_url, episode, released }) => {
@@ -111,7 +112,7 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
             src={image_url}
             alt={title}
           > */}
-        <MovieImg className="w-full object-cover rounded-xl h-[11rem]  xl:h-[20rem] md:h-72 2xl:h-[20.5rem] lg:h-66 hover:brightness-75 ">
+        <MovieImg className="w-full object-cover rounded-xl h-[11rem]  xl:h-[15] md:h-[15rem] 2xl:h-[15.5rem] lg:h-66 hover:brightness-75 ">
           <div style={{ width: "100%", height: "100%", position: "relative" }}>
             <Image
               src={image_url ? image_url : "/bg-anime2"}

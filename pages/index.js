@@ -19,6 +19,32 @@ const IndexContainer = styled.div`
   }
 `;
 
+const ImageContainer = styled.div`
+position: relative ;
+margin-top: 4.2rem ;
+background:black;
+
+height: 450px ;
+ &::before {
+  content: '';
+
+  position:  absolute ;
+  top: 0 ;
+  right: 0 ;
+  bottom: 0 ;
+  left: 0 ;
+  opacity:  0.4 ;
+  background-image: url(https://image.tmdb.org/t/p/original/mBxsapX4DNhH1XkOlLp15He5sxL.jpg) ;
+  background-size: cover ;
+  background-position: center ;
+  
+   
+}
+  
+    
+  }
+`;
+
 export default function Home() {
   return (
     <>
@@ -47,6 +73,11 @@ export default function Home() {
         
       </Head>
     <IndexContainer>
+      <ImageContainer>
+        <div className="flex absolute w-full h-full justify-center items-center p-4">
+        {/* <h1 className="text-5xl text-gray-200 drop-shadow-2xl font-black">Animex Stream </h1> */}
+        </div>
+      </ImageContainer>
 
 
       <HomePage />

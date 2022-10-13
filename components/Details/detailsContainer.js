@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
 import { AiFillPlayCircle, AiFillStar, AiFillYoutube } from "react-icons/ai";
+import { ToastContainer, toast, Flip } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import dynamic from "next/dynamic";
 const EpisodeContainer = dynamic(() => import("./EpisodeContainer"));
 const Loader = dynamic(() => import("../Loader/Loader"));
@@ -20,10 +22,22 @@ import Container from "../card/Container";
 import { FaPlay, FaYoutube } from "react-icons/fa";
 import { useRouter } from "next/router";
 
+const Msg = ({ title,message }) => {
+  return (
+    <div className="flex flex-col">
+      <span><span className="font-bold">{title}</span> {message}</span>
+      
+      <span className="text-blue-800 text-xl "></span>
+     
+    </div>
+  );
+};
+
 const DetailsContainer = ({ id, data, mal }) => {
   const [click, setClick] = useState(false);
   const { theme, myList, loading } = useSelector((state) => state);
   const [showTrailer, setShowTrailer] = useState(false);
+  const [notification,setNotification] = useState(false)
   const [randomData, setRandomData] = useState([]);
   const [expand, setExpand] = useState(false);
   const router = useRouter()
@@ -54,6 +68,7 @@ const DetailsContainer = ({ id, data, mal }) => {
     if (click) {
       setClick(false);
       dispatch(removeFromMyList(id));
+      toast.info(<Msg title={data.title} message="Was Removed From Your List"/>)
     } else {
       dispatch(
         addToMyList({
@@ -64,6 +79,7 @@ const DetailsContainer = ({ id, data, mal }) => {
         }),
       );
       setClick(true);
+      toast.info(<Msg title={data.title} message="Was Added To Your List"/>)
     }
   };
 
@@ -103,7 +119,7 @@ const DetailsContainer = ({ id, data, mal }) => {
             <div
               className={`w-full flex flex-col justify-center items-center lg:flex-row lg:justify-center lg:items-stretch z-[1] `}
             >
-              <div className="mt-[-15rem] lg:mt[-12rem] rounded-lg w-8/12 lg:w-auto h-fit my-1  shadow-2xl ">
+              <div className="mt-[-15rem] lg:mt-[-11rem] rounded-lg w-8/12 lg:w-auto h-fit my-1  shadow-2xl ">
                 <div className="relative mx-auto w-fit">
                 <img
                   src={mal?.image_url || data?.image_url}
@@ -313,10 +329,10 @@ const DetailsContainer = ({ id, data, mal }) => {
           image={data?.image_url}
         />
 
-        <Container
+        {/* <Container
           Data={getMultipleRandom(randomData, 12)}
           heading={"Recommended Animes"}
-        />
+        /> */}
         {showTrailer && (
           <Backdrop onClick={handleTrailer}>
             <div className="w-[1100px] h-[600px]">
@@ -334,6 +350,13 @@ const DetailsContainer = ({ id, data, mal }) => {
           </div>
           </Backdrop>
         )}
+        <ToastContainer
+        position={"top-center"}
+        
+        autoClose={3000}
+        transition={Flip}
+        draggablePercent={30}
+      />
       </>
     
   );
