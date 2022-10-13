@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
 import { AiFillPlayCircle, AiFillStar, AiFillYoutube } from "react-icons/ai";
-import { ToastContainer, toast, Flip } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
 import dynamic from "next/dynamic";
 const EpisodeContainer = dynamic(() => import("./EpisodeContainer"));
 const Loader = dynamic(() => import("../Loader/Loader"));
@@ -17,6 +16,8 @@ import {
 import { useEffect, useState } from "react";
 import Lottie from "lottie-react-web";
 import Heart from "../../public/heart.json";
+import { ToastContainer, toast, Flip } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Recommended from "../../pages/recommended";
 import Container from "../card/Container";
 import { FaPlay, FaYoutube } from "react-icons/fa";
