@@ -96,8 +96,8 @@ function Container({ Data = [], heading, page, Icon, len }) {
                     <div className="px-2 flex flex-col">
                     <h1 className="font-semibold text-blue-600 cursor-pointer hover:text-blue-200">{anime.title} <span className="text-gray-400"> #{i+1}</span></h1>
                     <p className="text-gray-500 text-sm flex items-center gap-1"><span className="mb-[2px]"><AiFillStar color="#ffd530e8"/></span> {anime.score} <span className="ml-2 text-gray-500">{anime.year}</span> </p>
-                    <p className="flex gap-1 items-end h-full">{anime.genres.map((genre) => (
-                        <span className="text-gray-500 text-sm">{genre.name}</span>
+                    <p className="flex gap-1 items-end h-full">{anime.genres.map((genre,i) => (
+                        <span key={i} className="text-gray-500 text-sm">{genre.name}</span>
                     ))}</p>
                     </div>
 

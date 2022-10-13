@@ -16,8 +16,8 @@ import {
 import { useEffect, useState } from "react";
 import Lottie from "lottie-react";
 import Heart from "../../public/heart.json";
-// import { ToastContainer, toast, Flip } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast, Flip } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Recommended from "../../pages/recommended";
 import Container from "../card/Container";
 import { FaPlay, FaYoutube } from "react-icons/fa";
@@ -69,7 +69,7 @@ const DetailsContainer = ({ id, data, mal }) => {
     if (click) {
       setClick(false);
       dispatch(removeFromMyList(id));
-      // toast.info(<Msg title={data.title} message="Was Removed From Your List"/>)
+      toast.info(<Msg title={data.title} message="Was Removed From Your List"/>)
     } else {
       dispatch(
         addToMyList({
@@ -80,7 +80,7 @@ const DetailsContainer = ({ id, data, mal }) => {
         }),
       );
       setClick(true);
-      // toast.info(<Msg title={data.title} message="Was Added To Your List"/>)
+      toast.info(<Msg title={data.title} message="Was Added To Your List"/>)
     }
   };
 
@@ -351,13 +351,13 @@ const DetailsContainer = ({ id, data, mal }) => {
           </div>
           </Backdrop>
         )}
-      {/*   <ToastContainer */}
-      {/*   position={"top-center"} */}
-      {/*    */}
-      {/*   autoClose={3000} */}
-      {/*   transition={Flip} */}
-      {/*   draggablePercent={30} */}
-      {/* /> */}
+        <ToastContainer
+        position={"top-center"}
+        
+        autoClose={3000}
+        transition={Flip}
+        draggablePercent={30}
+      />
       </>
     
   );
