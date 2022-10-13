@@ -6,7 +6,6 @@ import { clearMyWatchList } from "../../redux/actions/recentlyWatchedAction";
 import { AiFillDelete } from "react-icons/ai";
 import dynamic from "next/dynamic";
 import axios from 'axios'
-import Zoom from 'react-reveal/Zoom';
 import { useEffect, useState } from "react";
 import { AiFillStar } from "react-icons/ai";
 import Link from "next/link";
