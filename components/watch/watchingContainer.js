@@ -192,7 +192,7 @@ const WatchingContainer = ({ data, slug, frame }) => {
                   <input
                     type="text"
                     className="text-blue-400 bg-transparent p-1 w-[6rem] outline outline-[#363333] outline-1 outline-solid focus:outline-blue-500 "
-                    placeHolder="Filter eps.."
+                    placeholder="Filter eps.."
                     onChange={(e) => setVal(e.target.value)}
                   />
                 </div>
