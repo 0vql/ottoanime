@@ -89,7 +89,7 @@ const DetailsWrapper = styled.div`
  
 `;
 
-const Card = ({ title, id, url, heading, image_url, episode, released }) => {
+const Card = ({ title, id, url, heading, image_url, episode, released,latest }) => {
   const theme = useSelector((state) => state.theme);
   return (
     <Link
@@ -157,6 +157,17 @@ const Card = ({ title, id, url, heading, image_url, episode, released }) => {
           ) : (
             ""
           )}
+          {heading == "Popular Ongoing"  ? (
+            <>
+              <Episode>{"Latest: "}<span className="text-gray-400">{latest}</span></Episode>
+            </>
+          ) : (
+            ""
+          )}
+
+
+
+
         </DetailsWrapper>
       </MovieWrapper>
     </Link>

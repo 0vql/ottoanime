@@ -11,6 +11,12 @@ import "swiper/css/autoplay";
 import "swiper/css/effect-fade"
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination,EffectFade,Autoplay } from "swiper";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import {AiFillStar, AiFillTags} from "react-icons/ai";
+import { FaPlay, FaYoutube } from "react-icons/fa";
+import { useRouter } from "next/router";
+
 SwiperCore.use([Navigation, Pagination,Autoplay,EffectFade ]);
 
 
@@ -37,7 +43,7 @@ margin-top: 4.2rem ;
 overflow:hidden;
 background:black;
 
-height: 450px ;
+height: 550px ;
  &::before {
   content: '';
 
@@ -46,8 +52,8 @@ height: 450px ;
   right: 0 ;
   bottom: 0 ;
   left: 0 ;
-  filter : blur(6px) brightness(0.2);
-  background-image: url(https://cdn.myanimelist.net/images/anime/13/17405.jpg) ;
+  filter : blur(8px) brightness(0.1);
+  background-image: var(--bg-image) ;
   background-size: cover ;
   background-position: center ;
   background-repeat:no-repeat;
@@ -59,7 +65,37 @@ height: 450px ;
   }
 `;
 
+const Description = styled.p`
+display: -webkit-box;
+-webkit-line-clamp: 4;
+overflow: hidden;
+-webkit-box-orient: vertical;
+text-overflow: ellipsis;
+  
+   
+}
+  
+    
+  }
+`;
+
 export default function Home() {
+  const [top,setTop] = useState([])
+  const router = useRouter()
+ 
+
+  useEffect(() => {
+    fetchTop();
+
+  },[])
+
+  const fetchTop = async () => {
+    let url = `https://api.jikan.moe/v4/top/anime?limit=15&filter=bypopularity`
+    let req = await axios.get(url)
+    let res = await req.data
+    console.log(res)
+    setTop(res.data)
+  }
   return (
     <>
     <Head>
@@ -82,8 +118,7 @@ export default function Home() {
           property="description"
           content="Watch Anime for free in HD quality with English subbed or dubbed."
         />
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3357173685448212"
-     crossOrigin="anonymous"></script>
+        
         
       </Head>
     <IndexContainer>
@@ -92,6 +127,7 @@ export default function Home() {
     <Swiper
     modules={[Autoplay]}
     className="header-swiper"
+    autoplay={{delay:8000}}
    
   
          
@@ -108,16 +144,54 @@ export default function Home() {
         }}
        
       >
-      <SwiperSlide>
-      <ImageContainer>
-        <div className="absolute w-1/2 h-full  p-4">
-        <div className="flex flex-col items-start justify-center">
-        <h1 className="text-3xl text-white drop-shadow-2xl font-bold">Naruto </h1>
-        <p className="text-gray-400 p-2">Moments prior to Naruto Uzumakis birth, a huge demon known as the Kyuubi, the Nine-Tailed Fox, attacked Konohagakure, the Hidden Leaf Village, and wreaked havoc. In order to put an end to the Kyuubis rampage, the leader of the village, the Fourth Hokage, sacrificed his life and sealed the monstrous beast inside the newborn Naruto. Now, Naruto is a hyperactive and knuckle-headed ninja still living in Konohagakure. Shunned because of the Kyuubi inside him, Naruto struggles to find his place in the village, while his burning desire to become the Hokage of Konohagakure leads him not only to some great new friends, but also some deadly foes.</p>
-        </div>
-        </div>
-      </ImageContainer>
-      </SwiperSlide>
+        {top?.map((anime,i) => (
+      <SwiperSlide key={i}>
+
+          <ImageContainer  style={{"--bg-image":`url(${anime.images.jpg.image_url})`}}>
+            <div className="absolute lg:w-[80%] 2xl:w-[62%] h-full  p-4">
+            <div className="flex flex-col items-start justify-center h-full">
+            <h1 className="text-4xl text-white drop-shadow-2xl font-black">{anime.title} </h1>
+            <div className=" flex justify-between  py-1 px-3 w-full">
+              <div className="flex items-center">
+            <span className="text-gray-400 flex gap-1 items-center"><span className="mb-[1px]"><AiFillStar color="orange" /></span>{anime.score}</span>
+             <span className="text-gray-200 mx-1">•</span>
+            <span className="text-gray-300">{anime.year} </span>
+            <span className="text-gray-200 mx-1">•</span>
+            <span className="text-gray-300 ">{anime.type} </span>
+            </div>
+            <span className="text-gray-400">{anime.rating} </span>
+            </div>
+            <Description className="text-gray-300 px-2 mt-2 font-extralight">{anime.synopsis}</Description>
+
+            <div className="text-blue-400 flex items-center py-1 px-3 gap-1">
+              <span className="text-white mr-1"><AiFillTags /></span>
+              <div>
+              {anime.genres.map((genre,i) => (
+                <span key={i} className=""><span className="text-gray-400">{i ? "," : ""}</span>{genre.name}</span>
+              ))}</div>
+            </div>
+            <div className="flex justify-between gap-1 p-2">
+                 
+
+                  <button onClick={() => router.push(`/details/${anime.mal_id}`)} className="py-2 px-4 bg-[#2227] text-gray-200 rounded-sm font-semibold flex  items-center justify-center gap-2  hover:bg-blue-800 hover:scale-105 transition-all ease-in-out">
+                  <FaPlay size={16} />
+                  <span className="mx-auto">WATCH</span>
+                  
+                  </button>
+                 
+                  {/* <button
+                  
+                    className="py-2 px-4  bg-[#2227] text-gray-200 rounded-full font-semibold flex  items-center gap-2  hover:bg-blue-800  justify-center hover:scale-105 transition-all ease-in-out"
+                  >
+                    <FaYoutube size={18}  />
+                    <span className="mx-auto">TRAILER</span>
+                  </button> */}
+                </div>
+            </div>
+            </div>
+          </ImageContainer>
+          </SwiperSlide>
+        ))}
        
       
         

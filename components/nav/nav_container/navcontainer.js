@@ -24,7 +24,7 @@ const Link2 = ({ theme, href, name, Icon }) => {
       {H1 == Pp && H2 == Pr ? (
         
         <span
-          className={`${theme.text.selected} bg-[#2563EB] cursor-pointer my-0.5 p-1 items-center flex flex-row   rounded-full`}
+          className={`text-white bg-[#2563EB] cursor-pointer my-0.5 p-1 items-center flex flex-row   rounded-full`}
         >
           <Icon size={20} strokeWidth={0.5}  style={{
               margin: "0px 10px",

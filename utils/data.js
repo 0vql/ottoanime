@@ -9,6 +9,7 @@ import {
 } from "react-icons/ai";
 import { FaEye, FaDonate,FaRandom } from "react-icons/fa";
 import { BiShowAlt, BiMoviePlay } from "react-icons/bi";
+import {RiMovieFill} from "react-icons/ri"
 
 export const Discover = [
   {
@@ -27,7 +28,7 @@ export const Discover = [
     index: 0,
     name: "Popular",
     link: "/popular/1",
-    icon: AiFillStar,
+    icon: AiTwotoneFire,
   },
   {
     index: 2,
@@ -39,7 +40,7 @@ export const Discover = [
     index: 3,
     name: "Movies",
     link: "/movies/1",
-    icon: BiMoviePlay,
+    icon: RiMovieFill,
   },
   {
     index: 4,
@@ -51,7 +52,7 @@ export const Discover = [
     index: 7,
     name: "Recommended",
     link: "/recommended/",
-    icon: AiTwotoneFire,
+    icon: AiFillStar,
   },
   {
     index: 5,

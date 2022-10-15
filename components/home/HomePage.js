@@ -12,6 +12,10 @@ const HomeContainer = dynamic(() => import("../card/HomeContainer"), {
 const axios = require("axios");
 import Container from "../card/Container";
 
+
+
+
+
 const HomePage = () => {
   const [content, setContent] = useState([]);
   const [onGoingPopular,setOnGoingPopular] = useState([])
@@ -64,8 +68,10 @@ const HomePage = () => {
       let url = $(this).children("a").attr("href").replace("/category/","");
       let title = $(this).children("a").attr("title");
       let image_url = $(this).children("a").children("div").attr("style").replace("background: url('","").replace("');","");
+      let latest = $(this).children("p").last().children("a").text()
+      console.log(latest)
 
-      result = { title, url, image_url };
+      result = { title, url, image_url,latest };
       myList.push(result);
       
       
@@ -84,7 +90,7 @@ const HomePage = () => {
 
   const PopularFetch = async () => {
     let res = await axios.get("https://ottodb.vercel.app/api/popular/1/");
-    setDataPopular(res.data.slice(0, 17));
+    setDataPopular(res.data);
   };
 
   return (

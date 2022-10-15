@@ -123,3 +123,9 @@ footer{
 .header-swiper .swiper-wrapper {
 padding: 0;
 }
+
+
+footer{    background: url(https://s2.bunnycdn.ru/assets/_9anime/imagesv2/bg-index2.jpg);
+  background-position: 20%;
+  margin-top: 2rem;
+}

@@ -84,11 +84,11 @@ function HomeContainer({ Data = [], heading, page, Icon, to }) {
             spaceBetween: 10,
           },
           1224: {
-            slidesPerView: 4.3,
+            slidesPerView: 5.8,
             spaceBetween: 10,
           },
           1424: {
-            slidesPerView: 5.3,
+            slidesPerView: 6,
             spaceBetween: 10,
           },
           1624: {
